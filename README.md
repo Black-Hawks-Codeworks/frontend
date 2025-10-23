@@ -1,6 +1,6 @@
-# Omakase Frontend
+# Portal Frontend
 
-This is a _blank_ project pre-configured with somr tools and tweaks that I find useful. It can be used to practice React.js or even HTML and css. Just clone the repo and run:
+This is a version of starter project that i keep around.A project pre-configured with somr tools and tweaks that I find useful. It will server a the begining of the capstone project It can be used to practice React.js or even HTML and css. Just clone the repo and run:
 
 ```bash
 # To download the nessecary packages
