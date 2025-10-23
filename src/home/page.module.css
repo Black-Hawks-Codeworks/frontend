@@ -1,0 +1,9 @@
+.test-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #131517;
+  background: linear-gradient(0deg, #967452, #ffffff);
+  height: 100vh;
+}
