@@ -7,3 +7,7 @@
   background: linear-gradient(180deg, #e47a11ed, #ece7e7);
   height: 100vh;
 }
+
+.kokkina-grammata{
+  color: var(--main-color)
+}

@@ -14,6 +14,7 @@ export const createRouter = () => {
         <div>
           <h1>Dashboard Page </h1>
           <p>Den ehei tpt edo</p>
+          <a href='/'>Tipota</a>
         </div>
       ),
     },
