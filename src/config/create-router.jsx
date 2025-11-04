@@ -2,6 +2,7 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 
 import HomePage from '@/home/page';
 import Layout from '@/shared/layout';
+import Login from '@/login/Login';
 
 export const createRouter = () => {
   return createBrowserRouter([
@@ -17,6 +18,10 @@ export const createRouter = () => {
           path: '/dashboard',
           element: <div>Dashboard Page</div>,
         },
+        {
+          path: '/login',
+          element:  <Login/> 
+        }
       ],
     },
     {

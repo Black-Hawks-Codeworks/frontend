@@ -1,4 +1,5 @@
 import styles from './page.module.css';
+import Login from '../login/Login';
 
 export default function HomePage() {
   // This is how to put a variable in a jsx element
@@ -11,6 +12,7 @@ export default function HomePage() {
       <p> Ilias Mazarakis G4</p>
       <p className={styles.kokkinaGrammata}>nikoleta amanatidou</p>
       <a href='dashboard'>Go to dashboard</a>
+      <div> <Login/> </div>
     </div>
   );
 }
