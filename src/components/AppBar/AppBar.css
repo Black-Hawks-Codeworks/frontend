@@ -1,0 +1,45 @@
+
+
+
+.appbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f2ecec;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  position: sticky;
+  top: 0;
+}
+
+.appbar-logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #263238;
+  font-family: "Inter", sans-serif;
+}
+
+.appbar-nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #4D4D4D;
+  font-family: "Inter", sans-serif;
+}
+
+.appbar-nav a:hover {
+  text-decoration: underline;
+}
+
+.appbar-actions button {
+  background-color: #4CAF4F;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+.appbar-actions button:hover {
+  background-color: #bcbec3;
+}

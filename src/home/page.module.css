@@ -4,10 +4,10 @@
   justify-content: center;
   align-items: center;
   color: #131517;
-  background: linear-gradient(180deg, #e47a11ed, #ece7e7);
+  background: linear-gradient(180deg, #4caf4f, #ece7e7);
   height: 100vh;
 }
 
-.kokkina-grammata{
-  color: var(--main-color)
+.kokkina-grammata {
+  color: var(--main-color);
 }
