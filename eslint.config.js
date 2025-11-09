@@ -33,6 +33,7 @@ export default [
       '**/node/',
       '**/jest.conf.js',
       '**/eslint.config.*',
+      'src/assets/icons/**',
     ],
   },
   ...fixupConfigRules(
@@ -96,6 +97,7 @@ export default [
     },
 
     rules: {
+      'import/no-unresolved': [2, { ignore: ['.svg$'] }],
       semi: ['error', 'always'],
       quotes: [
         'error',

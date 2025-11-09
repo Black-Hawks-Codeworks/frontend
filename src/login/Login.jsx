@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Login.css';
+import Icon from '@/shared/icon';
 
 export default function Login() {
   const [user, setUser] = useState('');
@@ -33,7 +34,8 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-
+      {/* etsi hrisimopoioume ta svgs pleon, san React components */}
+      <Icon name='Lock' size='lg' colorVariant='primary' />
       <button type='submit'> Login </button>
     </form>
   );
