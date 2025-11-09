@@ -1,16 +1,17 @@
-/* Import Poppins font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 @import url('./styles/typography.css');
 @import url('./styles/buttons.css');
-@import url('./styles/color.css');
 @import url('./styles/links.css');
 
-/* ===== GLOBAL RESET & BASE STYLES ===== */
+:root {
+  /* font variables */
+  --primary-font: 'Inter', sans-serif;
+}
 
 /* Box-sizing border-box for all elements */
 * {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--primary-font);
 }
 
 /* Remove default margins and set base styles */

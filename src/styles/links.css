@@ -13,17 +13,17 @@
   transform: scale(0.99);
 }
 
-.link--normall{
+.link-normal {
   font-size: 16px;
   line-height: 24px;
 }
 
-.link--medium {
+.link-medium {
   font-size: 14px;
   line-height: 20px;
 }
 
-.link--small {
+.link-small {
   font-size: 12px;
   line-height: 16px;
 }

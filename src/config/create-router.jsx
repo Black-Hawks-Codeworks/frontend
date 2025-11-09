@@ -1,7 +1,7 @@
 import { createBrowserRouter, redirect } from 'react-router-dom';
 
 import HomePage from '@/home/page';
-import Layout from '@/shared/layout';
+import Layout from '@/shared/components/layout';
 import Login from '@/login/Login';
 
 export const createRouter = () => {
@@ -20,8 +20,8 @@ export const createRouter = () => {
         },
         {
           path: '/login',
-          element:  <Login/> 
-        }
+          element: <Login />,
+        },
       ],
     },
     {

@@ -1,6 +1,3 @@
-
-
-
 .appbar {
   display: flex;
   align-items: center;
@@ -16,14 +13,14 @@
   font-weight: bold;
   font-size: 1.2rem;
   color: #263238;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .appbar-nav a {
   margin: 0 1rem;
   text-decoration: none;
-  color: #4D4D4D;
-  font-family: "Inter", sans-serif;
+  color: #4d4d4d;
+  font-family: 'Inter', sans-serif;
 }
 
 .appbar-nav a:hover {
@@ -31,13 +28,13 @@
 }
 
 .appbar-actions button {
-  background-color: #4CAF4F;
+  background-color: #4caf4f;
   border: none;
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 0.3rem;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .appbar-actions button:hover {
