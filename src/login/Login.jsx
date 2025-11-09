@@ -1,43 +1,40 @@
-import React from 'react';
 import { useState } from 'react';
 import './Login.css';
 
-export default function Login(){
+export default function Login() {
+  const [user, setUser] = useState('');
+  const [password, setPassword] = useState('');
 
-    const [user, setUser] = useState('');
-    const [password,setPassword] =useState('');
-    
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(user);
-        console.log(password);
-      };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(user);
+    console.log(password);
+  };
 
-
-    return (
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input type='text' 
+  return (
+    <form onSubmit={handleSubmit}>
+      <label className='header-xl'>
+        Username:
+        <input
+          type='text'
           className='user-field'
-          placeholder="Please enter your username"
+          placeholder='Please enter your username'
           value={user}
           onChange={(e) => setUser(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-        <input type='password' 
-        className='password-field'
-        placeholder="Please enter your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
         />
-        </label>
+      </label>
+      <label>
+        Password:
+        <input
+          type='password'
+          className='password-field'
+          placeholder='Please enter your password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </label>
 
-        <button type="submit"> Login </button>
-      </form>
-    );
-    
-    
+      <button type='submit'> Login </button>
+    </form>
+  );
 }
