@@ -1,0 +1,48 @@
+.iconContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-container-size);
+  height: var(--icon-container-size);
+}
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--neutral-grey);
+}
+
+/* Size variants */
+.sizeXs {
+  --icon-size: 8px;
+  --icon-container-size: 8px;
+}
+
+.sizeSm {
+  --icon-size: 16px;
+  --icon-container-size: 16px;
+}
+
+.sizeMd {
+  --icon-size: 24px;
+  --icon-container-size: 24px;
+}
+
+.sizeLg {
+  --icon-size: 32px;
+  --icon-container-size: 32px;
+}
+
+.sizeXl {
+  --icon-size: 48px;
+  --icon-container-size: 48px;
+}
+
+/* Color variants */
+.variantPrimary {
+  color: var(--primary-color, currentColor);
+}
+
+.variantSecondary {
+  color: var(--secondary-color, currentColor);
+}
