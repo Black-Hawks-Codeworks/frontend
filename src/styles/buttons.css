@@ -1,4 +1,5 @@
-.btn {
+/* contained(me hroma) */
+.btn-contained {
   background-color: var(--color-primary);
   color: white;
   border: none;
@@ -7,22 +8,73 @@
   cursor: pointer;
 }
 
-.btn:hover {
+.btn-contained:hover {
   background-color: var(--color-primary-dark);
 }
 
-.btn:active {
+.btn-contained:active {
   background-color: var(--color-primary-dark);
   transform: scale(0.98);
 }
 
-.btn:focus-visible {
+.btn-contained:focus {
   outline: 3px solid var(--color-primary-light);
   outline-offset: 2px;
 }
 
-.btn:disabled {
+.btn-contained:disabled {
   background-color: var(--color-gray-200);
   color: var(--color-gray-400);
   cursor: not-allowed;
+}
+
+/* outline(koufio) */
+.btn-outlined {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--Brand-Primary, #4caf4f);
+  background: var(--Neutral-White, #fff);
+}
+
+.btn-outlined:hover {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--Brand-Primary, #4caf4f);
+  background: var(--neutral-silver, #f5f7fa);
+}
+
+.btn-outlined:active {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  background: var(--Neutral-Silver, #f5f7fa);
+}
+
+.btn-outlined:focus {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outlined:disabled {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  background: var(--Neutral-Silver, #f5f7fa);
 }

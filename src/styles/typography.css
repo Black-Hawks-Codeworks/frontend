@@ -73,3 +73,26 @@
   font-weight: 400;
   color: var(--neutral-black);
 }
+
+.text-color-black {
+  color: var(--neutral-black);
+}
+
+.text-color-grey-dark {
+  color: var(--neutral-grey-dark);
+}
+.text-color-grey {
+  color: var(--neutral-grey);
+}
+.text-color-grey-light {
+  color: var(--neutral-grey-light);
+}
+.text-color-grey-blue {
+  color: var(--neutral-grey-blue);
+}
+.text-color-silver {
+  color: var(--neutral-silver);
+}
+.text-color-white {
+  color: var(--neutral-white);
+}
