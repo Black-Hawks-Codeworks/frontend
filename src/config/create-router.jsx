@@ -2,7 +2,7 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 
 import HomePage from '@/home/page';
 import Layout from '@/shared/components/layout';
-import Login from '@/login/Login';
+import Login from '@/modules/landing/components/Login';
 
 export const createRouter = () => {
   return createBrowserRouter([
