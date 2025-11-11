@@ -2,6 +2,7 @@
 @import url('./styles/typography.css');
 @import url('./styles/buttons.css');
 @import url('./styles/links.css');
+@import url('./styles/colors.css');
 
 :root {
   /* font variables */
