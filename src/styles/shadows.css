@@ -1,0 +1,32 @@
+:root {
+  /* Base shadow color χρησιμοποιεί το ουδέτερο γαλάζιο που έχεις ήδη */
+  --shadow-base: var(--neutral-grey-blue);
+
+  /* Επίπεδα διαφάνειας */
+  --shadow-60: color-mix(in srgb, var(--shadow-base) 60%, transparent);
+  --shadow-40: color-mix(in srgb, var(--shadow-base) 40%, transparent);
+  --shadow-30: color-mix(in srgb, var(--shadow-base) 30%, transparent);
+
+  /* Shadow levels */
+  --shadow-2: 0 2px 4px var(--shadow-60);
+  --shadow-4: 0 4px 8px var(--shadow-40);
+  --shadow-6: 0 6px 12px var(--shadow-30);
+  --shadow-8: 0 8px 16px var(--shadow-40);
+  --shadow-16: 0 16px 24px var(--shadow-30);
+}
+
+/* Utility classes */
+.shadow-2  { box-shadow: var(--shadow-2); }
+.shadow-4  { box-shadow: var(--shadow-4); }
+.shadow-6  { box-shadow: var(--shadow-6); }
+.shadow-8  { box-shadow: var(--shadow-8); }
+.shadow-16 { box-shadow: var(--shadow-16); }
+
+
+.shadow-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.shadow-hover:hover {
+  box-shadow: var(--shadow-8);
+  transform: translateY(-2px);
+}
