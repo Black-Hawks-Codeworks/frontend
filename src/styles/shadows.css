@@ -1,5 +1,5 @@
 :root {
-  /* Base shadow color χρησιμοποιεί το ουδέτερο γαλάζιο που έχεις ήδη */
+  /* Base shadow color */
   --shadow-base: var(--neutral-grey-blue);
 
   /* Επίπεδα διαφάνειας */
