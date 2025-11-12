@@ -14,7 +14,6 @@ const authSlice = createSlice({
   },
 });
 
-// Only export the action creators that actually exist on the slice.
-export const { setTheme } = authSlice.actions;
+export const { setUser } = authSlice.actions;
 
-export const appReducer = authSlice.reducer;
+export const authReducer = authSlice.reducer;
