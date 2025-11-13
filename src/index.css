@@ -6,7 +6,9 @@
 :root {
   /* font variables */
   --primary-font: 'Inter', sans-serif;
-  --app-bar-height:8vh;
+  --footer-height: 3vh;
+  --home-page-height: 89vh;
+  --app-bar-height: 8vh;
 }
 
 /* Box-sizing border-box for all elements */

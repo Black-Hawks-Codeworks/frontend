@@ -22,6 +22,30 @@ export const createRouter = () => {
           path: '/login',
           element: <Login />,
         },
+        {
+          path: '/requests',
+          element: <div>Dashboard Page</div>,
+        },
+        {
+          path: '/client_page',
+          element: <div> Client Page </div>,
+        },
+        {
+          path: '/client_page/requests',
+          element: <div> Requests table Page</div>,
+        },
+        {
+          path: '/client_page/requests/new_request',
+          element: <div> new request page</div>,
+        },
+        {
+          path: '/technician_page',
+          element: <div>Technician Page</div>,
+        },
+        {
+          path: '/manager_page',
+          element: <div> Manager Page </div>,
+        },
       ],
     },
     {
