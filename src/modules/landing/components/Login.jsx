@@ -34,12 +34,9 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      {/* etsi hrisimopoioume ta svgs pleon, san React components */}
-      {/* pigenete sto /src/assets/icons/index.js gia deite pia name iparhon gia ta svgs */}
+
       <Icon name='Eye' size='sm' />
-      <Icon name='User' size='md' />
-      <Icon name='Lock' size='lg' />
-      <Icon name='Home' size='xl' />
+
       <button type='submit'> Login </button>
     </form>
   );
