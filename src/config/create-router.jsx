@@ -27,23 +27,23 @@ export const createRouter = () => {
           element: <div>Dashboard Page</div>,
         },
         {
-          path: '/client_page',
+          path: '/client-page',
           element: <div> Client Page </div>,
         },
         {
-          path: '/client_page/requests',
+          path: '/client-=page/requests',
           element: <div> Requests table Page</div>,
         },
         {
-          path: '/client_page/requests/new_request',
+          path: '/client-page/requests/new_request',
           element: <div> new request page</div>,
         },
         {
-          path: '/technician_page',
+          path: '/technician-page',
           element: <div>Technician Page</div>,
         },
         {
-          path: '/manager_page',
+          path: '/manager-page',
           element: <div> Manager Page </div>,
         },
       ],

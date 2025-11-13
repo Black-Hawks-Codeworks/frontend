@@ -19,9 +19,15 @@
   padding: 1rem 1.2rem;
 }
 
-.footer-copyright{
+.footer-copyright1{
   font-weight: bold;
   font-size: 1.2rem;
+  color:#263238;
+  font-family: 'Inter', sans-serif;
+}
+.footer-copyright2{
+  font-weight: bold;
+  font-size: 0.8rem;
   color:#263238;
   font-family: 'Inter', sans-serif;
 }
