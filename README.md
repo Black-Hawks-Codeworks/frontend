@@ -1,8 +1,9 @@
 den exei ginei kapoia allagh, apla practice
+
 # Portal Frontend
 
 This is a version of starter project that i keep around.A project pre-configured with somr tools and tweaks that I find useful. It will
- server a the begining of the capstone project It can be used to practice React.js or even HTML and css. Just clone the repo and run:
+server a the begining of the capstone project It can be used to practice React.js or even HTML and css. Just clone the repo and run:
 
 ```bash
 # To download the nessecary packages
@@ -51,5 +52,6 @@ For this to work install the pre-commit hook from the guide below.
 ## Which VS Code extensions do I need?
 
 I have created [this guide](https://github.com/tBaronDar/webdev-essential-tools/blob/main/README.md)
- bla bla bla
- 
+bla bla bla
+njhxnjh
+stelman
