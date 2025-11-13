@@ -6,9 +6,12 @@
 
 
 .footer{
-  position: sticky;
+  position: absolute;
+  bottom:0px;
   height: var(--footer-height);
   display: flex;
+  right:0px;
+  left:0px;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(-90deg, #4caf4f, #ece7e7);
