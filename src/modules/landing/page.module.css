@@ -1,15 +1,43 @@
 .container {
+  background-color: var(--color-primary-tint-5);
   display: flex;
-  flex-direction: row;
-}
-
-.text-container {
-  width: 50%;
-  display: flex;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
+  gap: 80px;
+  padding: 60px;
 }
 
-.danis {
-  color: red;
+.loginContainer {
+  flex: 1;
+  background-color: var(--neutral-white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.textContainer {
+  flex: 1;
+  max-width: 500px;
+  text-align: left;
+}
+
+.textContainer h1 {
+  color: var(--color-primary-shade-2);
+  margin-bottom: 20px;
+}
+
+.textContainer p {
+  color: var(--neutral-grey-dark);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.horde {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-error);
+  margin-top: 16px;
 }
