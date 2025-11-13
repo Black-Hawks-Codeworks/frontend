@@ -1,20 +1,16 @@
 import styles from './page.module.css';
 import Login from '@/modules/landing/components/Login';
 
-export default function HomePage() {
-  // This is how to put a variable in a jsx element
-  const myString = 'Welcome to The Black Hawks Frontend';
-
+export default function LandingPage() {
   return (
-    <div className={styles.testClass}>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.textContainer}>
         <Login />
       </div>
-      <h1>{myString}</h1>
-      <p>This is the main content of the home page.</p>
-      <p> Ilias Mazarakis G4</p>
-      <p className={styles.kokkinaGrammata}>nikoleta amanatidou</p>
-      <a href='dashboard'>Go to dashboard</a>
+      <div className={styles.textContainer}>
+        <p>nai geia sas</p>
+        <p className={`body-lg ${styles.danis}`}>ti kanete</p>
+      </div>
     </div>
   );
 }

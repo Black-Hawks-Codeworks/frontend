@@ -14,7 +14,7 @@ export default function Login() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label className='header-xl'>
+      <label className='header-md'>
         Username:
         <input
           type='text'

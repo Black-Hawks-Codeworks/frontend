@@ -1,13 +1,15 @@
-.test-class {
+.container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #131517;
-  background: linear-gradient(180deg, #4caf4f, #ece7e7);
-  height: 100vh;
+  flex-direction: row;
 }
 
-.kokkina-grammata {
-  color: var(--main-color);
+.text-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.danis {
+  color: red;
 }
