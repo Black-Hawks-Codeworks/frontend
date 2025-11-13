@@ -87,6 +87,7 @@ import Up from './up.svg?react';
 import Upload2 from './upload-2.svg?react';
 import User from './user.svg?react';
 import Users from './users.svg?react';
+import Eicon from './eicon.svg?react';
 
 export const Icons = {
   AddUser,
@@ -178,4 +179,5 @@ export const Icons = {
   Upload2,
   User,
   Users,
+  Eicon,
 };

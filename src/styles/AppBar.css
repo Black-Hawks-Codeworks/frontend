@@ -1,12 +1,18 @@
+:root {
+  --footer-height: 3vh;
+  --home-page-height: 89vh;
+  --app-bar-height: 8vh;
+}
+
 .appbar {
+  position: sticky;
+  height: var(--appbar-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #f2ecec;
   color: white;
-  padding: 0.8rem 1.5rem;
-  position: sticky;
-  top: 0;
+  padding: 1rem 1.2rem;
 }
 
 .appbar-logo {
@@ -17,12 +23,19 @@
 }
 
 .appbar-nav a {
-  margin: 0 1rem;
+  margin: 0 1.4rem;
   text-decoration: none;
   color: #4d4d4d;
   font-family: 'Inter', sans-serif;
+  margin-left: 1vh;
 }
 
+.appbar-logo.actions {
+  display: flex;
+  align-item: flex-end;
+  gap: 0.2rem;
+  margin-top: 5px;
+}
 .appbar-nav a:hover {
   text-decoration: underline;
 }

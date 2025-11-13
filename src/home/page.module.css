@@ -1,3 +1,9 @@
+:root {
+  --footer-height: 3vh;
+  --home-page-height: 89vh;
+  --app-bar-height: 8vh;
+}
+
 .test-class {
   display: flex;
   flex-direction: column;
@@ -5,7 +11,7 @@
   align-items: center;
   color: #131517;
   background: linear-gradient(180deg, #4caf4f, #ece7e7);
-  height: 100vh;
+  height: var(--home-page-height);
 }
 
 .kokkina-grammata {

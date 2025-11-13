@@ -1,3 +1,7 @@
+:root{
+  --appbar-height:8vh;
+}
+
 form {
   display: flex;
   flex-direction: column;
