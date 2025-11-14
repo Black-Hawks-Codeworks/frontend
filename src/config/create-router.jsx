@@ -1,6 +1,6 @@
 import { createBrowserRouter, redirect } from 'react-router-dom';
 
-import HomePage from '@/home/page';
+import LandingPage from '../modules/landing/page';
 import Layout from '@/shared/components/layout';
 import Login from '@/modules/landing/components/Login';
 import { getStore } from './store';
@@ -22,7 +22,7 @@ export const createRouter = () => {
       children: [
         {
           path: '/',
-          element: <HomePage />,
+          element: <LandingPage />,
         },
         {
           path: '/dashboard',
