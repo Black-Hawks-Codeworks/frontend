@@ -16,8 +16,7 @@ label {
   color: var(--neutral-black);
 }
 
-.user-field,
-.password-field {
+.form-input {
   display: block;
   width: 100%;
 
@@ -39,34 +38,45 @@ label {
   }
 }
 
-.user-field {
+.form-input--user {
   background-image: url('./icons/User.svg');
 }
 
-.password-field {
+.form-input--password {
   background-image: url('./icons/Lock.svg');
 }
 
-.button-container {
+.form-actions {
   margin-top: 10px;
   display: flex;
 }
 
-.button-container button {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 600;
+.btn-contained {
   background-color: var(--color-primary);
   color: var(--neutral-white);
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
+
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
 }
 
-.button-container button:hover {
+.btn-contained:hover {
   background-color: var(--color-primary-shade-2);
+}
+
+.btn-contained:active {
+  background-color: var(--color-primary-dark);
+  transform: scale(0.98);
+}
+
+.btn-contained:focus {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
 }
