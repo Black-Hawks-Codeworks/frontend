@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import Login from '../login/Login';
+import Login from '@/modules/landing/components/Login';
 
 export default function HomePage() {
   // This is how to put a variable in a jsx element

@@ -3,6 +3,7 @@
 @import url('./styles/buttons.css');
 @import url('./styles/links.css');
 @import url('./styles/shadows.css');
+@import url('./styles/colors.css');
 
 :root {
   /* font variables */

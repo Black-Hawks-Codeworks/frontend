@@ -66,7 +66,9 @@ export default [
         ...globals.jest,
         google: 'readonly',
       },
-      ecmaVersion: 6,
+      // Use a modern ecmaVersion so ESLint and import plugin can parse newer syntax
+      // used by dependencies like @reduxjs/toolkit.
+      ecmaVersion: 2022,
       sourceType: 'module',
       parserOptions: {
         ecmaFeatures: {
