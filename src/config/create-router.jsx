@@ -38,6 +38,30 @@ export const createRouter = () => {
             return checkAuth();
           },
         },
+        {
+          path: '/requests',
+          element: <div>Dashboard Page</div>,
+        },
+        {
+          path: '/client-page',
+          element: <div> Client Page </div>,
+        },
+        {
+          path: '/client-=page/requests',
+          element: <div> Requests table Page</div>,
+        },
+        {
+          path: '/client-page/requests/new_request',
+          element: <div> new request page</div>,
+        },
+        {
+          path: '/technician-page',
+          element: <div>Technician Page</div>,
+        },
+        {
+          path: '/manager-page',
+          element: <div> Manager Page </div>,
+        },
       ],
     },
     {
