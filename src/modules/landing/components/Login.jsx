@@ -37,7 +37,9 @@ export default function Login() {
 
       <Icon name='Eye' size='sm' />
 
-      <button type='submit'> Login </button>
+      <button type='submit'>
+        Login
+      </button>
     </form>
   );
 }

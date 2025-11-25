@@ -52,7 +52,7 @@ label {
 }
 
 .btn-contained {
-  background-color: var(--color-primary);
+  background-color: #4caf4f;
   color: var(--neutral-white);
   border: none;
   cursor: pointer;
@@ -68,15 +68,34 @@ label {
 }
 
 .btn-contained:hover {
+
   background-color: var(--color-primary-shade-2);
 }
 
 .btn-contained:active {
   background-color: var(--color-primary-dark);
-  transform: scale(0.98);
+  transform: scale(0.33);
 }
 
 .btn-contained:focus {
   outline: 3px solid var(--color-primary-light);
   outline-offset: 2px;
+}
+
+.login{
+  background-color: #4caf4f
+}
+
+button  {
+  background-color: #4caf4f;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+button:hover{
+  background-color: #bcbec3;
 }
