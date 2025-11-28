@@ -23,9 +23,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: [
-      'localhost',
-      'dev.ohi-stin-camunda-nai-ston-erota.site', // Your domain
-    ],
+    allowedHosts: ['localhost', 'dev.ohi-stin-camunda-nai-ston-erota.site'],
   },
 });
