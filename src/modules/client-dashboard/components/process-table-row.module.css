@@ -6,6 +6,11 @@
   border-bottom: 1px solid var(--neutral-grey-blue);
 }
 
+.container:last-child {
+  border-bottom: none;
+}
+
+/* dimiourgo cell class(epilogi...) */
 .cell {
   flex: 1;
   text-align: center;
@@ -16,6 +21,11 @@
   border-right: 1px solid var(--neutral-grey-blue);
 }
 
+.cell:last-child {
+  border-right: none;
+}
+
+/* ta onomata ton parakato klasseon einai to idia me to process.status.toLowerCase() */
 .cancelled {
   color: var(--color-error);
 }
