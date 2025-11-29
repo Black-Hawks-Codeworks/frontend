@@ -4,6 +4,7 @@ import LandingPage from '../modules/landing/page';
 import Layout from '@/shared/components/layout';
 import Login from '@/modules/landing/components/Login';
 import { getStore } from './store';
+import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 
 export const createRouter = () => {
   const checkAuth = () => {
@@ -43,8 +44,8 @@ export const createRouter = () => {
           element: <div>Dashboard Page</div>,
         },
         {
-          path: '/client-page',
-          element: <div> Client Page </div>,
+          path: '/client-dashboard',
+          element: <ClientDashboardPage />,
         },
         {
           path: '/client-=page/requests',

@@ -4,6 +4,7 @@
 @import url('./styles/links.css');
 @import url('./styles/shadows.css');
 @import url('./styles/colors.css');
+@import url('./styles/card-effects.css');
 
 :root {
   /* font variables */

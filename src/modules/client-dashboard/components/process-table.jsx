@@ -5,7 +5,7 @@ import styles from './process-table.module.css';
 function ProcessTable(props) {
   const { data } = props;
   return (
-    <div className={styles.processTableContainer}>
+    <div className={`${styles.processTableContainer} card-elevation-1`}>
       <ul className={styles.processTable}>
         <div className={styles.processTableHeader}>
           <span>Process ID</span>
