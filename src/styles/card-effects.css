@@ -1,0 +1,20 @@
+.card-elevation-1 {
+  border-radius: 10px;
+  box-shadow: var(--shadow-2);
+}
+.card-elevation-2 {
+  border-radius: 10px;
+  box-shadow: var(--shadow-4);
+}
+.card-elevation-3 {
+  border-radius: 10px;
+  box-shadow: var(--shadow-6);
+}
+.card-elevation-4 {
+  border-radius: 10px;
+  box-shadow: var(--shadow-8);
+}
+.card-elevation-5 {
+  border-radius: 10px;
+  box-shadow: var(--shadow-16);
+}

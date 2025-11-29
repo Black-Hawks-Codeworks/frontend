@@ -32,7 +32,7 @@
 
 .appbar-logo.actions {
   display: flex;
-  align-item: flex-end;
+  align-items: flex-end;
   gap: 0.2rem;
   margin-top: 5px;
 }
