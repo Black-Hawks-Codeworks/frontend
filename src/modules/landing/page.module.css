@@ -1,33 +1,36 @@
-body{
+body {
   height: 100%;
-  margin:0;
+  margin: 0;
   overflow: hidden;
 }
 
-
 .container {
-  background-color: var(--color-primary-tint-5);
+  display: grid;
+}
+
+.containertop {
+  background-color: var(--color-primary-tint-3);
   display: flex;
-  min-height: 100vh;
+  min-height: 50vh;
   align-items: center;
   justify-content: center;
   gap: 80px;
-  padding: 60px;
+  padding: 1px;
 }
 
 .loginContainer {
   flex: 1;
   background-color: var(--neutral-white);
-  padding: 40px;
+  padding: 30px 50px 50px 50px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  max-width: 500px;
   box-sizing: border-box;
 }
 
 .textContainer {
   flex: 1;
-  max-width: 500px;
+  max-width: 800px;
   text-align: left;
 }
 
@@ -47,4 +50,20 @@ body{
   font-size: 18px;
   color: var(--color-error);
   margin-top: 16px;
+}
+
+.containerbottom {
+  display: flex;
+  min-height: 50vh;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 80px;
+  padding: 10 1 3 2px;
+}
+
+.text2Container {
+  flex: 2;
+  max-width: 800px;
+  max-height: 300px;
+  text-align: left;
 }

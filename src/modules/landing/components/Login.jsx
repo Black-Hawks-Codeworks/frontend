@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import './Login.module.css';
-import Icon from '@/shared/icon';
+import styles from './Login.module.css';
 
 export default function Login() {
   const [user, setUser] = useState('');
@@ -15,29 +14,29 @@ export default function Login() {
   return (
     <form onSubmit={handleSubmit}>
       <label className='header-sm'>
-        Username:
+        Username
         <input
           type='text'
-          className='user-field'
+          className={`${styles['form-input']} ${styles['form-input--user']}`}
           placeholder='Please enter your username'
           value={user}
           onChange={(e) => setUser(e.target.value)}
         />
       </label>
       <label className='header-sm'>
-        Password:
+        Password
         <input
           type='password'
-          className='password-field'
+          className={`${styles['form-input']} ${styles['form-input--password']}`}
           placeholder='Please enter your password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-
-      <Icon name='Eye' size='sm' />
-
-      <button type='submit'> Login </button>
+      <button className='btn-contained' type='submit'>
+        {' '}
+        Login{' '}
+      </button>
     </form>
   );
 }
