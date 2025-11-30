@@ -35,12 +35,9 @@ export default function LandingPage() {
           <h2 className='header-md'> About the portal</h2>
           <p className={`body-lg ${styles['card-elevation-4']}`}>
             Track and manage your returns and repairs in one place. With our portal, you can start a request in minutes,
-            get instant RMA and shipping labels,
-          </p>{' '}
-          <p> see real‑time status updates, approve estimates securely, and chat with support when needed.</p>{' '}
-          <p>
-            Enjoy faster turnaround, fewer phone calls, and full transparency from drop‑off to delivery <p></p>so you
-            always know what’s happening with your device.
+            get instant RMA and shipping labels,see real‑time status updates, approve estimates securely, and chat with
+            support when needed. Enjoy faster turnaround, fewer phone calls, and full transparency from drop‑off to
+            delivery so you always know what’s happening with your device.
           </p>
           <h2 className='header-md'>Contact Us</h2>
           <p className={`body-lg ${styles['card-elevation-4']}`}>

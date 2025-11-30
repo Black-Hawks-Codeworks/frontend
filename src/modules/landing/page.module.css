@@ -5,6 +5,7 @@ body {
 }
 
 .container {
+  position: static;
   display: grid;
 }
 
@@ -15,7 +16,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 80px;
-  padding: 1px;
+  padding-left: 100px;
 }
 
 .loginContainer {
@@ -32,6 +33,7 @@ body {
   flex: 1;
   max-width: 920px;
   text-align: left;
+  padding-right: 200px;
   gap: 1px;
 }
 
@@ -60,18 +62,38 @@ body {
 }
 
 .containerbottom {
-  display: flex;
-  min-height: 50vh;
-  align-items: flex-start;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two equal columns */
   gap: 50px;
-  padding: 10px 40px 30px 40px;
+  align-items: start; /* align both columns at top */
+  padding: 24px 40px 1px 40px;
   background-color: var(--color-primary-tint-5);
+  min-height: 50vh;
 }
 
 .text2Container {
-  flex: 2;
+  flex: 0 1 60%;
   max-width: 800px;
   max-height: 100px;
   text-align: left;
+}
+
+/* Left column box */
+.text2Container {
+  max-width: 680px;
+  text-align: left;
+}
+
+.containerbottom > div:nth-child(2) {
+  max-width: 680px;
+}
+
+.containerbottom h2 {
+  margin: 0 0 12px; /* remove top margin so titles align */
+  color: var(--neutral-black);
+}
+
+.containerbottom p {
+  margin: 0 0 10px;
+  line-height: 1.45;
 }
