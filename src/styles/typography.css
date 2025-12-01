@@ -1,5 +1,5 @@
 .header-xl {
-  color: var(--Neutral-Black, #212121);
+  color: var(--neutral-black);
 
   /* Heading/Headline 1 */
   font-family: var(--primary-font);

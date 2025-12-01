@@ -1,22 +1,22 @@
 import React from 'react';
-import '../../styles/AppBar.css';
 import Icon from '@/shared/icon';
+import styles from './custom-appbar.module.css';
 
 const AppBar = () => {
   return (
-    <header className='appbar'>
-      <div className='appbar-logo actions'>
+    <header className={styles.appbar}>
+      <div className={styles.appbarLogo}>
         <Icon name='Layers' size='md' />
-        Electronics
+        <p className='header-sm text-color-grey-dark'>Electronics</p>
       </div>
 
-      <nav className='appbar-nav'>
+      <nav className={styles.appbarNav}>
         <a href='#home'>Home</a>
         <a href='#parcel'>Your parcel</a>
         <a href='#contact'>Contact</a>
       </nav>
 
-      <div className='appbar-actions'>
+      <div className={styles.appbarActions}>
         <button>Login</button>
       </div>
     </header>
