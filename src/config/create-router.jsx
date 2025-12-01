@@ -2,7 +2,6 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 
 import LandingPage from '../modules/landing/page';
 import Layout from '@/shared/components/layout';
-import Login from '@/modules/landing/components/Login';
 import { getStore } from './store';
 import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 
@@ -26,42 +25,55 @@ export const createRouter = () => {
           element: <LandingPage />,
         },
         {
-          path: '/dashboard',
-          element: <div>Dashboard Page</div>,
-          loader() {
-            return checkAuth();
-          },
-        },
-        {
-          path: '/login',
-          element: <Login />,
-          loader() {
-            return checkAuth();
-          },
-        },
-        {
-          path: '/requests',
-          element: <div>Dashboard Page</div>,
-        },
-        {
           path: '/client-dashboard',
           element: <ClientDashboardPage />,
+          loader() {
+            return checkAuth();
+          },
         },
         {
-          path: '/client-=page/requests',
-          element: <div> Requests table Page</div>,
+          path: '/employee-dashboard',
+          element: <div>Employee Dashboard Page</div>,
+          loader() {
+            return checkAuth();
+          },
+          children: [
+            {
+              path: ':processId',
+              element: <div>Process Details Modal</div>,
+              loader() {
+                return checkAuth();
+              },
+            },
+          ],
         },
         {
-          path: '/client-page/requests/new_request',
-          element: <div> new request page</div>,
+          path: '/technician-dashboard',
+          element: <div>Technician Dashboard Page</div>,
+          loader() {
+            return checkAuth();
+          },
+          children: [
+            {
+              path: ':processId',
+              element: <div>Process Details Modal</div>,
+              loader() {
+                return checkAuth();
+              },
+            },
+          ],
         },
         {
-          path: '/technician-page',
-          element: <div>Technician Page</div>,
+          path: '/manager-dashboard',
+          element: <div>Manager Dashboard Page</div>,
         },
         {
-          path: '/manager-page',
-          element: <div> Manager Page </div>,
+          path: '/return-form',
+          element: <div>Requests Page</div>,
+        },
+        {
+          path: '/repair-form',
+          element: <div>Repair Page</div>,
         },
       ],
     },
