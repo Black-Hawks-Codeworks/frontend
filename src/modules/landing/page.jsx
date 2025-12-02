@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setUser } from '@/config/reducers/auth.reducer';
 import { useNavigate } from 'react-router-dom';
 export default function LandingPage() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const technician = useSelector((state) => state.auth.technicians);
-  const manager = useSelector((state) => state.auth.managers);
-  const client = useSelector((state) => state.auth.clients);
-  const employee = useSelector((state) => state.auth.employees);
+  const dispatch = useDispatch();
+  const technicians = useSelector((state) => state.auth.technicians);
+  const managers = useSelector((state) => state.auth.managers);
+  const clients = useSelector((state) => state.auth.clients);
+  const employees = useSelector((state) => state.auth.employees);
 
-  const possibleUsers = [...technician, ...manager, ...client, ...employee];
+  const possibleUsers = [...technicians, ...managers, ...clients, ...employees];
 
   function authUser(username, password) {
     const user = possibleUsers.find((u) => u.username === username && u.password === password);
