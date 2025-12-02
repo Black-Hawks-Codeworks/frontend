@@ -15,6 +15,7 @@ function ProcessTable(props) {
           <span>Status</span>
           <span>Created At</span>
           <span>Updated At</span>
+          
         </div>
         {data.map((process) => (
           <ProcessTableRow key={process.id} process={process} />
