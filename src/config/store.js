@@ -5,25 +5,17 @@ import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import rootReducerMapObject from './reducers';
 
-const rootPersistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['auth'],
-};
-
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['user'],
 };
 
-export const rootReducer = persistReducer(
-  rootPersistConfig,
-  combineReducers({
-    ...rootReducerMapObject,
-    auth: persistReducer(authPersistConfig, rootReducerMapObject.auth),
-  })
-);
+const persistedAuthReducer = persistReducer(authPersistConfig, rootReducerMapObject.auth);
+
+export const rootReducer = combineReducers({
+  ...rootReducerMapObject,
+  auth: persistedAuthReducer,
+});
 
 export const setupStore = (preloadedState) =>
   configureStore({
@@ -34,7 +26,6 @@ export const setupStore = (preloadedState) =>
           ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
         },
       }),
-
     preloadedState,
   });
 

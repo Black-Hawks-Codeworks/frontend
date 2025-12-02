@@ -1,16 +1,22 @@
 import styles from './page.module.css';
 import Login from '@/modules/landing/components/Login';
-import { useSelector, useDispatch } from 'react-redux';
 import { setUser } from '@/config/reducers/auth.reducer';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '@/config/store';
+
 export default function LandingPage() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const technicians = useSelector((state) => state.auth.technicians);
-  const managers = useSelector((state) => state.auth.managers);
-  const clients = useSelector((state) => state.auth.clients);
-  const employees = useSelector((state) => state.auth.employees);
 
+  const dispatch = useAppDispatch();
+  const technicians = useAppSelector((state) => state.auth?.technicians);
+  const managers = useAppSelector((state) => state.auth?.managers);
+  const clients = useAppSelector((state) => state.auth?.clients);
+  const employees = useAppSelector((state) => state.auth?.employees);
+
+  console.log(technicians, managers, clients, employees);
+  if (!technicians || !managers || !clients || !employees) {
+    return <div>Loading...</div>;
+  }
   const possibleUsers = [...technicians, ...managers, ...clients, ...employees];
 
   function authUser(username, password) {
