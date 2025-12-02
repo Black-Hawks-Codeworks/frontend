@@ -1,8 +1,20 @@
 import React from 'react';
 import Icon from '@/shared/icon';
 import styles from './custom-appbar.module.css';
+import { useAppSelector, useAppDispatch } from '@/config/store';
+import { useNavigate } from 'react-router-dom';
+import { setUser } from '@/config/reducers/auth.reducer';
 
 const AppBar = () => {
+  const user = useAppSelector((state) => state.auth?.user);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    dispatch(setUser(null));
+    navigate('/');
+  }
+
   return (
     <header className={styles.appbar}>
       <div className={styles.appbarLogo}>
@@ -16,9 +28,7 @@ const AppBar = () => {
         <a href='#contact'>Contact</a>
       </nav>
 
-      <div className={styles.appbarActions}>
-        <button>Login</button>
-      </div>
+      <div className={styles.appbarActions}>{user ? <button onClick={handleLogout}>Logout</button> : null}</div>
     </header>
   );
 };

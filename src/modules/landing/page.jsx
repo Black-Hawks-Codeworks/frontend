@@ -13,17 +13,31 @@ export default function LandingPage() {
   const clients = useAppSelector((state) => state.auth?.clients);
   const employees = useAppSelector((state) => state.auth?.employees);
 
-  console.log(technicians, managers, clients, employees);
-  if (!technicians || !managers || !clients || !employees) {
-    return <div>Loading...</div>;
-  }
   const possibleUsers = [...technicians, ...managers, ...clients, ...employees];
+  console.log(possibleUsers);
 
   function authUser(username, password) {
     const user = possibleUsers.find((u) => u.username === username && u.password === password);
     if (user) {
       dispatch(setUser(user));
-      navigate('/client-dashboard');
+
+      const userRole = user.role;
+      switch (userRole) {
+        case 'client':
+          navigate('/client-dashboard');
+          break;
+        case 'technician':
+          navigate('/technician-dashboard');
+          break;
+        case 'manager':
+          navigate('/manager-dashboard');
+          break;
+        case 'employee':
+          navigate('/employee-dashboard');
+          break;
+        default:
+          navigate('/');
+      }
     } else {
       dispatch(setUser(null));
       navigate('/');
