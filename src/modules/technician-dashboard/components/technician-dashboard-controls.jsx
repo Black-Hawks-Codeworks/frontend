@@ -3,10 +3,18 @@ import {Link} from 'react-router-dom';
 
 function TechnicianDashboardControls(){
   return (
-    <div>
+    <div className={styles.container}>
       <h1 className='header-lg text-color-grey-dark'>Technician's Dashboard</h1>
-      <div className={styles.container}>
-        
+      <div className={styles.secondContainer}>
+        <Link to='/' className='btn-contained secondButton'>
+          My Tickets
+        </Link>
+        <Link to='/' className='btn-contained secondButton'>
+          Update My Tickets
+        </Link>
+        <Link to='/' className='btn-contained secondButton'>
+          Change a Ticket
+        </Link>
       </div>
     </div>
   );
