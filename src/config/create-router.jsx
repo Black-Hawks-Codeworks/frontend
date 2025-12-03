@@ -1,29 +1,22 @@
 import { createBrowserRouter, redirect } from 'react-router-dom';
+import { checkAuth } from '@/config/utils';
 
-import LandingPage from '../modules/landing/page';
+import LandingPage from '@/modules/landing/page';
 import Layout from '@/shared/components/layout';
-import { getStore } from './store';
 import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 
 export const createRouter = () => {
-  const checkAuth = () => {
-    const store = getStore();
-    const state = store.getState();
-    const user = state.auth?.user;
-
-    if (!user) {
-      return redirect('/');
-    }
-  };
   return createBrowserRouter([
     {
       path: '/',
       element: <Layout />,
       children: [
+        //global staff (not logged in)
         {
           path: '/',
           element: <LandingPage />,
         },
+        // client staff...
         {
           path: '/client-dashboard',
           element: <ClientDashboardPage />,
@@ -31,6 +24,21 @@ export const createRouter = () => {
             return checkAuth();
           },
         },
+        {
+          path: '/return-form',
+          element: <div>Requests Page</div>,
+          loader() {
+            return checkAuth();
+          },
+        },
+        {
+          path: '/repair-form',
+          element: <div>Repair Page</div>,
+          loader() {
+            return checkAuth();
+          },
+        },
+        //employ staff
         {
           path: '/employee-dashboard',
           element: <div>Employee Dashboard Page</div>,
@@ -47,6 +55,7 @@ export const createRouter = () => {
             },
           ],
         },
+        //technician staff
         {
           path: '/technician-dashboard',
           element: <div>Technician Dashboard Page</div>,
@@ -63,17 +72,20 @@ export const createRouter = () => {
             },
           ],
         },
+        //management staff
         {
           path: '/manager-dashboard',
           element: <div>Manager Dashboard Page</div>,
+          loader() {
+            return checkAuth();
+          },
         },
         {
-          path: '/return-form',
-          element: <div>Requests Page</div>,
-        },
-        {
-          path: '/repair-form',
-          element: <div>Repair Page</div>,
+          path: '/about',
+          element: <div>About Page</div>,
+          loader() {
+            return checkAuth();
+          },
         },
       ],
     },
