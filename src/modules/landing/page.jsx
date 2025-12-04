@@ -1,7 +1,7 @@
 import styles from './page.module.css';
 import Login from '@/modules/landing/components/Login';
 import { setUser } from '@/config/reducers/auth.reducer';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector, getStore } from '@/config/store';
 
 export default function LandingPage() {
@@ -22,9 +22,10 @@ export default function LandingPage() {
   //edo an iparhei user feugoume apo to landing page se to dashboard pou antistoixei ston role tou user
   const currentUser = getStore().getState().auth.user;
   if (currentUser) {
-    const userRole = currentUser.role;
-    return <Navigate to={`/${userRole}-dashboard`} />;
+    const currentUserRole = currentUser.role;
+    return <Navigate to={`/${currentUserRole}-dashboard`} />;
   }
+
   //auti i sinartisi trehei otan patame to login
   function authUser(username, password) {
     //i kato grammi tha antikatastathei apo ena api call....
@@ -33,22 +34,7 @@ export default function LandingPage() {
       dispatch(setUser(user));
       //analoga ton user kane redirect
       const userRole = user.role;
-      switch (userRole) {
-        case 'client':
-          navigate('/client-dashboard');
-          break;
-        case 'technician':
-          navigate('/technician-dashboard');
-          break;
-        case 'manager':
-          navigate('/manager-dashboard');
-          break;
-        case 'employee':
-          navigate('/employee-dashboard');
-          break;
-        default:
-          navigate('/');
-      }
+      navigate(`/${userRole}-dashboard`);
     } else {
       dispatch(setUser(null));
     }
