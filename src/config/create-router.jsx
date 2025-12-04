@@ -1,5 +1,5 @@
 import { createBrowserRouter, redirect } from 'react-router-dom';
-import { checkAuth } from '@/config/utils';
+import { ProtectedRouteLogin, ProtectedRouteRole } from '@/config/protected-route';
 
 import LandingPage from '@/modules/landing/page';
 import Layout from '@/shared/components/layout';
@@ -14,78 +14,107 @@ export const createRouter = () => {
         //global staff (not logged in)
         {
           path: '/',
-          element: <LandingPage />,
+          element: (
+            <ProtectedRouteLogin requireLogin={false}>
+              <LandingPage />
+            </ProtectedRouteLogin>
+          ),
         },
         // client staff...
         {
           path: '/client-dashboard',
-          element: <ClientDashboardPage />,
-          loader() {
-            return checkAuth();
-          },
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='client'>
+                <ClientDashboardPage />
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
         {
           path: '/return-form',
-          element: <div>Requests Page</div>,
-          loader() {
-            return checkAuth();
-          },
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='client'>
+                <div>Requests Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
         {
           path: '/repair-form',
-          element: <div>Repair Page</div>,
-          loader() {
-            return checkAuth();
-          },
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='client'>
+                <div>Repair Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
         //employ staff
         {
           path: '/employee-dashboard',
-          element: <div>Employee Dashboard Page</div>,
-          loader() {
-            return checkAuth();
-          },
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='employee'>
+                <div>Employee Dashboard Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
           children: [
             {
               path: ':processId',
-              element: <div>Process Details Modal</div>,
-              loader() {
-                return checkAuth();
-              },
+              element: (
+                <ProtectedRouteLogin requireLogin>
+                  <ProtectedRouteRole requiredRole='employee'>
+                    <div>Process Details Modal</div>
+                  </ProtectedRouteRole>
+                </ProtectedRouteLogin>
+              ),
             },
           ],
         },
         //technician staff
         {
           path: '/technician-dashboard',
-          element: <div>Technician Dashboard Page</div>,
-          loader() {
-            return checkAuth();
-          },
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='technician'>
+                <div>Technician Dashboard Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
           children: [
             {
               path: ':processId',
-              element: <div>Process Details Modal</div>,
-              loader() {
-                return checkAuth();
-              },
+              element: (
+                <ProtectedRouteLogin requireLogin>
+                  <ProtectedRouteRole requiredRole='technician'>
+                    <div>Process Details Modal</div>
+                  </ProtectedRouteRole>
+                </ProtectedRouteLogin>
+              ),
             },
           ],
         },
         //management staff
         {
           path: '/manager-dashboard',
-          element: <div>Manager Dashboard Page</div>,
-          loader() {
-            return checkAuth();
-          },
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='manager'>
+                <div>Manager Dashboard Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
         {
           path: '/about',
-          element: <div>About Page</div>,
-          loader() {
-            return checkAuth();
-          },
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <div>About Page</div>
+            </ProtectedRouteLogin>
+          ),
         },
       ],
     },
