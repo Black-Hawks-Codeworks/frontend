@@ -1,7 +1,15 @@
 .process-table-container {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
   border: 1px solid var(--neutral-grey-blue);
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: center;
+}
+
+.processTable{
+  margin-left: 0;
+
 }
 
 .process-table-header {
@@ -10,6 +18,7 @@
   align-items: center;
   padding: 16px 32px;
   border-bottom: 1px solid var(--neutral-grey-blue);
+  margin-right: 15px;
 }
 
 /* den dimiourgo cell class simadeuo ta span(epilogi...) */

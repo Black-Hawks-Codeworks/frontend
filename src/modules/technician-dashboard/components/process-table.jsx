@@ -14,9 +14,9 @@ export default function ProcessTable() {
           <span>Description</span>
           <span>Status</span>
           <span>Created At</span>
-          <span>Updated At</span>
           <span>Expected Cost</span>
           <span>Assigned To</span>
+          <span>Actions</span>
         </div>
       </ul>
     </div>
