@@ -1,12 +1,13 @@
+// process-table.jsx
 import styles from './process-table.module.css';
+import ProcessTableRow from './process-table-row';
 
+export default function ProcessTable(props) {
+  const { data } = props;
 
-
-
-export default function ProcessTable() {
   return (
     <div className={`${styles.processTableContainer} card-elevation-1`}>
-      <ul className={styles.processTable}>
+      <div className={styles.processTable}>
         <div className={styles.processTableHeader}>
           <span>ProcessID</span>
           <span>Product</span>
@@ -18,7 +19,11 @@ export default function ProcessTable() {
           <span>Assigned To</span>
           <span>Actions</span>
         </div>
-      </ul>
+
+        {data.map((process) => (
+          <ProcessTableRow key={process.processId} process={process} />
+        ))}
+      </div>
     </div>
   );
 }
