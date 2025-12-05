@@ -28,12 +28,25 @@
 .cancelled {
   color: var(--color-error);
 }
+.critical{
+  color: var(--color-error);
+}
 
 .completed {
   color: var(--color-success);
 }
+.low{
+  color:var(--color-info);
 
-.in-progress {
+}
+.high{
+  color: var(--color-warning);
+}
+.medium{
+  color: var(--color-success);
+}
+
+.inprogress {
   color: var(--color-warning);
 }
 

@@ -11,9 +11,9 @@ export default function ProcessTable(props) {
         <div className={styles.processTableHeader}>
           <span>Process ID</span>
           <span>Product</span>
-          <span>Customer</span>
           <span>Customer Id</span>
           <span>Issue</span>
+          <span>Priority</span>
           <span>Waiting Time</span>
           <span>Status</span>
           <span>Assigned To</span>

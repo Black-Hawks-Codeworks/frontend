@@ -103,7 +103,7 @@ export const data = [
     customer: 'Κατερίνα Δ.',
     customerId: '2233445566',
     issue: 'Screen cracked, touch not working',
-    priority: 'Medium',
+    priority: 'Critical',
     waitingTime: '3 days',
     status: 'Pending',
     assignedTo: 'Καραγιάννη Μ.',

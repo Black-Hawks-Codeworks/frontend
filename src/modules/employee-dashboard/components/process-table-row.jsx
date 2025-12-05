@@ -13,14 +13,17 @@ export default function ProcessTableRow(props) {
       <span className={styles.cell}>{process.product}</span>
       <span className={styles.cell}>{process.customerId}</span>
       <span className={styles.cell}>{process.issue}</span>
-      <span className={styles.cell}>{process.priority}</span>
+      <span className={`${styles[process.priority.trim().toLowerCase().replace(/\s+/g, '')]} ${styles.cell}`}>
+        {process.priority}
+      </span>
       <span className={styles.cell}>{process.waitingTime}</span>
-      <span className={`${styles[process.status.toLowerCase()]} ${styles.cell}`}>{process.status}</span>
+      <span className={`${styles[process.status.trim().toLowerCase().replace(/\s+/g, '')]} ${styles.cell}`}>
+        {process.status}
+      </span>
       <span className={styles.cell}>{process.assignedTo}</span>
       <span className={styles.cell}>{process.createdAt}</span>
       <span className={styles.cell}>{`${process.expectedCost}€`}</span>
       <span className={styles.cell}>{process.actions}</span>
-
     </div>
   );
 }

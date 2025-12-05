@@ -6,6 +6,8 @@ import Login from '@/modules/landing/components/Login';
 import { getStore } from './store';
 import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 import TechnicianDashboardPage from '@/modules/technician-dashboard/technician-dashboard-page';
+import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboard-page';
+
 
 export const createRouter = () => {
   const checkAuth = () => {
@@ -59,6 +61,10 @@ export const createRouter = () => {
         {
           path: '/technician-dashboard',
           element: <TechnicianDashboardPage />,
+        },
+        {
+          path:'/employee-dashboard',
+          element:<EmployeeDashboardPage />
         },
         {
           path: '/manager-page',
