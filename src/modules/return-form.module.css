@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+  gap: 100px;
+}
+
+.form {
+  padding: 40px 20px;
+  width: 45%;
+  background-color: var(--color-primary-tint-5);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.row label {
+  width: 40%;
+  font-weight: 600;
+}
+
+.row input,
+.row textarea,
+.row select {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.row input[type='file'] {
+  padding: 0;
+}
+
+.smallBtn {
+  border-radius: 8px;
+  font-size: 0.9rem;
+  width: 35%;
+  align-self: center;
+}
+
+.infoBox {
+  padding: 100px 20px;
+  width: 45%;
+  background-color: var(--color-primary-tint-5);
+}
