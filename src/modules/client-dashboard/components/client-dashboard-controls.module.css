@@ -8,11 +8,10 @@
 }
 
 .secondContainer {
-
   display: flex;
   gap: 15px;
 }
 
-.secondButton{
+.secondButton {
   margin-left: 15px;
 }
