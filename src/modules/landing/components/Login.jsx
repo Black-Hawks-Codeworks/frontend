@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import styles from './Login.module.css';
 
-export default function Login() {
+export default function Login({ onSubmit }) {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(user);
-    console.log(password);
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(user, password);
+      }}>
       <label className='header-sm'>
         Username
         <input

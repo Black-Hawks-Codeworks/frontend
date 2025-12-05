@@ -1,74 +1,122 @@
 import { createBrowserRouter, redirect } from 'react-router-dom';
+import { ProtectedRouteLogin, ProtectedRouteRole } from '@/config/protected-route';
 
-import LandingPage from '../modules/landing/page';
+import LandingPage from '@/modules/landing/page';
 import Layout from '@/shared/components/layout';
-import Login from '@/modules/landing/components/Login';
-import { getStore } from './store';
 import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 import TechnicianDashboardPage from '@/modules/technician-dashboard/technician-dashboard-page';
 import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboard-page';
 
-
 export const createRouter = () => {
-  const checkAuth = () => {
-    const store = getStore();
-    const state = store.getState();
-    const user = state.auth?.user;
-
-    if (!user) {
-      return redirect('/');
-    }
-  };
   return createBrowserRouter([
     {
       path: '/',
       element: <Layout />,
       children: [
+        //global staff (not logged in)
         {
           path: '/',
-          element: <LandingPage />,
+          element: (
+            <ProtectedRouteLogin requireLogin={false}>
+              <LandingPage />
+            </ProtectedRouteLogin>
+          ),
         },
-        {
-          path: '/dashboard',
-          element: <div>Dashboard Page</div>,
-          loader() {
-            return checkAuth();
-          },
-        },
-        {
-          path: '/login',
-          element: <Login />,
-          loader() {
-            return checkAuth();
-          },
-        },
-        {
-          path: '/requests',
-          element: <div>Dashboard Page</div>,
-        },
+        // client staff...
         {
           path: '/client-dashboard',
-          element: <ClientDashboardPage />,
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='client'>
+                <ClientDashboardPage />
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
         {
-          path: '/client-=page/requests',
-          element: <div> Requests table Page</div>,
+          path: '/return-form',
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='client'>
+                <div>Requests Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
         {
-          path: '/client-page/requests/new_request',
-          element: <div> new request page</div>,
+          path: '/repair-form',
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='client'>
+                <div>Repair Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
+        //employ staff
+        {
+          path: '/employee-dashboard',
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='employee'>
+                <div>Employee Dashboard Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
+          children: [
+            {
+              path: ':processId',
+              element: (
+                <ProtectedRouteLogin requireLogin>
+                  <ProtectedRouteRole requiredRole='employee'>
+                    <EmployeeDashboardPage />
+                  </ProtectedRouteRole>
+                </ProtectedRouteLogin>
+              ),
+            },
+          ],
+        },
+        //technician staff
         {
           path: '/technician-dashboard',
-          element: <TechnicianDashboardPage />,
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='technician'>
+                <TechnicianDashboardPage />
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
+          children: [
+            {
+              path: ':processId',
+              element: (
+                <ProtectedRouteLogin requireLogin>
+                  <ProtectedRouteRole requiredRole='technician'>
+                    <div>Process Details Modal</div>
+                  </ProtectedRouteRole>
+                </ProtectedRouteLogin>
+              ),
+            },
+          ],
+        },
+        //management staff
+        {
+          path: '/manager-dashboard',
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <ProtectedRouteRole requiredRole='manager'>
+                <div>Manager Dashboard Page</div>
+              </ProtectedRouteRole>
+            </ProtectedRouteLogin>
+          ),
         },
         {
-          path:'/employee-dashboard',
-          element:<EmployeeDashboardPage />
-        },
-        {
-          path: '/manager-page',
-          element: <div> Manager Page </div>,
+          path: '/about',
+          element: (
+            <ProtectedRouteLogin requireLogin>
+              <div>About Page</div>
+            </ProtectedRouteLogin>
+          ),
         },
       ],
     },

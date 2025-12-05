@@ -1,21 +1,12 @@
-:root {
-  --footer-height: 3vh;
-  --home-page-height: 89vh;
-  --app-bar-height: 8vh;
-}
-
 .footer {
-  position: absolute;
-  bottom: 0px;
+  align-self: flex-end;
+  width: 100%;
   height: var(--footer-height);
   display: flex;
-  right: 0px;
-  left: 0px;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(-90deg, #4caf4f, #ece7e7);
-  color: white;
-  padding: 1rem 1.2rem;
+  background-color: var(--neutral-white);
+  padding: 16px 32px;
 }
 
 .footer-copyright1 {
