@@ -15,7 +15,9 @@ export default function ProcessTableRow(props) {
       <span className={styles.cell}>{process.product}</span>
       <span className={styles.cell}>{process.category}</span>
       <span className={styles.cell}>{process.description}</span>
-      <span className={`${styles[process.status.toLowerCase()]} ${styles.cell}`}>{process.status}</span>
+      <span className={`${styles[process.status.trim().toLowerCase().replace(/\s+/g, '')]} ${styles.cell}`}>
+        {process.status}
+      </span>
       <span className={styles.cell}>{formatDate(process.createdAt)}</span>
       <span className={styles.cell}>{`${process.expectedCost}€`}</span>
       <span className={styles.cell}>{process.assignedTo}</span>

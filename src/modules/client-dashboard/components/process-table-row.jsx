@@ -17,7 +17,9 @@ function ProcessTableRow(props) {
       <span className={styles.cell}>{process.name}</span>
       <span className={styles.cell}>{process.description}</span>
       {/* hrisimoloio to string status gia na epilexo class gia to parakato span */}
-      <span className={`${styles[process.status.toLowerCase()]} ${styles.cell}`}>{process.status}</span>
+      <span className={`${styles[process.status.trim().toLowerCase().replace(/\s+/g, '')]} ${styles.cell}`}>
+        {process.status}
+      </span>
       {/* formated kai un formated imerominies */}
       <span className={styles.cell}>{formatDate(process.createdAt)}</span>
       <span className={styles.cell}>{process.updatedAt}</span>
