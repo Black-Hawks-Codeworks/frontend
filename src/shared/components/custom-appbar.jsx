@@ -26,9 +26,9 @@ const AppBar = () => {
 
       {userRole === 'client' ? (
         <nav className={styles.appbarNav}>
+          <Link to='/return-form'>Return a Product</Link>
+          <Link to='/repair-form'>Repair a Product</Link>
           <Link to='/client-dashboard'>Dashboard</Link>
-          <Link to='/create-repair-request'>Your parcel</Link>
-          <Link to='/create-return-request'>Contact</Link>
           <Link to='/about'>About</Link>
         </nav>
       ) : null}

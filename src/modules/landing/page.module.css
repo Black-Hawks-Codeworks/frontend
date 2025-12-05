@@ -14,9 +14,6 @@ body {
   background-color: var(--neutral-silver);
   display: flex;
   min-height: 50vh;
-}
-.container {
-  display: flex;
   align-items: center;
   justify-content: center;
   gap: 80px;

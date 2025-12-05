@@ -6,9 +6,15 @@ const CustomFooter = () => {
       <div className={styles.footerCopyright1}>&#169; Electronics.com</div>
 
       <nav className={styles.footerNav}>
-        <a href='help'>Help</a>
-        <a href='donate'>Buy us a coffee</a>
-        <a href='donate'>Donate a finger</a>
+        <a href='https://github.com/Black-Hawks-Codeworks' target='_blank' rel='noreferrer'>
+          Github
+        </a>
+        <a href='https://www.linkedin.com/' target='_blank' rel='noreferrer'>
+          LinkedIn
+        </a>
+        <a href='https://www.athenspesta.gr/' target='_blank' rel='noreferrer'>
+          Donate a finger
+        </a>
       </nav>
 
       <div className={styles.footerCopyright2}>All rights reserved (2025)</div>
