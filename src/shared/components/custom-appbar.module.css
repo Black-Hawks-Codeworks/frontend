@@ -1,25 +1,19 @@
-:root {
-  --footer-height: 3vh;
-  --home-page-height: 89vh;
-  --app-bar-height: 8vh;
-}
-
 .appbar {
-  position: sticky;
-  height: var(--appbar-height);
+  justify-self: start;
+  align-self: center;
+  height: var(--app-bar-height);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #f2ecec;
-  color: white;
   padding: 1rem 1.2rem;
 }
 
 .appbar-logo {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #263238;
-  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .appbar-nav a {

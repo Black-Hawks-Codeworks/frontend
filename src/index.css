@@ -23,10 +23,8 @@
 /* Remove default margins and set base styles */
 body {
   margin: 0;
-  height: 100vh;
-  background-color: #f8fafc;
-  color: #1a202c;
-  line-height: 1.6;
+  background-color: var(--neutral-silver);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
