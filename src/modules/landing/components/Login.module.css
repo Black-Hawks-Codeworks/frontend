@@ -1,14 +1,14 @@
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  align-items: center;
+  gap: 10px;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0px;
 }
 
 label {
-  display: block;
+  display: grid;
   width: auto;
   text-align: left;
   margin-bottom: 0;
@@ -19,31 +19,36 @@ label {
 .form-input {
   display: block;
   width: 100%;
+  box-sizing: border-box;
 
-  padding: 12px 12px 12px 40px;
-  margin-top: 8px;
+  padding: 12px 6px 12px 44px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
   border: 1px solid var(--neutral-grey-light);
   border-radius: 6px;
-  transition: border-color 0.3s ease;
 
   background-repeat: no-repeat;
-  background-position: 10px center;
+  background-position: 12px center;
   background-size: 20px;
-  box-sizing: border-box;
 
-  &:focus {
-    border-color: var(--color-primary);
-    outline: none;
-  }
+  font-size: 12px;
+}
+
+form > :last-child {
+  margin-top: 5px;
+}
+.form-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
 }
 
 .form-input--user {
-  background-image: url('./icons/User.svg');
+  background-image: url('../../../assets/icons/user.svg');
 }
 
 .form-input--password {
-  background-image: url('./icons/Lock.svg');
+  background-image: url('../../../assets/icons/lock.svg');
 }
 
 .form-actions {
@@ -51,32 +56,6 @@ label {
   display: flex;
 }
 
-.btn-contained {
-  background-color: var(--color-primary);
-  color: var(--neutral-white);
-  border: none;
-  cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
-
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-}
-
-.btn-contained:hover {
-  background-color: var(--color-primary-shade-2);
-}
-
-.btn-contained:active {
-  background-color: var(--color-primary-dark);
-  transform: scale(0.98);
-}
-
-.btn-contained:focus {
-  outline: 3px solid var(--color-primary-light);
-  outline-offset: 2px;
+.btn-login {
+  font-size: 10px;
 }

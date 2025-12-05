@@ -1,50 +1,110 @@
-body{
+body {
   height: 100%;
-  margin:0;
+  margin: 0;
   overflow: hidden;
+  background-color: var(--neutral-white);
 }
 
-
 .container {
-  background-color: var(--color-primary-tint-5);
+  position: static;
+  display: grid;
+}
+
+.containertop {
+  background-color: var(--neutral-silver);
   display: flex;
-  min-height: 100vh;
+  min-height: 50vh;
   align-items: center;
   justify-content: center;
   gap: 80px;
-  padding: 60px;
+  padding-left: 100px;
 }
 
 .loginContainer {
   flex: 1;
   background-color: var(--neutral-white);
-  padding: 40px;
+  padding: 30px 50px 50px 50px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  box-shadow: var(--shadow-16);
+  max-width: 500px;
   box-sizing: border-box;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .textContainer {
   flex: 1;
-  max-width: 500px;
+  max-width: 920px;
   text-align: left;
+  padding-right: 200px;
+  gap: 1px;
 }
 
 .textContainer h1 {
   color: var(--color-primary-shade-2);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .textContainer p {
   color: var(--neutral-grey-dark);
-  margin-bottom: 8px;
-  line-height: 1.5;
+  margin-top: 20px;
+  margin-bottom: 4px;
+  line-height: 0.5px;
 }
 
+.textContainer h2 {
+  color: var(--neutral-black);
+  margin-top: 3px;
+  margin-bottom: 2px;
+}
 .horde {
   font-weight: 700;
   font-size: 18px;
   color: var(--color-error);
   margin-top: 16px;
+}
+
+.containerbottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 50px;
+  align-items: center;
+  padding: 24px 40px 1px 40px;
+  background-color: var(--neutral-white);
+  min-height: 35vh;
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.text2Container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: var(--shadow-16);
+  padding: 10px;
+}
+
+.containerbottom > div {
+  border-radius: 6px;
+  box-shadow: var(--shadow-16);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.containerbottom h2 {
+  margin: 0 0 12px; /* remove top margin so titles align */
+  color: var(--color-primary-shade-3);
+  margin-top: 5px;
+  text-align: center;
+}
+
+.containerbottom p {
+  margin: 0 0 10px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.header-xl {
+  color: var(--color-primary-shade-5);
 }
