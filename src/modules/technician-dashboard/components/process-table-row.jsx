@@ -23,7 +23,7 @@ export default function ProcessTableRow(props) {
       <span className={styles.cell}>{`${process.expectedCost}€`}</span>
       <span className={styles.cell}>{process.assignedTo}</span>
 
-      <span className={styles.cellIcons}>
+      <span className={`${styles.cell} ${styles.actionsCell}`}>
         <Icon name='Bell' size='md' />
         <Icon name='Right5' size='md' />
       </span>

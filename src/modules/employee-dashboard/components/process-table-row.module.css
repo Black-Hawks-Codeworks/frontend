@@ -1,55 +1,58 @@
+/* employee-process-table-row.module.css */
+
 .container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 90px 140px 120px 1fr 100px 120px 130px 160px 130px 100px 120px;
   align-items: center;
-  padding: 16px 32px;
+  padding: 16px 0;
   border-bottom: 1px solid var(--neutral-grey-blue);
 }
 
-.container:last-child {
-  border-bottom: none;
-}
-
-
 .cell {
-  flex: 1;
-  text-align: center;
+  padding: 8px 12px;
+  text-align: left;
   font-size: 14px;
   font-weight: 500;
   color: var(--neutral-grey-dark);
-  padding: 8px 16px;
   border-right: 1px solid var(--neutral-grey-blue);
+}
+
+/* Priority - κεντράρισμα */
+.cell:nth-child(5) {
+  text-align: center;
+}
+
+/* Status - κεντράρισμα */
+.cell:nth-child(7) {
+  text-align: center;
+}
+
+/* Expected Cost - κεντράρισμα */
+.cell:nth-child(10) {
+  text-align: center;
+}
+
+/* Actions - κεντράρισμα */
+.cell:nth-child(11) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .cell:last-child {
   border-right: none;
 }
 
-.cancelled {
-  color: var(--color-error);
-}
-.critical{
-  color: var(--color-error);
-}
-
-.completed {
-  color: var(--color-success);
-}
-.low{
-  color:var(--color-info);
-
-}
-.high{
-  color: var(--color-warning);
-}
-.medium{
-  color: var(--color-success);
-}
-
+/* Status colors */
 .inprogress {
   color: var(--color-warning);
 }
 
 .pending {
   color: var(--color-info);
+}
+
+.completed {
+  color: var(--color-success);
 }

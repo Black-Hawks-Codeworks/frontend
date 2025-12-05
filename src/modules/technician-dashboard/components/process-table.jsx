@@ -16,7 +16,7 @@ export default function ProcessTable(props) {
           <span>Description</span>
           <span>Status</span>
           <span>Created At</span>
-          <span>Expected Cost</span>
+          <span>Cost</span>
           <span>Assigned To</span>
           <span>Actions</span>
         </div>
