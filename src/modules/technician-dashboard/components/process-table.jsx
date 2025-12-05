@@ -2,6 +2,7 @@
 import styles from './process-table.module.css';
 import ProcessTableRow from './process-table-row';
 
+
 export default function ProcessTable(props) {
   const { data } = props;
 
