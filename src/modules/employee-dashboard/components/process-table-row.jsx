@@ -1,5 +1,5 @@
 import styles from './process-table-row.module.css';
-
+import Icon from '@/shared/icon';
 // utility function gia na kano format to date gia na einai euanagnosto
 // function formatDate(date) {
 //   return new Date(date).toLocaleDateString('el-GR', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -23,7 +23,12 @@ export default function ProcessTableRow(props) {
       <span className={styles.cell}>{process.assignedTo}</span>
       <span className={styles.cell}>{process.createdAt}</span>
       <span className={styles.cell}>{`${process.expectedCost}€`}</span>
-      <span className={styles.cell}>{process.actions}</span>
+      <span className={styles.cell}>
+        <span className={styles.cellIcons}>
+          <Icon name='Bell' size='md' />
+          <Icon name='Right5' size='md' />
+        </span>
+      </span>
     </div>
   );
 }
