@@ -79,3 +79,31 @@
   border-radius: 4px;
   background: var(--neutral-silver);
 }
+
+.btn-outlined-icon {
+  background: none;
+  border: 1px solid var(--neutral-grey-blue);
+  cursor: pointer;
+  padding: 8px;
+  margin: 0;
+  border-radius: 4000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--neutral-grey-dark);
+}
+
+.btn-outlined-icon:hover {
+  background: var(--neutral-silver);
+}
+
+.btn-outlined-icon:active {
+  background: var(--neutral-silver);
+  transform: scale(0.98);
+}
+
+.btn-outlined-icon:disabled {
+  background: var(--neutral-silver);
+  cursor: not-allowed;
+}

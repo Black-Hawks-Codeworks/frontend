@@ -7,6 +7,7 @@ import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-pag
 import TechnicianDashboardPage from '@/modules/technician-dashboard/technician-dashboard-page';
 import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboard-page';
 import ReturnFormPage from '@/modules/return-form/return-form-page';
+import ProcessDetailsModal from '@/shared/components/process-details-modal';
 
 export const createRouter = () => {
   return createBrowserRouter([
@@ -70,7 +71,7 @@ export const createRouter = () => {
               element: (
                 <ProtectedRouteLogin requireLogin>
                   <ProtectedRouteRole requiredRole='employee'>
-                    <div>Employee Process Details Modal</div>
+                    <ProcessDetailsModal />
                   </ProtectedRouteRole>
                 </ProtectedRouteLogin>
               ),

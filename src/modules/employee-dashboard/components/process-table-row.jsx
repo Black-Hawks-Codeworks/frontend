@@ -1,5 +1,6 @@
 import styles from './process-table-row.module.css';
 import Icon from '@/shared/icon';
+import { useNavigate } from 'react-router-dom';
 // utility function gia na kano format to date gia na einai euanagnosto
 // function formatDate(date) {
 //   return new Date(date).toLocaleDateString('el-GR', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -7,6 +8,7 @@ import Icon from '@/shared/icon';
 
 export default function ProcessTableRow(props) {
   const { process } = props;
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <span className={styles.cell}>{process.processId}</span>
@@ -24,10 +26,13 @@ export default function ProcessTableRow(props) {
       <span className={styles.cell}>{process.createdAt}</span>
       <span className={styles.cell}>{`${process.expectedCost}€`}</span>
       <span className={styles.cell}>
-        <span className={styles.cellIcons}>
+        {/* to span einai gia keimeno div gia koutaki */}
+        <div className={styles.cellIcons}>
           <Icon name='Bell' size='md' />
-          <Icon name='Right5' size='md' />
-        </span>
+          <button className='btn-outlined-icon' onClick={() => navigate(`${process.processId}`)}>
+            <Icon name='Right5' size='md' />
+          </button>
+        </div>
       </span>
     </div>
   );
