@@ -60,7 +60,7 @@ export const createRouter = () => {
           element: (
             <ProtectedRouteLogin requireLogin>
               <ProtectedRouteRole requiredRole='employee'>
-                <div>Employee Dashboard Page</div>
+                <EmployeeDashboardPage />
               </ProtectedRouteRole>
             </ProtectedRouteLogin>
           ),
@@ -70,7 +70,7 @@ export const createRouter = () => {
               element: (
                 <ProtectedRouteLogin requireLogin>
                   <ProtectedRouteRole requiredRole='employee'>
-                    <EmployeeDashboardPage />
+                    <div>Employee Process Details Modal</div>
                   </ProtectedRouteRole>
                 </ProtectedRouteLogin>
               ),
