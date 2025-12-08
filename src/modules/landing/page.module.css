@@ -1,7 +1,7 @@
 body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-y: auto; /** επιτρέπει κάθετο scroll όταν το περιεχόμενο δεν χωράει */
   background-color: var(--neutral-white);
 }
 
