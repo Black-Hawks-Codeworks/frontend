@@ -35,3 +35,57 @@
 .footer-nav a:hover {
   text-decoration: underline;
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 12px 24px;
+  }
+
+  .footer-copyright1 {
+    font-size: 1rem;
+  }
+
+  .footer-copyright2 {
+    font-size: 0.75rem;
+  }
+
+  .footer-nav a {
+    margin: 0 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/*Κινητό */
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;      /* από οριζόντιο σε κάθετο */
+    align-items: center;
+    justify-content: center;
+    height: auto;                
+    padding: 16px;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .footer-copyright1 {
+    font-size: 0.95rem;
+  }
+
+  .footer-copyright2 {
+    font-size: 0.7rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer-nav a {
+    margin: 0;
+    font-size: 0.8rem;
+    padding-left: 0;
+  }
+}

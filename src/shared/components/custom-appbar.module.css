@@ -47,3 +47,41 @@
 .appbar-actions button:hover {
   background-color: #bcbec3;
 }
+
+/*Tablet και μικρά laptops */
+@media (max-width: 1024px) {
+  .appbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .appbar-nav a {
+    margin: 0 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .appbar-actions button {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+/*Κινητά */
+@media (max-width: 600px) {
+  .appbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    height: auto; 
+  }
+
+  .appbar-nav a {
+    display: inline-block;
+    margin: 0.2rem 0.4rem;
+    font-size: 0.85rem;  /* μικρότερα γράμματα σε κινητό */
+  }
+
+  .appbar-actions button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
