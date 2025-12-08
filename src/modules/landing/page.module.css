@@ -108,3 +108,50 @@ body {
 .header-xl {
   color: var(--color-primary-shade-5);
 }
+
+/* tablet & μικρά laptops */
+@media (max-width: 1024px) {
+  .containertop {
+    padding-left: 40px;
+    gap: 40px;
+  }
+
+  .textContainer {
+    padding-right: 40px;
+  }
+
+  .containerbottom {
+    grid-template-columns: 1fr 1fr; /* από 3 κολώνες σε 2 */
+    column-gap: 24px;
+    padding: 20px;
+  }
+}
+
+/* κινητά */
+@media (max-width: 600px) {
+  .containertop {
+    flex-direction: column;       /* login πάνω, κείμενο κάτω */
+    padding: 20px;
+    gap: 24px;
+  }
+
+  .loginContainer {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .textContainer {
+    max-width: 100%;
+    padding-right: 0;
+    text-align: center;           /* στο κέντρο σε κινητό */
+  }
+
+  .containerbottom {
+    grid-template-columns: 1fr;   /* μία στήλη */
+    row-gap: 16px;
+    column-gap: 0;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+}
