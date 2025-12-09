@@ -1,0 +1,23 @@
+.container {
+  position: fixed;
+  bottom: 50%;
+  right: 120px;
+  width: 260px;
+  height: 220px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-white);
+  box-shadow: var(--shadow-16);
+}
+
+.closeButton {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--neutral-grey);
+  width: 40px;
+  height: 220px;
+  border: none;
+  cursor: pointer;
+}
