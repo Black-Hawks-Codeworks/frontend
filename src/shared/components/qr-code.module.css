@@ -32,6 +32,8 @@
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-16);
+  background-color: var(--neutral-white);
+  z-index: 1000;
 }
 
 .closeButton {

@@ -12,6 +12,8 @@ export default function QrCode() {
   useEffect(() => {
     if (match) {
       setIsOpen(true);
+    } else {
+      setIsOpen(false);
     }
   }, [match]);
   // console.log(match);
