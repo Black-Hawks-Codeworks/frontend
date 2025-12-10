@@ -1,0 +1,45 @@
+.containerOpen {
+  /* etsi vazoume animation */
+  /* na einai sti thesi 0 se 0.3 sec gia otan anoigei */
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+  /* na 'alaxei' to X se 0.3 sec  */
+  position: fixed;
+  bottom: 50%;
+  right: 120px;
+  width: 260px;
+  height: 220px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-white);
+  box-shadow: var(--shadow-16);
+}
+
+.containerClosed {
+  /* na einai sti thesi 340px se 0.3 sec gia otan kleisei */
+  transform: translateX(340px);
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  bottom: 50%;
+  right: 120px;
+  width: 260px;
+  height: 220px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-white);
+  box-shadow: var(--shadow-16);
+}
+
+.closeButton {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--neutral-grey);
+  width: 40px;
+  height: 220px;
+  border: none;
+  cursor: pointer;
+}
