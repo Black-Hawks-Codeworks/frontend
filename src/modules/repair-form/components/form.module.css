@@ -1,0 +1,36 @@
+.form {
+  /*border: 2px solid black;*/
+  display: flex;
+  flex-direction: column;
+}
+.form p {
+  margin-bottom: 20px;
+}
+.row {
+  display: flex;
+  margin-bottom: 30px;
+}
+.row label {
+  width: 30%;
+  font-weight: 600;
+}
+.row input,
+.row textarea,
+.row select {
+  width: 70%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.row input[type='file'] {
+  padding: 0;
+}
+
+.smallBtn {
+  border-radius: 8px;
+  font-size: 0.9rem;
+  width: 35%;
+  display: block;
+  margin: 0 auto;
+}
