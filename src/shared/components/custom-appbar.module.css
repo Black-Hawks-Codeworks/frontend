@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(196, 196, 195);
+  background-color: var(--color-primary-tint-5);
   padding: 1rem 1.2rem;
 }
 
@@ -71,13 +71,13 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    height: auto; 
+    height: auto;
   }
 
   .appbar-nav a {
     display: inline-block;
     margin: 0.2rem 0.4rem;
-    font-size: 0.85rem;  /* μικρότερα γράμματα σε κινητό */
+    font-size: 0.85rem; /* μικρότερα γράμματα σε κινητό */
   }
 
   .appbar-actions button {
