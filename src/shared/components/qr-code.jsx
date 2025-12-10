@@ -7,11 +7,11 @@ export default function QrCode() {
   const url = 'https://dev.ohi-stin-camunda-nai-ston-erota.site/';
 
   return (
-    <div className={styles.container}>
+    <div className={isOpen ? styles.containerOpen : styles.containerClosed}>
       <button className={styles.closeButton} onClick={() => setIsOpen(!isOpen)}>
-        {'>'}
+        {isOpen ? '>' : '<'}
       </button>
-      {isOpen ? <QRCodeSVG value={url} size={220} level='H' /> : null}
+      <QRCodeSVG value={url} size={220} level='H' />
     </div>
   );
 }
