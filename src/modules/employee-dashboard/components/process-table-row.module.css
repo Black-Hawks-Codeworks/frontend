@@ -9,31 +9,16 @@
 
 .container {
   /*Adjust According to the table */
-  grid-template-columns: 90px 140px 120px 1fr 100px 120px 130px 160px 130px 100px 120px;
+  grid-template-columns: 100px 90px 110px 150px 90px 130px 350px 110px 150px 100px 224px 100px;
 }
 
 .cell {
   padding: 8px 12px;
-  text-align: left;
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
   color: var(--neutral-grey-dark);
   border-right: 1px solid var(--neutral-grey-blue);
-}
-
-/* Priority - κεντράρισμα */
-.cell:nth-child(5) {
-  text-align: center;
-}
-
-/* Status - κεντράρισμα */
-.cell:nth-child(7) {
-  text-align: center;
-}
-
-/* Expected Cost - κεντράρισμα */
-.cell:nth-child(10) {
-  text-align: center;
 }
 
 /* Actions - κεντράρισμα */
@@ -66,4 +51,5 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  margin-left: px;
 }

@@ -1,15 +1,17 @@
 .process-table-container {
-  width: auto;
+  width: 100%;
   border: 1px solid var(--neutral-grey-blue);
   padding: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
   border-radius: 8px;
   max-height: 65vh;
+  max-width: 85vw;
   overflow-y: auto;
   background: white;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .process-table-header {
@@ -25,12 +27,13 @@
 }
 
 .process-table-header span {
-  padding: 8px 12px;
-  text-align: left;
+  padding: 8px 2px;
+  text-align: center;
   font-size: 14px;
   color: var(--neutral-grey-dark);
   border-right: 1px solid var(--neutral-grey-blue);
-  white-space: nowrap;
+  width: 100%;
+  align-items: center;
 }
 
 .processTable {
@@ -61,18 +64,13 @@
 
 .process-table-header {
   /*Adjust According to each table */
-  grid-template-columns: 90px 140px 120px 1fr 100px 120px 130px 160px 130px 100px 120px;
+  grid-template-columns: 100px 90px 110px 150px 90px 130px 350px 110px 150px 100px 124px 100px;
 }
-.process-table-header span:last-child {
-  border-right: none;
+/* center-alignment for specif fields. Adjust According to each table */
+.process-table-header span {
+  text-align: center;
 }
 
-/* center-alignment for specif fields. Adjust According to each table */
-.process-table-header span:nth-child(2),
-.process-table-header span:nth-child(4),
-.process-table-header span:nth-child(5),
-.process-table-header span:nth-child(7),
-.process-table-header span:nth-child(10),
-.process-table-header span:nth-child(11) {
-  text-align: center;
+.process-table-header :last-child {
+  border-right: 0px;
 }
