@@ -94,7 +94,7 @@ export const createRouter = () => {
               element: (
                 <ProtectedRouteLogin requireLogin>
                   <ProtectedRouteRole requiredRole='technician'>
-                    <div>Process Details Modal</div>
+                    <ProcessDetailsModal />
                   </ProtectedRouteRole>
                 </ProtectedRouteLogin>
               ),
