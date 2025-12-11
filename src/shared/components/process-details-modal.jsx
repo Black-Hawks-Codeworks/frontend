@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './process-details-modal.module.css';
 import { data } from '@/modules/technician-dashboard/mock-data';
+import Icon from '@/shared/icon';
 
 export default function ProcessDetailsModal() {
   const { processId } = useParams();
@@ -27,6 +28,13 @@ export default function ProcessDetailsModal() {
     READY: 'Ready',
   };
 
+  const STAGE_ICON = {
+    RECEIVED: 'DocumentAdd',
+    DIAGNOSIS: 'Search1',
+    REPAIR: 'Eye',
+    READY: 'Upload2',
+  };
+
   const [stage, setStage] = useState(process?.returnStage ?? 'RECEIVED');
 
   useEffect(() => {
@@ -41,40 +49,37 @@ export default function ProcessDetailsModal() {
   return (
     <dialog open className={styles.processDetailsModal}>
       <div className={styles.modalContent}>
-        <button className={styles.closeBtn} onClick={close}>X</button>
+        <button className={styles.closeBtn} onClick={close}>
+          X
+        </button>
 
         {!process ? (
           <div>Process Not found : id {processId}</div>
         ) : (
           <>
-            <h1>
-              #{process.processId} — {process.product}
+            <h1 className='header-lg text-color-grey'>
+              ProcessID: ({process.processId}) - {process.product}
             </h1>
 
             {/* status circles */}
-            <div style={{ display: 'flex', gap: 12, margin: '12px 0' }}>
+            <div className={styles.circlesContainer}>
               {STAGES.map((s, i) => {
-                const color = i < activeIndex ? '#16a34a' : i === activeIndex ? '#2563eb' : '#cbd5e1';
+                const stateClass =
+                  i < activeIndex ? styles.dotDone : i === activeIndex ? styles.dotActive : styles.dotTodo;
 
                 return (
-                  <div key={s} style={{ textAlign: 'center', width: 90 }}>
-                    <div
-                      style={{
-                        width: 10,
-                        height: 10,
-                        borderRadius: 999,
-                        background: color,
-                        margin: '0 auto 6px auto',
-                      }}
-                    />
-                    <div style={{ fontSize: 12 }}>{LABELS[s]}</div>
+                  <div key={s} className={styles.stageItem}>
+                    <div className={`${styles.dot} ${stateClass}`}>
+                      <Icon name={STAGE_ICON[s]} size='md' />
+                    </div>
+                    <div className={styles.stageLabel}>{LABELS[s]}</div>
                   </div>
                 );
               })}
             </div>
 
             {/* upodoxh gia texniko */}
-            <label>
+            <label className={styles.label}>
               Change Status:
               <select value={stage} onChange={(e) => setStage(e.target.value)}>
                 {STAGES.map((s) => (
@@ -85,8 +90,11 @@ export default function ProcessDetailsModal() {
               </select>
             </label>
 
-            <p>Description : {process.description}</p>
-            <p>Status: {process.status}</p>
+            <p>
+              <strong>Description : </strong>
+              {process.description}
+            </p>
+            
           </>
         )}
       </div>
