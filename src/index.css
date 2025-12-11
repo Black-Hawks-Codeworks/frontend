@@ -20,6 +20,12 @@
   font-family: var(--primary-font);
 }
 
+html,
+body {
+  overflow-y: auto;
+  height: auto;
+}
+
 /* Remove default margins and set base styles */
 body {
   margin: 0;
