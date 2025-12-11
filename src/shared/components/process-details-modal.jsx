@@ -4,21 +4,21 @@ import styles from './process-details-modal.module.css';
 import { data } from '@/modules/technician-dashboard/mock-data';
 import Icon from '@/shared/icon';
 
-export default function ProcessDetailsModal() {
-  const { processId } = useParams();
-  const navigate = useNavigate();
-
   //pernoume to processId apo to url
   // hrisimopoiisete gia na anoigei to modal me open={Boolean(processId)
   // hrisimopoiise to gia na kaneis search mesa sto dummy data kai na vreis to sosto process
   //kane navigate sto /employee-dashboard/ gia na to kleiseis
   //vale X svg button gia na to kleiseis
 
+export default function ProcessDetailsModal({ processes }) {
+  const { processId } = useParams();
+  const navigate = useNavigate();
+
   const process = useMemo(() => {
     if (!processId) return null;
     const id = Number(processId);
-    return data.find((p) => p.processId === id) ?? null;
-  }, [processId]);
+    return processes.find((p) => p.processId === id) ?? null;
+  }, [processId, processes]);
 
   const STAGES = ['RECEIVED', 'DIAGNOSIS', 'REPAIR', 'READY'];
   const LABELS = {
@@ -94,7 +94,6 @@ export default function ProcessDetailsModal() {
               <strong>Description : </strong>
               {process.description}
             </p>
-            
           </>
         )}
       </div>

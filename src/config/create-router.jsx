@@ -9,6 +9,9 @@ import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboa
 import ReturnFormPage from '@/modules/return-form/return-form-page';
 import ProcessDetailsModal from '@/shared/components/process-details-modal';
 
+import { data as technicianData } from '@/modules/technician-dashboard/mock-data';
+import { data as employeeData } from '@/modules/employee-dashboard/mock-data';
+
 export const createRouter = () => {
   return createBrowserRouter([
     {
@@ -71,7 +74,7 @@ export const createRouter = () => {
               element: (
                 <ProtectedRouteLogin requireLogin>
                   <ProtectedRouteRole requiredRole='employee'>
-                    <ProcessDetailsModal />
+                    <ProcessDetailsModal processes={employeeData} />
                   </ProtectedRouteRole>
                 </ProtectedRouteLogin>
               ),
@@ -94,7 +97,7 @@ export const createRouter = () => {
               element: (
                 <ProtectedRouteLogin requireLogin>
                   <ProtectedRouteRole requiredRole='technician'>
-                    <ProcessDetailsModal />
+                    <ProcessDetailsModal processes={technicianData} />
                   </ProtectedRouteRole>
                 </ProtectedRouteLogin>
               ),
