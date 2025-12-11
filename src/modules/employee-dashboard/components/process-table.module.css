@@ -1,40 +1,19 @@
 .process-table-container {
-  width: 100%;
+  width: auto;
   border: 1px solid var(--neutral-grey-blue);
-  padding: 25px;
-  margin: 20px 0;
+  padding: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 8px;
-  max-height: 70vh;
+  max-height: 65vh;
   overflow-y: auto;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.processTable {
-  width: 100%;
-}
-
-.process-table-container::-webkit-scrollbar {
-  width: 10px;
-}
-
-.process-table-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.process-table-container::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-.process-table-container::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .process-table-header {
   display: grid;
-  grid-template-columns: 90px 140px 120px 1fr 100px 120px 130px 160px 130px 100px 120px;
   align-items: center;
   padding: 16px 0;
   border-bottom: 2px solid var(--neutral-grey-blue);
@@ -54,11 +33,41 @@
   white-space: nowrap;
 }
 
+.processTable {
+  width: 100%;
+}
+
+.process-table-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.process-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.process-table-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.process-table-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.process-table :hover {
+  background-color: var(--neutral-silver);
+}
+
+.process-table-header {
+  /*Adjust According to each table */
+  grid-template-columns: 90px 140px 120px 1fr 100px 120px 130px 160px 130px 100px 120px;
+}
 .process-table-header span:last-child {
   border-right: none;
 }
 
-/* kentrarisma gia Product, issue Priority, Status, Cost, Actions */
+/* center-alignment for specif fields. Adjust According to each table */
 .process-table-header span:nth-child(2),
 .process-table-header span:nth-child(4),
 .process-table-header span:nth-child(5),
