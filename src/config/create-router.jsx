@@ -8,6 +8,7 @@ import TechnicianDashboardPage from '@/modules/technician-dashboard/technician-d
 import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboard-page';
 import ReturnFormPage from '@/modules/return-form/return-form-page';
 import ProcessDetailsModal from '@/shared/components/process-details-modal';
+import AboutPage from '../modules/about-page/about-page';
 
 export const createRouter = () => {
   return createBrowserRouter([
@@ -116,7 +117,7 @@ export const createRouter = () => {
           path: '/about',
           element: (
             <ProtectedRouteLogin requireLogin>
-              <div>About Page</div>
+              <AboutPage />
             </ProtectedRouteLogin>
           ),
         },
