@@ -1,15 +1,13 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ImageCarousel from './image-carousel';
 import InfoPopup from './info-popup';
-import { FaLinkedin } from 'react-icons/fa';
-import { FaGithub } from 'react-icons/fa';
-import { useState } from 'react';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { RiNotionFill } from 'react-icons/ri';
 
 const AboutPage = () => {
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = React.useState(false);
   return (
     <div className='container'>
       <div className='row text-center mb-4'>
@@ -45,13 +43,6 @@ const AboutPage = () => {
                 style={{ textDecoration: 'underline', color: 'black' }}>
                 <FaGithub style={{ width: '70px', height: '70px' }} />
               </Button>
-              {/*               <a href='https://github.com/Black-Hawks-Codeworks/frontend' target='_blank' rel='noopener noreferrer'>
-                <img
-                  src='src/assets/images/github.png'
-                  style={{ height: '60px', width: '60px' }}
-                  alt='Εικόνα συνδέσμου προς GitHub'
-                />
-              </a> */}
             </li>
             <li>
               <Button
@@ -61,16 +52,6 @@ const AboutPage = () => {
                 style={{ textDecoration: 'underline', color: 'black' }}>
                 <RiNotionFill style={{ width: '70px', height: '70px' }} />
               </Button>
-              {/*               <a
-                href='https://www.notion.so/CAPSTONE-PROJECT-BlackHawks-29957318d7e8804193bcda91e31ff7d4'
-                target='_blank'
-                rel='noopener noreferrer'>
-                <img
-                  src='src/assets/images/notion.png'
-                  style={{ height: '60px', width: '60px' }}
-                  alt='Εικόνα συνδέσμου προς Notion'
-                />
-              </a> */}
             </li>
           </ul>
         </div>
