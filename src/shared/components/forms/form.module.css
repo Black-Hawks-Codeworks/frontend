@@ -1,0 +1,50 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background-color: var(--neutral-white);
+  height: 60vh;
+}
+.form p {
+  margin-bottom: 20px;
+  color: var(--color-primary-shade-2);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: left;
+}
+.row {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.row label {
+  font-weight: 600;
+  color: var(--neutral-grey-dark);
+}
+.row input,
+.row textarea,
+.row select {
+  color: var(--neutral-grey-dark);
+  width: 250px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.row input[type='file'] {
+  padding: 10px;
+}
+
+.smallBtn {
+  border-radius: 8px;
+  font-size: 0.9rem;
+  width: 35%;
+  display: block;
+  margin: 0 auto;
+}

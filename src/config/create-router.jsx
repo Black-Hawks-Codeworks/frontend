@@ -6,7 +6,8 @@ import Layout from '@/shared/components/layout';
 import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 import TechnicianDashboardPage from '@/modules/technician-dashboard/technician-dashboard-page';
 import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboard-page';
-import ReturnFormPage from '@/modules/return-form/return-form-page';
+import ReturnFormPage from '@/modules/return-form/return-page';
+import RepairFormPage from '../modules/repair-form/repair-page';
 import ProcessDetailsModal from '@/shared/components/process-details-modal';
 
 export const createRouter = () => {
@@ -50,7 +51,7 @@ export const createRouter = () => {
           element: (
             <ProtectedRouteLogin requireLogin>
               <ProtectedRouteRole requiredRole='client'>
-                <div>Repair Page</div>
+                <RepairFormPage />
               </ProtectedRouteRole>
             </ProtectedRouteLogin>
           ),
