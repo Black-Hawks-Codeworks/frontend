@@ -17,7 +17,7 @@
 .process-table-header {
   display: grid;
   align-items: center;
-  padding: 16px 0;
+  padding: 16px 10px;
   border-bottom: 2px solid var(--neutral-grey-blue);
   font-weight: 700;
   background: #f8f9fa;
@@ -27,11 +27,11 @@
 }
 
 .process-table-header span {
-  padding: 8px 2px;
+  padding: 8px 0px;
   text-align: center;
   font-size: 14px;
   color: var(--neutral-grey-dark);
-  border-right: 1px solid var(--neutral-grey-blue);
+  border-right: 2px;
   width: 100%;
   align-items: center;
 }
@@ -64,8 +64,20 @@
 
 .process-table-header {
   /*Adjust According to each table */
-  grid-template-columns: 100px 90px 110px 150px 90px 130px 350px 110px 150px 100px 124px 100px;
+  grid-template-columns:
+    minmax(60px, 0.6fr)
+    minmax(80px, 0.8fr)
+    minmax(80px, 0.8fr)
+    minmax(100px, 1fr)
+    minmax(100px, 1fr)
+    minmax(190px, 1.9fr)
+    minmax(60px, 0.6fr)
+    minmax(90px, 0.9fr)
+    minmax(60px, 0.6fr)
+    minmax(110px, 0.9fr)
+    minmax(80px, 1fr);
 }
+
 /* center-alignment for specif fields. Adjust According to each table */
 .process-table-header span {
   text-align: center;

@@ -9,6 +9,8 @@ export const data = [
     expectedCost: 250,
     assignedTo: 'Παπαδόπουλος Ν.',
     actions: 'View Details',
+    isDamaged: 'True',
+    warranty: 'True',
   },
   {
     processId: 2,
@@ -20,6 +22,8 @@ export const data = [
     expectedCost: 180,
     assignedTo: 'Νικολάου Γ.',
     actions: 'View Details',
+    isDamaged: 'True',
+    warranty: 'False',
   },
   {
     processId: 3,
@@ -31,6 +35,8 @@ export const data = [
     expectedCost: 320,
     assignedTo: 'Καραγιάννη Μ.',
     actions: 'View Details',
+    isDamaged: 'True',
+    warranty: 'True',
   },
   {
     processId: 4,
@@ -42,6 +48,8 @@ export const data = [
     expectedCost: 75,
     assignedTo: 'Παπαδόπουλος Ν.',
     actions: 'View Details',
+    isDamaged: 'False',
+    warranty: 'True',
   },
   {
     processId: 5,
@@ -53,6 +61,8 @@ export const data = [
     expectedCost: 140,
     assignedTo: 'Νικολάου Γ.',
     actions: 'View Details',
+    isDamaged: 'True',
+    warranty: 'True',
   },
   {
     processId: 6,
@@ -64,6 +74,8 @@ export const data = [
     expectedCost: 150,
     assignedTo: 'Καραγιάννη Μ.',
     actions: 'View Details',
+    isDamaged: 'False',
+    warranty: 'False',
   },
   {
     processId: 7,
@@ -75,6 +87,8 @@ export const data = [
     expectedCost: 95,
     assignedTo: 'Παπαδόπουλος Ν.',
     actions: 'View Details',
+    isDamaged: 'True',
+    warranty: 'False',
   },
   {
     processId: 8,
@@ -86,6 +100,8 @@ export const data = [
     expectedCost: 110,
     assignedTo: 'Νικολάου Γ.',
     actions: 'View Details',
+    isDamaged: 'False',
+    warranty: 'True',
   },
   {
     processId: 9,
@@ -97,6 +113,8 @@ export const data = [
     expectedCost: 160,
     assignedTo: 'Καραγιάννη Μ.',
     actions: 'View Details',
+    isDamaged: 'False',
+    warranty: 'True',
   },
   {
     processId: 10,
@@ -108,5 +126,7 @@ export const data = [
     expectedCost: 135,
     assignedTo: 'Παπαδόπουλος Ν.',
     actions: 'View Details',
+    isDamaged: 'True',
+    warranty: 'False',
   },
 ];

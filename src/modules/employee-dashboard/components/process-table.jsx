@@ -13,12 +13,11 @@ export default function ProcessTable(props) {
           <span>Status</span>
           <span>Customer ID</span>
           <span>Customer Name</span>
-          <span>Device Id</span>
-          <span>Device Name</span>
+          <span>Device </span>
           <span>Description</span>
           <span> Αssignee Id</span>
           <span> Αssignee Name</span>
-          <span>Refund Ammount</span>
+          <span>Refund </span>
           <span> Created at</span>
           <span>Actions</span>
         </div>
