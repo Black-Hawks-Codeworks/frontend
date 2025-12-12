@@ -22,7 +22,11 @@ export const data = [
     expectedCost: 180,
     assignedTo: 'Καραγιάννη Μ.',
     actions: 'View Details',
-    notifications: [],
+    notifications: [
+      {},
+      {},
+      {}
+    ],
     returnStage: 'DIAGNOSIS',
   },
   {

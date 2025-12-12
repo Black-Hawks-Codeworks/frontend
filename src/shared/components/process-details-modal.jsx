@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styles from './process-details-modal.module.css';
 import { data } from '@/modules/technician-dashboard/mock-data';
 import Icon from '@/shared/icon';
+import { object } from 'prop-types';
 
   //pernoume to processId apo to url
   // hrisimopoiisete gia na anoigei to modal me open={Boolean(processId)
@@ -26,7 +27,10 @@ export default function ProcessDetailsModal({ processes }) {
     DIAGNOSIS: 'Diagnosis',
     REPAIR: 'Repairing',
     READY: 'Ready',
+
   };
+
+
 
   const STAGE_ICON = {
     RECEIVED: 'DocumentAdd',
@@ -49,8 +53,8 @@ export default function ProcessDetailsModal({ processes }) {
   return (
     <dialog open className={styles.processDetailsModal}>
       <div className={styles.modalContent}>
-        <button className={styles.closeBtn} onClick={close}>
-          X
+        <button className={`${styles.closeBtn} btn-outlined-icon`} onClick={close}>
+          <Icon name="Close1" size="md"/>
         </button>
 
         {!process ? (
