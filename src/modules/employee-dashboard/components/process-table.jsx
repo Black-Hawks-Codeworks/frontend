@@ -9,16 +9,16 @@ export default function ProcessTable(props) {
     <div className={`${styles.processTableContainer} card-elevation-1`}>
       <div className={styles.processTable}>
         <div className={styles.processTableHeader}>
-          <span>Process ID</span>
-          <span>Product</span>
-          <span>Customer ID</span>
-          <span>Issue</span>
-          <span>Priority</span>
-          <span>Waiting Time</span>
+          <span>Return Id</span>
           <span>Status</span>
-          <span>Assigned To</span>
-          <span>Created At</span>
-          <span>Cost</span>
+          <span>Customer ID</span>
+          <span>Customer Name</span>
+          <span>Device </span>
+          <span>Description</span>
+          <span> Αssignee Id</span>
+          <span> Αssignee Name</span>
+          <span>Refund </span>
+          <span> Created at</span>
           <span>Actions</span>
         </div>
 

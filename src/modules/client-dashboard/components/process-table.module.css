@@ -1,28 +1,88 @@
 .process-table-container {
   width: 100%;
-  border-collapse: collapse;
   border: 1px solid var(--neutral-grey-blue);
+  padding: 0px;
+  border-radius: 8px;
+  max-height: 65vh;
+  max-width: 85vw;
+  overflow-y: auto;
+  background: white;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .process-table-header {
-  display: flex;
-  flex-direction: row;
+  display: grid;
   align-items: center;
-  padding: 16px 32px;
-  border-bottom: 1px solid var(--neutral-grey-blue);
+  padding: 16px 10px;
+  border-bottom: 2px solid var(--neutral-grey-blue);
+  font-weight: 700;
+  background: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-/* den dimiourgo cell class simadeuo ta span(epilogi...) */
 .process-table-header span {
-  flex: 1;
+  padding: 8px 0px;
   text-align: center;
   font-size: 14px;
-  font-weight: 700;
   color: var(--neutral-grey-dark);
-  padding: 8px 16px;
-  border-right: 1px solid var(--neutral-grey-blue);
+  border-right: 2px;
+  width: 100%;
+  align-items: center;
 }
 
-.process-table-header span:last-child {
-  border-right: none;
+.processTable {
+  width: 100%;
+}
+
+.process-table-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.process-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.process-table-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.process-table-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.process-table :hover {
+  background-color: var(--neutral-silver);
+}
+
+.process-table-header {
+  /*Adjust According to each table */
+  grid-template-columns:
+    minmax(60px, 0.6fr)
+    minmax(80px, 0.8fr)
+    minmax(80px, 0.8fr)
+    minmax(100px, 1fr)
+    minmax(100px, 1fr)
+    minmax(190px, 1.9fr)
+    minmax(60px, 0.6fr)
+    minmax(90px, 0.9fr)
+    minmax(60px, 0.6fr)
+    minmax(110px, 0.9fr)
+    minmax(10px, 0.1fr);
+}
+
+/* center-alignment for specif fields. Adjust According to each table */
+.process-table-header span {
+  text-align: center;
+}
+
+.process-table-header :last-child {
+  border-right: 0px;
 }

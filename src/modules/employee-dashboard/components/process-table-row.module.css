@@ -1,43 +1,35 @@
-/* employee-process-table-row.module.css */
-
 .container {
   display: grid;
-  grid-template-columns: 90px 140px 120px 1fr 100px 120px 130px 160px 130px 100px 120px;
   align-items: center;
-  padding: 16px 0;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--neutral-grey-blue);
+  width: 100%;
+}
+
+/* Ensure the column gets enough room responsively */
+.container {
+  grid-template-columns:
+    minmax(60px, 0.6fr)
+    minmax(80px, 0.8fr)
+    minmax(80px, 0.8fr)
+    minmax(100px, 1fr)
+    minmax(100px, 1fr)
+    minmax(190px, 1.9fr)
+    minmax(60px, 0.6fr)
+    minmax(90px, 0.9fr)
+    minmax(60px, 0.6fr)
+    minmax(110px, 0.9fr)
+    minmax(80px, 1fr);
 }
 
 .cell {
-  padding: 8px 12px;
-  text-align: left;
+  padding: 8px 0px;
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
   color: var(--neutral-grey-dark);
-  border-right: 1px solid var(--neutral-grey-blue);
-}
-
-/* Priority - κεντράρισμα */
-.cell:nth-child(5) {
-  text-align: center;
-}
-
-/* Status - κεντράρισμα */
-.cell:nth-child(7) {
-  text-align: center;
-}
-
-/* Expected Cost - κεντράρισμα */
-.cell:nth-child(10) {
-  text-align: center;
-}
-
-/* Actions - κεντράρισμα */
-.cell:nth-child(11) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+  border-right: 2px;
+  width: 100%;
 }
 
 .cell:last-child {
@@ -48,11 +40,9 @@
 .inprogress {
   color: var(--color-warning);
 }
-
 .pending {
   color: var(--color-info);
 }
-
 .completed {
   color: var(--color-success);
 }
@@ -61,5 +51,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: px;
+}
+
+.cell.createdAt {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* or space-between */
   gap: 8px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.cell.createdAt .date {
+  flex: 0 0 auto; /* don't shrink the date */
+  min-width: 0; /* allow ellipsis if needed */
 }

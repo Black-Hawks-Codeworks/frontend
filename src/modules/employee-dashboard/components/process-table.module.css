@@ -1,13 +1,39 @@
 .process-table-container {
   width: 100%;
   border: 1px solid var(--neutral-grey-blue);
-  padding: 25px;
-  margin: 20px 0;
+  padding: 0px;
   border-radius: 8px;
-  max-height: 70vh;
+  max-height: 65vh;
+  max-width: 85vw;
   overflow-y: auto;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.process-table-header {
+  display: grid;
+  align-items: center;
+  padding: 16px 10px;
+  border-bottom: 2px solid var(--neutral-grey-blue);
+  font-weight: 700;
+  background: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.process-table-header span {
+  padding: 8px 0px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--neutral-grey-dark);
+  border-right: 2px;
+  width: 100%;
+  align-items: center;
 }
 
 .processTable {
@@ -15,7 +41,7 @@
 }
 
 .process-table-container::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 .process-table-container::-webkit-scrollbar-track {
@@ -32,38 +58,31 @@
   background: #555;
 }
 
+.process-table :hover {
+  background-color: var(--neutral-silver);
+}
+
 .process-table-header {
-  display: grid;
-  grid-template-columns: 90px 140px 120px 1fr 100px 120px 130px 160px 130px 100px 120px;
-  align-items: center;
-  padding: 16px 0;
-  border-bottom: 2px solid var(--neutral-grey-blue);
-  font-weight: 700;
-  background: #f8f9fa;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  /*Adjust According to each table */
+  grid-template-columns:
+    minmax(60px, 0.6fr)
+    minmax(80px, 0.8fr)
+    minmax(80px, 0.8fr)
+    minmax(100px, 1fr)
+    minmax(100px, 1fr)
+    minmax(190px, 1.9fr)
+    minmax(60px, 0.6fr)
+    minmax(90px, 0.9fr)
+    minmax(60px, 0.6fr)
+    minmax(110px, 0.9fr)
+    minmax(80px, 1fr);
 }
 
+/* center-alignment for specif fields. Adjust According to each table */
 .process-table-header span {
-  padding: 8px 12px;
-  text-align: left;
-  font-size: 14px;
-  color: var(--neutral-grey-dark);
-  border-right: 1px solid var(--neutral-grey-blue);
-  white-space: nowrap;
-}
-
-.process-table-header span:last-child {
-  border-right: none;
-}
-
-/* kentrarisma gia Product, issue Priority, Status, Cost, Actions */
-.process-table-header span:nth-child(2),
-.process-table-header span:nth-child(4),
-.process-table-header span:nth-child(5),
-.process-table-header span:nth-child(7),
-.process-table-header span:nth-child(10),
-.process-table-header span:nth-child(11) {
   text-align: center;
+}
+
+.process-table-header :last-child {
+  border-right: 0px;
 }

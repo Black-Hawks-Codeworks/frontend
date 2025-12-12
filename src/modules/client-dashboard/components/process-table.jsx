@@ -6,20 +6,23 @@ function ProcessTable(props) {
   const { data } = props;
   return (
     <div className={`${styles.processTableContainer} card-elevation-1`}>
-      <ul className={styles.processTable}>
+      <div className={styles.processTable}>
         <div className={styles.processTableHeader}>
           <span>Process ID</span>
-          <span>Cost</span>
-          <span>Name</span>
-          <span>Description</span>
+          <span> Request Type</span>
           <span>Status</span>
+          <span> Device Id</span>
+          <span> Device Type</span>
+          <span> Device Name</span>
+          <span> Description</span>
           <span>Created At</span>
           <span>Updated At</span>
+          <span> Actions</span>
         </div>
         {data.map((process) => (
           <ProcessTableRow key={process.id} process={process} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

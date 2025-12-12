@@ -3,15 +3,63 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  padding: 15px 32px;
+  justify-content: space-evenly;
+  padding: 10px 32px;
+  margin-bottom: 10px;
 }
 
 .secondContainer {
-  display: flex;
+  display: grid;
+  align-items: center;
+  width: auto;
   gap: 15px;
 }
 
-.secondButton {
-  margin-left: 15px;
+.containerbottom {
+  display: grid;
+  grid-template-columns:
+    minmax(100px, 1fr)
+    minmax(100px, 1fr)
+    minmax(100px, 1fr);
+  column-gap: 30px;
+  padding: 12px 10px 1px 10px;
+  background-color: var(--neutral-white);
+  min-height: 5vh;
+  margin-bottom: 0px;
+  align-items: normal;
+}
+
+.text2Container {
+  display: grid;
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: var(--shadow-16);
+  padding: 10px;
+  align-items: center;
+  background-color: var(--neutral-silver);
+}
+
+.containerbottom > div {
+  border-radius: 10px;
+  box-shadow: var(--shadow-16);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.containerbottom h2 {
+  /* remove top margin so titles align */
+  color: var(--color-primary-shade-3);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.containerbottom p {
+  margin-top: 0px;
+  line-height: 0.1;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header-xl {
+  color: var(--color-primary-shade-5);
 }
