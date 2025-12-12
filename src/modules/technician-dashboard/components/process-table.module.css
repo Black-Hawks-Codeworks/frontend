@@ -17,7 +17,7 @@
 .process-table-header {
   display: grid;
   align-items: center;
-  padding: 16px 10px;
+  padding: 8px 10px;
   border-bottom: 2px solid var(--neutral-grey-blue);
   font-weight: 700;
   background: #f8f9fa;
