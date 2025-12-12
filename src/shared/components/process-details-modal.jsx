@@ -5,11 +5,11 @@ import { data } from '@/modules/technician-dashboard/mock-data';
 import Icon from '@/shared/icon';
 import { object } from 'prop-types';
 
-  //pernoume to processId apo to url
-  // hrisimopoiisete gia na anoigei to modal me open={Boolean(processId)
-  // hrisimopoiise to gia na kaneis search mesa sto dummy data kai na vreis to sosto process
-  //kane navigate sto /employee-dashboard/ gia na to kleiseis
-  //vale X svg button gia na to kleiseis
+//pernoume to processId apo to url
+// hrisimopoiisete gia na anoigei to modal me open={Boolean(processId)
+// hrisimopoiise to gia na kaneis search mesa sto dummy data kai na vreis to sosto process
+//kane navigate sto /employee-dashboard/ gia na to kleiseis
+//vale X svg button gia na to kleiseis
 
 export default function ProcessDetailsModal({ processes }) {
   const { processId } = useParams();
@@ -27,10 +27,7 @@ export default function ProcessDetailsModal({ processes }) {
     DIAGNOSIS: 'Diagnosis',
     REPAIR: 'Repairing',
     READY: 'Ready',
-
   };
-
-
 
   const STAGE_ICON = {
     RECEIVED: 'DocumentAdd',
@@ -54,14 +51,14 @@ export default function ProcessDetailsModal({ processes }) {
     <dialog open className={styles.processDetailsModal}>
       <div className={styles.modalContent}>
         <button className={`${styles.closeBtn} btn-outlined-icon`} onClick={close}>
-          <Icon name="Close1" size="md"/>
+          <Icon name='Close1' size='md' />
         </button>
 
         {!process ? (
           <div>Process Not found : id {processId}</div>
         ) : (
           <>
-            <h1 className='header-lg text-color-grey'>
+            <h1 className={`${styles.title} header-lg text-color-grey`}>
               ProcessID: ({process.processId}) - {process.product}
             </h1>
 
@@ -83,7 +80,7 @@ export default function ProcessDetailsModal({ processes }) {
             </div>
 
             {/* upodoxh gia texniko */}
-            <label className={styles.label}>
+            <label className={`${styles.label} header-lg text-color-grey-dark `}>
               Change Status:
               <select value={stage} onChange={(e) => setStage(e.target.value)}>
                 {STAGES.map((s) => (
@@ -93,11 +90,16 @@ export default function ProcessDetailsModal({ processes }) {
                 ))}
               </select>
             </label>
-
-            <p>
-              <strong>Description : </strong>
-              {process.description}
-            </p>
+            <div className={styles.descriptionContainer}>
+              <p>
+                <strong>Description : </strong>
+                {process.description}
+              </p>
+              <p>
+                <strong>Created At : </strong>
+                {process.createdAt}
+              </p>
+            </div>
           </>
         )}
       </div>
