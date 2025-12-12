@@ -4,9 +4,9 @@ import Icon from '@/shared/icon';
 
 export default function ReturnFormPage() {
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <div className={`${styles.formcontainer} card-elevation-3`}>
-        <CreateForm title='RETURN FORM' />
+        <CreateForm title='Return Form' />
       </div>
 
       <div className={styles.containerBox}>
@@ -24,6 +24,6 @@ export default function ReturnFormPage() {
           </ol>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

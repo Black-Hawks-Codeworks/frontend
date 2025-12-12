@@ -1,30 +1,44 @@
 .form {
-  /*border: 2px solid black;*/
   display: flex;
   flex-direction: column;
+  padding: 32px;
+  background-color: var(--neutral-white);
+  height: 60vh;
 }
 .form p {
   margin-bottom: 20px;
+  color: var(--color-primary-shade-2);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: left;
 }
 .row {
   display: flex;
-  margin-bottom: 30px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
 }
 .row label {
-  width: 30%;
   font-weight: 600;
+  color: var(--neutral-grey-dark);
 }
 .row input,
 .row textarea,
 .row select {
-  width: 70%;
-  padding: 6px 10px;
+  color: var(--neutral-grey-dark);
+  width: 250px;
+  padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
 .row input[type='file'] {
-  padding: 0;
+  padding: 10px;
 }
 
 .smallBtn {
