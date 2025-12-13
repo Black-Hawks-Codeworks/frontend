@@ -59,10 +59,10 @@
 /*Κινητό */
 @media (max-width: 600px) {
   .footer {
-    flex-direction: column;      /* από οριζόντιο σε κάθετο */
+    flex-direction: column; /* από οριζόντιο σε κάθετο */
     align-items: center;
     justify-content: center;
-    height: auto;                
+    height: auto;
     padding: 16px;
     gap: 8px;
     text-align: center;

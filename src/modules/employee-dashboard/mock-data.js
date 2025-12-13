@@ -12,6 +12,26 @@ export const data = [
     createdAt: '2025-12-02',
     expectedCost: 160,
     actions: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: 'Battery swelling - Safety hazard',
+        message: 'The battery is swelling and is a safety hazard.',
+        createdAt: '2025-12-02',
+      },
+      {
+        id: 2,
+        title: 'Battery swelling - Safety hazard',
+        message: 'The battery is swelling and is a safety hazard.',
+        createdAt: '2025-12-02',
+      },
+      {
+        id: 3,
+        title: 'Battery swelling - Safety hazard',
+        message: 'The battery is swelling and is a safety hazard.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 14,

@@ -1,5 +1,5 @@
 import styles from './form.module.css';
-import { category } from '../../../modules/repair-form/category';
+import { category } from '../../modules/repair-form/category';
 
 export default function FormField({ id, label, type, placeholder, multiple }) {
   return (

@@ -6,7 +6,6 @@ import formatDate from '../../../shared/utils/date';
 export default function ProcessTableRow(props) {
   const { process } = props;
   const navigate = useNavigate();
-  console.log(process);
   return (
     <div className={styles.container}>
       <span className={styles.cell}>{process.processId}</span>
