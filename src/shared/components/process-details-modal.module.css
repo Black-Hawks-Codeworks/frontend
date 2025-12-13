@@ -55,6 +55,8 @@
 .statusComp {
   grid-area: statusComp;
   background-color: red;
+  display: flex;
+  flex-direction: row;
 }
 
 .processDetails {

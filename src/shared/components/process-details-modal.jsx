@@ -14,7 +14,8 @@ export default function ProcessDetailsModal() {
   // const process = {
   //   id: 1,
   // };
-
+  const stages = ['themis', 'dimitris'];
+  const activeIndex = 0;
   return (
     <dialog open={Boolean(processId)} className={styles.processDetailsModal}>
       <div className={styles.modalContent}>
@@ -22,7 +23,21 @@ export default function ProcessDetailsModal() {
           <Icon name='Close1' size='lg' />
         </button>
         <div className={styles.gridContainer}>
-          <div className={styles.statusComp}>status</div>
+          <div className={styles.statusComp}>
+            {stages.map((s, i) => {
+              const stateClass =
+                i < activeIndex ? styles.dotDone : i === activeIndex ? styles.dotActive : styles.dotTodo;
+
+              return (
+                <div key={s} className={styles.item}>
+                  <div className={`${styles.dot} ${stateClass}`}>
+                    <Icon name='Share' size='md' />
+                  </div>
+                  <div>vaggelis</div>
+                </div>
+              );
+            })}
+          </div>
           <div className={styles.processDetails}>processDetails</div>
           <div className={styles.actionsComp}>actionsComp</div>
           <div className={styles.notificationsComp}>notificationsComp</div>
