@@ -1,0 +1,81 @@
+.containerOpen {
+  /* etsi vazoume animation */
+  /* na einai sti thesi 0 se 0.3 sec gia otan anoigei */
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+  /* na 'alaxei' to X se 0.3 sec  */
+  position: fixed;
+  bottom: 30%;
+  right: 120px;
+  width: 280px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-white);
+  box-shadow: var(--shadow-16);
+  z-index: 1000;
+}
+
+.containerClosed {
+  /* na einai sti thesi 340px se 0.3 sec gia otan kleisei */
+  transform: translateX(360px);
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  bottom: 30%;
+  right: 120px;
+  width: 280px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-16);
+  background-color: var(--neutral-white);
+  z-index: 1000;
+}
+
+.closeButton {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--neutral-grey);
+  background-color: var(--color-primary-tint-5);
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  padding: 180px 10px;
+}
+
+.closeButton:hover {
+  background-color: var(--color-primary-tint-4);
+}
+
+.qrCodeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+}
+
+.roleText {
+  color: var(--color-primary-shade-3);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .containerOpen {
+    display: none;
+  }
+  .containerClosed {
+    display: none;
+  }
+  .closeButton {
+    display: none;
+  }
+  .qrCodeContent {
+    display: none;
+  }
+}

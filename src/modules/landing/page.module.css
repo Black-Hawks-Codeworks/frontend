@@ -1,7 +1,7 @@
 body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-y: auto; /** επιτρέπει κάθετο scroll όταν το περιεχόμενο δεν χωράει */
   background-color: var(--neutral-white);
 }
 
@@ -107,4 +107,87 @@ body {
 
 .header-xl {
   color: var(--color-primary-shade-5);
+}
+
+/* tablet & μικρά laptops */
+@media (max-width: 1024px) {
+  .containertop {
+    padding-left: 40px;
+    gap: 40px;
+  }
+
+  .textContainer {
+    padding-right: 40px;
+  }
+
+  .containerbottom {
+    grid-template-columns: 1fr 1fr; /* από 3 κολώνες σε 2 */
+    column-gap: 24px;
+    padding: 20px;
+  }
+}
+
+/* κινητά */
+@media (max-width: 600px) {
+  .containertop {
+    flex-direction: column;
+    padding: 20px;
+    gap: 24px;
+  }
+
+  .loginContainer {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .textContainer {
+    max-width: 100%;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  /*TYPOGRAPHY*/
+
+  .textContainer h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .textContainer h2 {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .textContainer p {
+    font-size: 14px;
+    line-height: 1.4;     
+    margin-top: 12px;
+  }
+
+  .horde {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  /*(5, 20000+, 15+)*/
+
+  .containerbottom {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .containerbottom h2 {
+    font-size: 32px;     
+    margin-bottom: 8px;
+  }
+
+  .containerbottom p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
 }
