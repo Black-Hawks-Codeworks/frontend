@@ -4,6 +4,7 @@ import Icon from '../icon';
 // kano import gia returns kai repairs
 import { data as returns } from '@/modules/employee-dashboard/mock-data';
 import NotificationsTable from './components/notifications-table';
+import Actions from './components/actions';
 
 export default function ProcessModal() {
   const navigate = useNavigate();
@@ -18,6 +19,12 @@ export default function ProcessModal() {
 
   const stages = ['themis', 'dimitris'];
   const activeIndex = 0;
+
+  //ena iparhei to process.actions apothikeuetei sto const to component pou ehei to idio onoma
+  // me to keimeno tou process.actions.
+  //allios apothikeuse to noActionRequired component
+  const ActionComponent = process?.requiredAction ? Actions[process.requiredAction] : Actions.noActionRequired;
+
   return (
     <dialog open={Boolean(processId)} className={styles.processModal}>
       <div className={styles.modalContent}>
@@ -42,7 +49,10 @@ export default function ProcessModal() {
             })}
           </div>
           <div className={styles.processDetails}>processDetails</div>
-          <div className={styles.actionsComp}>actionsComp</div>
+          {/* ean iparhei to ActionComponent tote kanei render to component */}
+          <div className={styles.actionsComp}>
+            {ActionComponent && <ActionComponent expectedCost={process.expectedCost} />}
+          </div>
           <NotificationsTable notifications={process.notifications} />
         </div>
       </div>

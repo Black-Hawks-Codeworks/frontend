@@ -11,7 +11,7 @@ export const data = [
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-02',
     expectedCost: 160,
-    actions: 'View Details',
+    requiredAction: 'paymentRequired',
     notifications: [
       {
         id: 1,
@@ -45,7 +45,15 @@ export const data = [
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-12-03',
     expectedCost: 280,
-    actions: 'View Details',
+    requiredAction: null,
+    notifications: [
+      {
+        id: 1,
+        title: 'Water damage - Power issue',
+        message: 'The device is damaged and is not powering on.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 11,
@@ -59,7 +67,15 @@ export const data = [
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-12-04',
     expectedCost: 220,
-    actions: 'View Details',
+    requiredAction: 'confirmReplacement',
+    notifications: [
+      {
+        id: 1,
+        title: 'Keyboard and trackpad not responding',
+        message: 'The keyboard and trackpad are not responding.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 7,
@@ -73,7 +89,15 @@ export const data = [
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-01',
     expectedCost: 190,
-    actions: 'View Details',
+    requiredAction: 'changeProcessStatus',
+    notifications: [
+      {
+        id: 1,
+        title: 'Process status changed',
+        message: 'The process status has been changed.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 18,
@@ -87,7 +111,15 @@ export const data = [
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-12-05',
     expectedCost: 85,
-    actions: 'View Details',
+    requiredAction: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: 'Error code 5100, carriage stuck',
+        message: 'The printer is stuck and is not printing.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 22,
@@ -101,7 +133,15 @@ export const data = [
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-11-29',
     expectedCost: 65,
-    actions: 'View Details',
+    requiredAction: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: 'Joy-Con drift, buttons sticking',
+        message: 'The Joy-Con is drifting and is not sticking.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 25,
@@ -115,7 +155,15 @@ export const data = [
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-12-03',
     expectedCost: 175,
-    actions: 'View Details',
+    requiredAction: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: 'Blue screen errors, suspected RAM issue',
+        message: 'The device is having blue screen errors and is suspected to have a RAM issue.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 16,
@@ -129,7 +177,15 @@ export const data = [
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-02',
     expectedCost: 210,
-    actions: 'View Details',
+    requiredAction: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: 'Screen cracked, touch not working',
+        message: 'The screen is cracked and is not working.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 30,
@@ -143,7 +199,15 @@ export const data = [
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-12-04',
     expectedCost: 140,
-    actions: 'View Details',
+    requiredAction: null,
+    notifications: [
+      {
+        id: 1,
+        title: 'Camera glass shattered, back panel cracked',
+        message: 'The camera glass is shattered and the back panel is cracked.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 13,
@@ -157,7 +221,15 @@ export const data = [
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-11-28',
     expectedCost: 50,
-    actions: 'View Details',
+    requiredAction: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: "Network connection issues, won't print wirelessly",
+        message: 'The device is not printing wirelessly.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 19,
@@ -171,7 +243,15 @@ export const data = [
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-04',
     expectedCost: 195,
-    actions: 'View Details',
+    requiredAction: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: 'Charging port loose, not charging consistently',
+        message: 'The charging port is loose and is not charging consistently.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
   {
     processId: 27,
@@ -185,6 +265,14 @@ export const data = [
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-11-30',
     expectedCost: 80,
-    actions: 'View Details',
+    requiredAction: 'View Details',
+    notifications: [
+      {
+        id: 1,
+        title: 'Audio jack not working, speaker crackling',
+        message: 'The audio jack is not working and the speaker is crackling.',
+        createdAt: '2025-12-02',
+      },
+    ],
   },
 ];
