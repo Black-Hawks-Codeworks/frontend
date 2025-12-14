@@ -4,11 +4,12 @@
   justify-content: center;
   /* padding: 32px; */
   background-color: var(--neutral-white);
-  /* height: 60vh; */
+  /* height: 100%; */
 }
 .form p {
   margin-bottom: 20px;
   color: var(--color-primary-shade-2);
+  font-weight: 800;
 }
 .container {
   display: flex;

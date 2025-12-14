@@ -5,17 +5,14 @@ import Icon from '@/shared/icon';
 export default function RepairFormPage() {
   return (
     <div className={styles.page}>
-      <div className={`${styles.container} card-elevation`}>
+      <div className={`${styles.container} card-elevation-5`}>
         <CreateForm title='Repair Form' showProblemDescription={true} />
         <div className={styles.infoBox}>
-          <div className={styles.infoHeader}>
-            <Icon name='InfoSquare' size='lg' />
-            <p className='header-md'>INFO</p>
-          </div>
+          <p className='header-md'>Need help?</p>
           <ul className='body-xl'>
             <li>
               <Icon name='Edit2' size='md' />
-              <b>Fill</b> in all required fields (marked with *)
+              <b>Fill</b> in all required fields (marked with *).
             </li>
             <li>
               <Icon name='Image1' size='md' />
@@ -28,7 +25,7 @@ export default function RepairFormPage() {
             <li>
               <Icon name='Search1' size='md' />
               <b>Track</b>
-              {' your request in the "Your Parcel" section.'}
+              {' your request in the "Dashboard" section.'}
             </li>
           </ul>
         </div>

@@ -6,9 +6,16 @@ export default function CreateForm({ title, showProblemDescription = false }) {
       <p className='header-lg text-color-primary-shade-2 '>{title} </p>
       <div className={styles.container}>
         <FormField label='Product Type*' id='product-type' type='select' />
-        <FormField label='Serial number*' id='serial-number' type='text' placeholder='03npk' />
+        <FormField label='Serial number*' id='serial-number' type='text' placeholder='MGK-09726' />
         <FormField label='Purchase date*' id='purchase-date' type='date' />
-        {showProblemDescription && <FormField label='Problem Description*' id='problem-description' type='textarea' />}
+        {showProblemDescription && (
+          <FormField
+            label='Problem Description*'
+            id='problem-description'
+            type='textarea'
+            placeholder="ex.My touchscreen doesn't work..."
+          />
+        )}
         <FormField label='Upload images (optional)' id='upload-images' type='file' multiple='image/*' />
         <button type='submit' className={`${styles.smallBtn} btn-contained`}>
           SUBMIT
