@@ -1,9 +1,10 @@
 .form {
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  justify-content: center;
+  /* padding: 32px; */
   background-color: var(--neutral-white);
-  height: 60vh;
+  /* height: 60vh; */
 }
 .form p {
   margin-bottom: 20px;
@@ -14,7 +15,7 @@
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
-  justify-content: left;
+  /* justify-content: left; */
 }
 .row {
   display: flex;
