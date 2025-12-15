@@ -22,14 +22,20 @@ export default function Sidebar() {
     <div className={styles.mainSidebarContainer}>
       <div>
         <div className={styles.adminContainer}>
-          <h1 className={styles.adminText}>Management Dashboard</h1>
+          <h1 className={styles.adminText}>Management
+            Dashboard</h1>
         </div>
       </div>
 
       <div>
+
         <h4 className={styles.menu}>Menu</h4>
-        <ul className={styles.ulContainer}>{iconElements}</ul>
-        <div>
+        <ul className={styles.ulContainer}>
+          {iconElements}
+        </ul>
+
+
+        <div className={styles.mainScheduledContainer}>
           <h4 className={styles.scheduledTitle}>Scheduled Events</h4>
           <div className={styles.scheduledContainer}>
             <input type='radio' value={'Monthly Analysis'} />
