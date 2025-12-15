@@ -4,12 +4,19 @@ import styles from './actions.module.css';
 function ActionPaymentRequired(props) {
   const { expectedCost } = props;
   return (
-    <div className={styles.actionsComp}>
-      <p>{`Tha hreiastei na pleroseis ${expectedCost ? expectedCost : 0} euros`}</p>
-      <button>
-        <Icon name='Check1' size='md' />
-        Confirm
-      </button>
+    <div className={`${styles.actionsComp} card-elevation-3`}>
+      <p className={`${styles.header} header-md`}>Actions</p>
+      <div className={styles.actionrow}>
+        <Icon name='Danger1' size='md' />
+        <p>{`To finish your repair, there is an additional cost of  ${expectedCost ? expectedCost : 0}€. Would you like to proceed? `}</p>
+      </div>
+      <div className={styles.buttons}>
+        <button className='btn-contained'>
+          {/* <Icon name='Check1' size='md' /> */}
+          Accept
+        </button>
+        <button className='btn-outlined'>Decline</button>
+      </div>
     </div>
   );
 }

@@ -1,3 +1,34 @@
 .actionsComp {
   grid-area: actionsComp;
+  background-color: var(--color-primary-tint-5);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  /* border: solid 2px black; */
+}
+.header {
+  margin-bottom: 16px;
+  /* color: var(--neutral-grey); */
+}
+.actionrow {
+  display: flex;
+  gap: 8px;
+  /* align-items: center; */
+  width: 100%;
+}
+.actionrow p {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  /* border: solid 2px black; */
+  margin-top: auto;
+}
+button {
+  width: 100px;
 }

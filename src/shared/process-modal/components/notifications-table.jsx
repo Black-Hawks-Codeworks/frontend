@@ -1,5 +1,6 @@
 import styles from './notifications-table.module.css';
 import formatDate from '@/shared/utils/date';
+import Icon from '@/shared/icon';
 
 export default function NotificationsTable(props) {
   const { notifications } = props;
@@ -16,6 +17,9 @@ export default function NotificationsTable(props) {
       {sortedNotifications.map((notification, index) => (
         <div key={notification.id} className={styles.notificationsTableRow}>
           <span>{index + 1}</span>
+          <span>
+            <Icon name='Calendar' size='sm' />
+          </span>
           <span>{notification.message}</span>
           <span>{formatDate(notification.createdAt)}</span>
         </div>

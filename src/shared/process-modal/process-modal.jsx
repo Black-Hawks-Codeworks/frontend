@@ -50,9 +50,9 @@ export default function ProcessModal() {
           </div>
           <div className={styles.processDetails}>processDetails</div>
           {/* ean iparhei to ActionComponent tote kanei render to component */}
-          <div className={styles.actionsComp}>
-            {ActionComponent && <ActionComponent expectedCost={process.expectedCost} />}
-          </div>
+          {/* <div className={styles.actionsComp}> */}
+          {ActionComponent && <ActionComponent expectedCost={process.expectedCost} />}
+          {/* </div> */}
           <NotificationsTable notifications={process.notifications} />
         </div>
       </div>
