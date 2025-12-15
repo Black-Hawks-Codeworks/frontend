@@ -5,13 +5,13 @@
   flex-direction: column;
   padding: 12px;
 }
-.header {
-  margin-bottom: 16px;
-}
+
 .actionrow {
+  flex: 1;
   display: flex;
   gap: 8px;
-  margin-top: auto;
+  /* justify-content: center; */
+  align-items: center;
   width: 100%;
 }
 .actionrow p {
@@ -24,7 +24,7 @@
   flex-direction: row;
   justify-content: center;
   gap: 12px;
-  margin-top: auto;
+  /* margin-top: auto; */
 }
 button {
   width: 100px;
