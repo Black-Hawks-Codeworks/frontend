@@ -5,6 +5,7 @@ import Icon from '../icon';
 import { data as returns } from '@/modules/employee-dashboard/mock-data';
 import NotificationsTable from './components/notifications-table';
 import Actions from './components/actions';
+import ProcessDetails from './components/process-details';
 
 export default function ProcessModal() {
   const navigate = useNavigate();
@@ -48,7 +49,9 @@ export default function ProcessModal() {
               );
             })}
           </div>
-          <div className={styles.processDetails}>processDetails</div>
+          {/* <div className={styles.processDetails}> */}
+          <ProcessDetails />
+          {/* </div> */}
           {/* ean iparhei to ActionComponent tote kanei render to component */}
           {/* <div className={styles.actionsComp}> */}
           {ActionComponent && <ActionComponent expectedCost={process.expectedCost} />}

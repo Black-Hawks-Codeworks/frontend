@@ -4,7 +4,7 @@ import Icon from '@/shared/icon';
 
 export default function RepairFormPage() {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} body-xl`}>
       <CreateForm title='Repair Form' showProblemDescription={true} />
       <div className={`${styles.infoBox} card-elevation-3`}>
         <div className={styles.infoHeader}>

@@ -6,7 +6,7 @@ function ActionPaymentRequired(props) {
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Actions</p>
-      <div className={styles.actionrow}>
+      <div className={`${styles.actionrow} body-lg`}>
         <Icon name='Danger1' size='md' />
         <p>{`To finish your repair, there is an additional cost of  ${expectedCost ? expectedCost : 0}€. Would you like to proceed? `}</p>
       </div>

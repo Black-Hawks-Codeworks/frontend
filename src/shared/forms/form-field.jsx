@@ -3,7 +3,8 @@ import { category } from '../../modules/repair-form/category';
 
 export default function FormField({ id, label, type, placeholder, multiple }) {
   return (
-    <div className={`${styles.row} body-xl`}>
+    // <div className={`${styles.row} body-xl`}>
+    <div className={styles.row}>
       <label htmlFor={id}>{label}</label>
       {type === 'textarea' && <textarea id={id} name={id} placeholder={placeholder} required />}
       {type === 'select' && (

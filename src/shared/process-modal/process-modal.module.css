@@ -60,10 +60,10 @@
   flex-direction: row;
 }
 
-.processDetails {
+/* .processDetails {
   grid-area: processDetails;
   background-color: blue;
-}
+} */
 
 /* auti i klassi ehei metaferthei se to actions.module.css */
 /* .actionsComp {

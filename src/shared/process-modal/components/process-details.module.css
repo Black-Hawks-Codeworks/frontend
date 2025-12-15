@@ -1,0 +1,20 @@
+.processDetails {
+  grid-area: processDetails;
+  display: flex;
+  flex-direction: column;
+  grid-area: processDetails;
+  background-color: var(--color-primary-tint-3);
+  border: 2px solid;
+}
+.form1 {
+  flex: 0.6;
+  /* background-color: green; */
+}
+.form2 {
+  flex: 0.4;
+  background-color: var(--color-primary-tint-4);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+}
