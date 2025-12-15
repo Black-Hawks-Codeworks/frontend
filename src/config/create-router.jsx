@@ -13,6 +13,7 @@ import ManagerPage from '../modules/manager-dashboard/manager-page';
 import ReturnFormPage from '@/modules/return-form/return-page';
 import RepairFormPage from '../modules/repair-form/repair-page';
 import ProcessDetailsModal from '@/shared/components/process-details-modal';
+import AboutPage from '@/modules/about/about-page';
 
 
 export const createRouter = () => {
@@ -122,7 +123,9 @@ export const createRouter = () => {
           path: '/about',
           element: (
             <ProtectedRouteLogin requireLogin>
-              <div>About Page</div>
+              <div>
+                <AboutPage />
+              </div>
             </ProtectedRouteLogin>
           ),
         },

@@ -1,6 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './carousel.css';
+import img1 from '../../assets/Photos/cmnd.jpg';
+import img2 from '../../assets/Photos/IMG_8097.jpeg';
+import img3 from '../../assets/Photos/IMG_8100.jpeg';
+import img4 from '../../assets/Photos/IMG_8166.jpeg';
+import img5 from '../../assets/Photos/IMG_8241.jpeg';
+import img6 from '../../assets/Photos/zrkd.jpg';
 
 export default function SimpleSlider() {
   const settings = {
@@ -20,22 +26,22 @@ export default function SimpleSlider() {
   return (
     <Slider {...settings}>
       <div>
-        <h3>1</h3>
+        <img src={img1} alt='image1'></img>
       </div>
       <div>
-        <h3>2</h3>
+        <img src={img2} alt='image2'></img>
       </div>
       <div>
-        <h3>3</h3>
+        <img src={img3} alt='image3'></img>
       </div>
       <div>
-        <h3>4</h3>
+        <img src={img4} alt='image4'></img>
       </div>
       <div>
-        <h3>5</h3>
+        <img src={img5} alt='image5'></img>
       </div>
       <div>
-        <h3>6</h3>
+        <img src={img6} alt='image6'></img>
       </div>
     </Slider>
   );

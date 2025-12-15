@@ -1,22 +1,24 @@
 .container {
   width: 100vw;
-  height: 88vh;
+  height: 100vh;
 
   display: grid;
 
   grid-template:
-    'a1 a1 a1 d1 d1 d1 d1'
-    'a1 a1 a1 d1 d1 d1 d1'
-    'a1 a1 a1 b1 b1 b1 b1'
-    'a1 a1 a1 b1 b1 b1 b1'
-    'c1 c1 c1 b1 b1 b1 b1'
-    'c1 c1 c1 b1 b1 b1 b1'
-    'c1 c1 c1 b1 b1 b1 b1';
+    'a1 b1 b1 b1 b1 b1 b1'
+    'a1 b1 b1 b1 b1 b1 b1'
+    'c1 b1 b1 b1 b1 b1 b1'
+    'c1 b1 b1 b1 b1 b1 b1'
+    'c1 b1 b1 b1 b1 b1 b1'
+    'c1 b1 b1 b1 b1 b1 b1'
+    'c1 b1 b1 b1 b1 b1 b1';
 }
 
 .a1 {
   grid-area: a1;
   background-color: red;
+  align-content: center;
+  text-align: center;
 }
 
 .b1 {
@@ -36,58 +38,4 @@
 
 .car {
   align-items: center;
-}
-/* Give the slider a visible area */
-.slick-slider {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Center slide content */
-.slick-slide > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  background: #f4f4f4;
-  border: 1px solid #ddd;
-}
-
-/* Make the number bigger */
-.slick-slide h3 {
-  margin: 0;
-  font-size: 48px;
-}
-
-.slick-slider {
-  position: relative;
-}
-
-/* Put arrows on top of slides */
-.slick-prev,
-.slick-next {
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-}
-
-/* Position them left/right */
-.slick-prev {
-  left: 10px;
-}
-
-.slick-next {
-  right: 10px;
-}
-
-/* Make the default arrow icon visible/bigger */
-.slick-prev:before,
-.slick-next:before {
-  font-size: 40px;
-  color: black;
-}
-
-/* Optional: if your slides cover arrows, add side padding */
-.slick-list {
-  padding: 0 50px;
 }
