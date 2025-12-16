@@ -1,6 +1,14 @@
 export const data = [
   {
     processId: 9,
+    device: {
+      id: 1,
+      serialNumber: 'NPK-0342',
+      name: 'OnePlus 11',
+      category: 'Phones',
+      warrantyType: 'basic',
+      warrantyExpires: '2026-12-02',
+    },
     product: 'OnePlus 11',
     customer: 'Δημήτρης Σ.',
     customerId: '6677889900',
@@ -31,17 +39,19 @@ export const data = [
         message: 'The battery is swelling and is a safety hazard.',
         createdAt: '2025-12-02',
       },
-      {
-        id: 4,
-        title: 'Battery swelling - Safety hazard',
-        message: 'The battery is swelling and is a safety hazard.',
-        createdAt: '2025-12-02',
-      },
     ],
   },
   {
     processId: 14,
-    product: 'iPhone 13',
+    product: 'Samsung Galaxy S23 Ultra',
+    device: {
+      id: 2,
+      serialNumber: 'SMG-8821',
+      name: 'Samsung Galaxy S23 Ultra',
+      category: 'Phones',
+      warrantyType: 'premium',
+      warrantyExpires: '2027-05-18',
+    },
     customer: 'Ελένη Μ.',
     customerId: '5544332211',
     issue: "Water damage, won't power on",
@@ -56,7 +66,15 @@ export const data = [
   },
   {
     processId: 11,
-    product: 'MacBook Air M2',
+    product: 'MacBook Pro 14',
+    device: {
+      id: 3,
+      serialNumber: 'APL-4419',
+      name: 'MacBook Pro 14"',
+      category: 'Laptops',
+      warrantyType: 'extended',
+      warrantyExpires: '2028-01-10',
+    },
     customer: 'Κώστας Γ.',
     customerId: '9988776655',
     issue: 'Keyboard and trackpad not responding',
@@ -79,6 +97,14 @@ export const data = [
   {
     processId: 7,
     product: 'Samsung Galaxy Tab S8',
+    device: {
+      id: 4,
+      serialNumber: 'SMG-7284',
+      name: 'Samsung Galaxy Tab S8',
+      category: 'Tablets',
+      warrantyType: 'basic',
+      warrantyExpires: '2026-06-30',
+    },
     customer: 'Αγγελική Π.',
     customerId: '3322114455',
     issue: 'Screen flickering, possible hardware fault',
@@ -101,6 +127,14 @@ export const data = [
   {
     processId: 18,
     product: 'Canon Pixma Printer',
+    device: {
+      id: 5,
+      serialNumber: 'CAN-5842',
+      name: 'Canon Pixma Printer',
+      category: 'Printers',
+      warrantyType: 'basic',
+      warrantyExpires: '2026-10-15',
+    },
     customer: 'Βασίλης Κ.',
     customerId: '1122998877',
     issue: 'Error code 5100, carriage stuck',
@@ -123,6 +157,14 @@ export const data = [
   {
     processId: 22,
     product: 'Nintendo Switch',
+    device: {
+      id: 6,
+      serialNumber: 'NIN-9021',
+      name: 'Nintendo Switch',
+      category: 'Gaming Consoles',
+      warrantyType: 'basic',
+      warrantyExpires: '2026-07-08',
+    },
     customer: 'Σοφία Α.',
     customerId: '7788996655',
     issue: 'Joy-Con drift, buttons sticking',
@@ -145,6 +187,14 @@ export const data = [
   {
     processId: 25,
     product: 'Asus ROG Laptop',
+    device: {
+      id: 7,
+      serialNumber: 'ASU-7715',
+      name: 'Asus ROG Laptop',
+      category: 'Laptops',
+      warrantyType: 'premium',
+      warrantyExpires: '2027-12-20',
+    },
     customer: 'Θανάσης Λ.',
     customerId: '4455667788',
     issue: 'Blue screen errors, suspected RAM issue',
@@ -167,6 +217,14 @@ export const data = [
   {
     processId: 16,
     product: 'Apple Watch Series 8',
+    device: {
+      id: 8,
+      serialNumber: 'APL-8803',
+      name: 'Apple Watch Series 8',
+      category: 'Wearables',
+      warrantyType: 'extended',
+      warrantyExpires: '2028-03-11',
+    },
     customer: 'Κατερίνα Δ.',
     customerId: '2233445566',
     issue: 'Screen cracked, touch not working',
@@ -189,6 +247,14 @@ export const data = [
   {
     processId: 30,
     product: 'Google Pixel 7',
+    device: {
+      id: 9,
+      serialNumber: 'GGL-3497',
+      name: 'Google Pixel 7',
+      category: 'Phones',
+      warrantyType: 'basic',
+      warrantyExpires: '2026-09-02',
+    },
     customer: 'Παναγιώτης Τ.',
     customerId: '8899001122',
     issue: 'Camera glass shattered, back panel cracked',
@@ -211,6 +277,14 @@ export const data = [
   {
     processId: 13,
     product: 'Epson WorkForce',
+    device: {
+      id: 10,
+      serialNumber: 'EPS-6629',
+      name: 'Epson WorkForce',
+      category: 'Printers',
+      warrantyType: 'basic',
+      warrantyExpires: '2026-11-27',
+    },
     customer: 'Χριστίνα Β.',
     customerId: '6655443322',
     issue: "Network connection issues, won't print wirelessly",
@@ -233,6 +307,14 @@ export const data = [
   {
     processId: 19,
     product: 'Microsoft Surface Pro',
+    device: {
+      id: 11,
+      serialNumber: 'MSF-4108',
+      name: 'Microsoft Surface Pro',
+      category: 'Tablets',
+      warrantyType: 'premium',
+      warrantyExpires: '2027-08-19',
+    },
     customer: 'Αλέξανδρος Φ.',
     customerId: '9900112233',
     issue: 'Charging port loose, not charging consistently',
@@ -255,6 +337,14 @@ export const data = [
   {
     processId: 27,
     product: 'Sony Xperia 5 IV',
+    device: {
+      id: 12,
+      serialNumber: 'SON-5531',
+      name: 'Sony Xperia 5 IV',
+      category: 'Phones',
+      warrantyType: 'extended',
+      warrantyExpires: '2028-01-05',
+    },
     customer: 'Ιωάννα Ζ.',
     customerId: '1144226688',
     issue: 'Audio jack not working, speaker crackling',

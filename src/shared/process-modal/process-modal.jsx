@@ -17,7 +17,7 @@ export default function ProcessModal() {
   console.log('returns', returns);
   const process = returns.find((r) => r.processId === Number(processId));
   console.log('process', process);
-
+  console.log(process.device);
   const stages = ['themis', 'dimitris'];
   const activeIndex = 0;
 
@@ -50,7 +50,7 @@ export default function ProcessModal() {
             })}
           </div>
           {/* <div className={styles.processDetails}> */}
-          <ProcessDetails />
+          <ProcessDetails process={process} />
           {/* ean iparhei to ActionComponent tote kanei render to component */}
           {/* <div className={styles.actionsComp}> */}
           {ActionComponent && <ActionComponent expectedCost={process.expectedCost} />}

@@ -3,18 +3,40 @@
   display: flex;
   flex-direction: column;
   grid-area: processDetails;
-  background-color: var(--color-primary-tint-3);
+  /* background-color: var(--color-primary-tint-3); */
+  background-color: white;
   border: 2px solid;
+  overflow: hidden;
+  padding: 12px;
+  /* gap: 4px; */
 }
-.form1 {
-  flex: 0.6;
-  /* background-color: green; */
-}
-.form2 {
-  flex: 0.4;
-  background-color: var(--color-primary-tint-4);
+.photoContainer {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  border: 2px solid;
   padding: 8px;
 }
+.photoContainer img {
+  height: 100px;
+  width: 110px;
+  border-radius: 8px;
+  /* padding: 4px; */
+}
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border: 2px solid;
+}
+.row {
+  width: 90%;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  /* border: 2px solid; */
+  padding: 2px;
+}
+/* .form2 {
+  flex: 0.4;
+  padding: 8px;
+} */
