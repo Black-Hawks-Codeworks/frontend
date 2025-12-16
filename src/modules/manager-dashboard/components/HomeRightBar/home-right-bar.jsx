@@ -57,9 +57,9 @@ export default function HomeRightBar() {
         <div className={styles.ItemContainer}>
           <div className={styles.ItemContainer1}>
             <div>
-              <p className={styles.taskProgress}>Total Progress</p>
-              <p className={styles.taskCounter}>212</p>
-              <p className={styles.currentMonth1}>Current Month</p>
+              <p className={`${styles.taskProgress} text-color-black `}>Total Progress</p>
+              <p className={`${styles.taskCounter}  text-color-primary-shade-4 `}>8015</p>
+              <p className={` ${styles.currentMonth1} text-color-grey-dark`}>Current Month</p>
             </div>
             <div>
               <LineChart
