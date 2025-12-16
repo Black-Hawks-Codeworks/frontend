@@ -1,5 +1,6 @@
 import styles from './home-right-bar.module.css';
 import Navbar from '../Navbar/navbar';
+import CustomizedDot from '../../customized-dot';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
@@ -69,6 +70,54 @@ export const data3 = [
   { name: 'Dec', rt: 370, rp: 290 },
 ];
 
+const data4 = [
+  {
+    name: 'Jan',
+    rp: 4000,
+    rt: 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Mar',
+    rp: 3000,
+    rt: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'May',
+    rp: 2000,
+    rt: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Jun',
+    rp: 2780,
+    rt: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Aug',
+    rp: 1890,
+    rt: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Nov',
+    rp: 2390,
+    rt: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Dec',
+    rp: 3490,
+    rt: 4300,
+    amt: 2100,
+  },
+];
+
+
+
+
 export default function HomeRightBar() {
   return (
     <div className={styles.mainHomeRightBar}>
@@ -99,7 +148,7 @@ export default function HomeRightBar() {
                 <YAxis width='auto' />
                 <Tooltip />
                 <Legend />
-                <Line type='monotone' dataKey='rt' stroke='#2194f3' activeDot={{ r: 8 }} />
+                <Line type='monotone' dataKey='rt' stroke='#89939e' activeDot={{ r: 8 }} />
                 <Line type='monotone' dataKey='rp' stroke='#82ca9d' />
               </LineChart>
             </div>
@@ -111,7 +160,7 @@ export default function HomeRightBar() {
             <div>
               <p className={`${styles.taskProgress2} text-color-grey `}>Active Tickets</p>
               <p className={`${styles.taskCounter2}  text-color-primary-shade-4 `}>4800</p>
-              <p className={` ${styles.currentMonth2} text-color-grey header-sm `}>Current Month</p>
+              <p className={` ${styles.currentMonth2} text-color-grey header-sm `}>Dec</p>
             </div>
             <div>
               <LineChart
@@ -165,6 +214,30 @@ export default function HomeRightBar() {
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles.middleTaskChart}>
+        <p className={`${styles.TaskCreatedVsCompleted} text-color-grey header-sm`}>
+          Customer Satisfaction vs Tickets Load{' '}
+        </p>
+
+        <LineChart
+          style={{ width: '100%', maxWidth: '1100px', maxHeight: '30vh', aspectRatio: 1.8 }}
+          responsive
+          data={data4}
+          margin={{
+            top: 5,
+            right: 10,
+            left: 0,
+            bottom: 5,
+          }}>
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='name' />
+          <YAxis width='auto' />
+          <Tooltip />
+          <Legend />
+          <Line type='monotone' dataKey='rt' stroke='#82ca9d' dot={<CustomizedDot />} />
+          <Line type='monotone' dataKey='rp' stroke='#fbc02d' />
+        </LineChart>
       </div>
 
       <div></div>

@@ -2,8 +2,10 @@
 
 .mainSidebarContainer{
   flex:0.8;
-  background-color: rgb(247, 244, 244);
-  height: 100vh;
+  background-color: var(--color-primary-tint-5);
+  height: 90vh;
+  
+
 }
 
 .adminContainer{
