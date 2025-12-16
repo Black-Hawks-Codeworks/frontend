@@ -8,10 +8,11 @@ export default function AboutPage() {
         <Carousel />
       </div>
       <div className='b1'>
-        <p> Test</p>
+        <p> Info about the team</p>
+        <div> </div>
       </div>
       <div className='c1'>
-        <p> Test</p>
+        <p> Project Info</p>
       </div>
     </div>
   );

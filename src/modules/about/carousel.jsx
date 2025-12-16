@@ -7,6 +7,7 @@ import img3 from '../../assets/Photos/IMG_8100.jpeg';
 import img4 from '../../assets/Photos/IMG_8166.jpeg';
 import img5 from '../../assets/Photos/IMG_8241.jpeg';
 import img6 from '../../assets/Photos/zrkd.jpg';
+import img7 from '../../assets/Photos/ilias.png';
 
 export default function SimpleSlider() {
   const settings = {
@@ -42,6 +43,9 @@ export default function SimpleSlider() {
       </div>
       <div>
         <img src={img6} alt='image6'></img>
+      </div>
+      <div>
+        <img src={img7} alt='image7'></img>
       </div>
     </Slider>
   );
