@@ -51,9 +51,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: px;
+  gap: 8px;
 }
 
+.bellIconContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bellIcon {
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  background-color: var(--color-error);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 1000%;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.bellIconContainerAnimated {
+  animation: bellIconContainerAnimated 1s ease-in-out infinite;
+}
+
+@keyframes bellIconContainerAnimated {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .cell.createdAt {
   display: flex;
   align-items: center;

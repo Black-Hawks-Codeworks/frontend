@@ -31,6 +31,12 @@ export const data = [
         message: 'The battery is swelling and is a safety hazard.',
         createdAt: '2025-12-02',
       },
+      {
+        id: 4,
+        title: 'Battery swelling - Safety hazard',
+        message: 'The battery is swelling and is a safety hazard.',
+        createdAt: '2025-12-02',
+      },
     ],
   },
   {
@@ -46,14 +52,7 @@ export const data = [
     createdAt: '2025-12-03',
     expectedCost: 280,
     requiredAction: null,
-    notifications: [
-      {
-        id: 1,
-        title: 'Water damage - Power issue',
-        message: 'The device is damaged and is not powering on.',
-        createdAt: '2025-12-02',
-      },
-    ],
+    notifications: [],
   },
   {
     processId: 11,
