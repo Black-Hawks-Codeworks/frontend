@@ -2,7 +2,7 @@
 .slick-slider {
   position: relative;
   display: block;
-  box-sizing: sticky;
+  box-sizing: border-box;
   user-select: none;
   touch-action: pan-y;
 }
@@ -11,8 +11,9 @@
   position: relative;
   display: block;
   overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important; /* set to 0 to remove all internal space */
   margin: 0 48px; /* room for arrows */
-  padding: 0;
 }
 
 .slick-track {
@@ -116,12 +117,13 @@
 .slick-slider {
   max-width: 500px; /* adjust or remove */
   margin: 0;
+  width: 55%;
+  box-sizing: border-box; /* also fix your invalid "sticky" */
 }
 
 /* Keep room for arrows, but don't distort slides */
 .slick-list {
   overflow: hidden;
-  margin: 0 50px; /* room for arrows */
 }
 
 /* IMPORTANT: allow slick to calculate widths correctly */
