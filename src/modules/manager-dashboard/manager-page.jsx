@@ -11,7 +11,7 @@ export default function ManagerPage(){
   return(
 
     <div className={styles.mainContainer}>
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <HomeRightBar/>
     </div>
 
