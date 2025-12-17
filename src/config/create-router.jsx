@@ -3,12 +3,17 @@ import { ProtectedRouteLogin, ProtectedRouteRole } from '@/config/protected-rout
 
 import LandingPage from '@/modules/landing/page';
 import Layout from '@/shared/components/layout';
+
 import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 import TechnicianDashboardPage from '@/modules/technician-dashboard/technician-dashboard-page';
 import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboard-page';
+import ManagerPage from '../modules/manager-dashboard/manager-page';
+
+
 import ReturnFormPage from '@/modules/return-form/return-page';
 import RepairFormPage from '../modules/repair-form/repair-page';
 import ProcessDetailsModal from '@/shared/components/process-details-modal';
+
 
 export const createRouter = () => {
   return createBrowserRouter([
@@ -108,7 +113,7 @@ export const createRouter = () => {
           element: (
             <ProtectedRouteLogin requireLogin>
               <ProtectedRouteRole requiredRole='manager'>
-                <div>Manager Dashboard Page</div>
+                <ManagerPage/>
               </ProtectedRouteRole>
             </ProtectedRouteLogin>
           ),
