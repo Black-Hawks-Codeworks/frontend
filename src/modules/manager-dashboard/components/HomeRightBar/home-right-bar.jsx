@@ -3,7 +3,6 @@ import Navbar from '../Navbar/navbar';
 import CustomizedDot from '../../customized-dot';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-
 const data2 = [
   { name: 'Dec 1–10', rt: 3100, rp: 1850 },
   { name: 'Dec 11–20', rt: 2650, rp: 1600 },
@@ -115,9 +114,6 @@ const data4 = [
   },
 ];
 
-
-
-
 export default function HomeRightBar() {
   return (
     <div className={styles.mainHomeRightBar}>
@@ -219,25 +215,26 @@ export default function HomeRightBar() {
         <p className={`${styles.TaskCreatedVsCompleted} text-color-grey header-sm`}>
           Customer Satisfaction vs Tickets Load{' '}
         </p>
-
-        <LineChart
-          style={{ width: '100%', maxWidth: '1100px', maxHeight: '30vh', aspectRatio: 1.8 }}
-          responsive
-          data={data4}
-          margin={{
-            top: 5,
-            right: 10,
-            left: 0,
-            bottom: 5,
-          }}>
-          <CartesianGrid strokeDasharray='3 3' />
-          <XAxis dataKey='name' />
-          <YAxis width='auto' />
-          <Tooltip />
-          <Legend />
-          <Line type='monotone' dataKey='rt' stroke='#82ca9d' dot={<CustomizedDot />} />
-          <Line type='monotone' dataKey='rp' stroke='#fbc02d' />
-        </LineChart>
+        <div className={styles.chart}>
+          <LineChart
+            style={{ width: '100%', maxWidth: '1100px', maxHeight: '30vh', aspectRatio: 1.8 }}
+            responsive
+            data={data4}
+            margin={{
+              top: 5,
+              right: 10,
+              left: 0,
+              bottom: 5,
+            }}>
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey='name' />
+            <YAxis width='auto' />
+            <Tooltip />
+            <Legend />
+            <Line type='monotone' dataKey='rt' stroke='#82ca9d' dot={<CustomizedDot />} />
+            <Line type='monotone' dataKey='rp' stroke='#fbc02d' />
+          </LineChart>
+        </div>
       </div>
 
       <div></div>
