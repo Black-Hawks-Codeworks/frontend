@@ -53,30 +53,6 @@
     'processDetails processDetails actionsComp actionsComp notificationsComp notificationsComp';
 }
 
-.statusComp {
-  grid-area: statusComp;
-  background-color: red;
-  display: flex;
-  flex-direction: row;
-}
-
-/* .processDetails {
-  grid-area: processDetails;
-  background-color: blue;
-} */
-
-/* auti i klassi ehei metaferthei se to actions.module.css */
-/* .actionsComp {
-  grid-area: actionsComp;
-  background-color: green;
-} */
-
-/* auti i klassi ehei metaferthei se to notifications-table.module.css */
-/* .notificationsComp {
-  grid-area: notificationsComp;
-  background-color: yellow;
-} */
-
 .closeBtn {
   position: absolute;
   right: -12px;
