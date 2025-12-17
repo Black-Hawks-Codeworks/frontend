@@ -2,12 +2,6 @@
 import './about-page.css';
 import Carousel from './carousel';
 import { personaldata } from './personal_info';
-
-// Adjust the path (../ or ../../) according to where AboutPage.jsx is located
-// Assuming AboutPage.jsx is two levels below src (e.g. src/components/pages/AboutPage.jsx):
-// If it's only one level (e.g. src/pages/AboutPage.jsx), change ../../ to ../
-
-// Import ALL photos (note: photoX.jpeg)
 import photo1 from '../../assets/Photos/photo1.jpeg';
 import photo2 from '../../assets/Photos/photo2.jpeg';
 import photo3 from '../../assets/Photos/photo3.jpeg';
@@ -44,17 +38,18 @@ export default function AboutPage() {
               </div>
               <div className='personalText'>
                 <div className='personalName'>
-                  <a href={personal.linkedin} target='_blank' rel='noreferrer'>
+                  <a className='personalName' href={personal.linkedin} target='_blank' rel='noreferrer'>
                     {personal.name}
                   </a>
                 </div>
-                <div className='personalBio'>{personal.bio}</div>
+                <div className='personalBio body-sm '>{personal.bio}</div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className='c1'>
+        <div className='body-md c1'>
+          <h2> Few things about the project </h2>
           <p>
             We’re doing this because returning a broken gadget shouldn’t feel like tossing a message in a bottle and
             hoping it comes back fixed. We want the customer to open a single page, see “pickup tomorrow, back next
