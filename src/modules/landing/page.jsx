@@ -40,6 +40,33 @@ export default function LandingPage() {
       dispatch(setUser(null));
     }
   }
+
+  //pernoume ton user apo to backend me async function
+  //to route prepei na eina lathos
+  //gia na doulepsei prepei na trehei to backend
+  async function authUserAsync(username, password) {
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        dispatch(setUser(data));
+        const userRole = data.role;
+        navigate(`/${userRole}-dashboard`);
+      } else {
+        dispatch(setUser(null));
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+  console.log(authUserAsync);
   return (
     <div className={styles.container}>
       <div className={styles.containertop}>

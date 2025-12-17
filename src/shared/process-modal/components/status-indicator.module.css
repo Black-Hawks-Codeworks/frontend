@@ -1,0 +1,9 @@
+.statusComp {
+  grid-area: statusComp;
+  /* stin tihi einai to hroma feel free to change it */
+  background-color: var(--color-primary-tint-5);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}

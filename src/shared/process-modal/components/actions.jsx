@@ -38,7 +38,22 @@ function ActionConfirmReplacement() {
 }
 
 function ActionChangeProcessStatus() {
-  return <div className={styles.actionsComp}>Actions</div>;
+  return (
+    <div className={styles.actionsComp}>
+      <p className='header-md'>Change process status</p>
+      <select id='status' name='status'>
+        <option value=''>Select a product</option>
+        <option value='pending'>Pending</option>
+        <option value='inProgress'>In Progress</option>
+        <option value='completed'>Completed</option>
+        <option value='cancelled'>Cancelled</option>
+      </select>
+      <div className={styles.buttons}>
+        <button className='btn-contained'>Accept</button>
+        <button className='btn-outlined'>Decline</button>
+      </div>
+    </div>
+  );
 }
 
 function ActionNoActionRequired() {

@@ -6,6 +6,7 @@ import { data as returns } from '@/modules/employee-dashboard/mock-data';
 import NotificationsTable from './components/notifications-table';
 import Actions from './components/actions';
 import ProcessDetails from './components/process-details';
+import StatusIndicator from './components/status-indicator';
 
 export default function ProcessModal() {
   const navigate = useNavigate();
@@ -18,8 +19,6 @@ export default function ProcessModal() {
   const process = returns.find((r) => r.processId === Number(processId));
   console.log('process', process);
   console.log(process.device);
-  const stages = ['themis', 'dimitris'];
-  const activeIndex = 0;
 
   //ena iparhei to process.actions apothikeuetei sto const to component pou ehei to idio onoma
   // me to keimeno tou process.actions.
@@ -35,20 +34,7 @@ export default function ProcessModal() {
         </button>
         <div className={styles.gridContainer}>
           {/* otan teliopoiithei to parakato tha metaferoume sto diko tou file */}
-          <div className={styles.statusComp}>
-            {stages.map((s, i) => {
-              const stateClass =
-                i < activeIndex ? styles.dotDone : i === activeIndex ? styles.dotActive : styles.dotTodo;
-              return (
-                <div key={s} className={styles.item}>
-                  <div className={`${styles.dot} ${stateClass}`}>
-                    <Icon name='Share' size='md' />
-                  </div>
-                  <div>vaggelis</div>
-                </div>
-              );
-            })}
-          </div>
+          <StatusIndicator selectedStatus={process.status} />
           {/* <div className={styles.processDetails}> */}
           <ProcessDetails process={process} />
           {/* ean iparhei to ActionComponent tote kanei render to component */}

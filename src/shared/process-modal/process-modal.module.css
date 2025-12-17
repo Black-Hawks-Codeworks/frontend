@@ -79,7 +79,7 @@
 
 .closeBtn {
   position: absolute;
-  right: 12px;
+  right: -12px;
   top: 12px;
   background-color: transparent;
   border: none;

@@ -15,11 +15,11 @@ export const data = [
     issue: 'Battery swelling - Safety hazard',
     priority: 'Critical',
     waitingTime: '3 days',
-    status: 'inProgress',
+    status: 'started',
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-02',
     expectedCost: 160,
-    requiredAction: 'paymentRequired',
+    requiredAction: 'changeProcessStatus',
     notifications: [
       {
         id: 1,
@@ -57,7 +57,7 @@ export const data = [
     issue: "Water damage, won't power on",
     priority: 'High',
     waitingTime: '2 days',
-    status: 'inProgress',
+    status: 'started',
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-12-03',
     expectedCost: 280,
@@ -80,7 +80,7 @@ export const data = [
     issue: 'Keyboard and trackpad not responding',
     priority: 'High',
     waitingTime: '1 day',
-    status: 'pending',
+    status: 'confirmed',
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-12-04',
     expectedCost: 220,
@@ -110,7 +110,7 @@ export const data = [
     issue: 'Screen flickering, possible hardware fault',
     priority: 'Medium',
     waitingTime: '4 days',
-    status: 'pending',
+    status: 'confirmed',
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-01',
     expectedCost: 190,
@@ -144,7 +144,7 @@ export const data = [
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-12-05',
     expectedCost: 85,
-    requiredAction: 'View Details',
+    requiredAction: 'paymentRequired',
     notifications: [
       {
         id: 1,
@@ -174,7 +174,7 @@ export const data = [
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-11-29',
     expectedCost: 65,
-    requiredAction: 'View Details',
+    requiredAction: 'paymentRequired',
     notifications: [
       {
         id: 1,
@@ -200,11 +200,11 @@ export const data = [
     issue: 'Blue screen errors, suspected RAM issue',
     priority: 'High',
     waitingTime: '2 days',
-    status: 'inProgress',
+    status: 'repaired',
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-12-03',
     expectedCost: 175,
-    requiredAction: 'View Details',
+    requiredAction: 'changeProcessStatus',
     notifications: [
       {
         id: 1,
@@ -230,11 +230,11 @@ export const data = [
     issue: 'Screen cracked, touch not working',
     priority: 'Critical',
     waitingTime: '3 days',
-    status: 'pending',
+    status: 'repaired',
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-02',
     expectedCost: 210,
-    requiredAction: 'View Details',
+    requiredAction: 'changeProcessStatus',
     notifications: [
       {
         id: 1,
@@ -260,7 +260,7 @@ export const data = [
     issue: 'Camera glass shattered, back panel cracked',
     priority: 'Medium',
     waitingTime: '1 day',
-    status: 'inProgress',
+    status: 'completed',
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-12-04',
     expectedCost: 140,
@@ -294,7 +294,7 @@ export const data = [
     assignedTo: 'Παπαδόπουλος Ν.',
     createdAt: '2025-11-28',
     expectedCost: 50,
-    requiredAction: 'View Details',
+    requiredAction: 'changeProcessStatus',
     notifications: [
       {
         id: 1,
@@ -320,11 +320,11 @@ export const data = [
     issue: 'Charging port loose, not charging consistently',
     priority: 'High',
     waitingTime: '1 day',
-    status: 'inProgress',
+    status: 'repaired',
     assignedTo: 'Καραγιάννη Μ.',
     createdAt: '2025-12-04',
     expectedCost: 195,
-    requiredAction: 'View Details',
+    requiredAction: 'changeProcessStatus',
     notifications: [
       {
         id: 1,
@@ -354,7 +354,7 @@ export const data = [
     assignedTo: 'Νικολάου Γ.',
     createdAt: '2025-11-30',
     expectedCost: 80,
-    requiredAction: 'View Details',
+    requiredAction: 'changeProcessStatus',
     notifications: [
       {
         id: 1,
