@@ -1,3 +1,5 @@
+import productImages from '@/assets/products';
+
 export const data = [
   {
     processId: 9,
@@ -40,6 +42,7 @@ export const data = [
         createdAt: '2025-12-02',
       },
     ],
+    image: [productImages.oneplus],
   },
   {
     processId: 14,
@@ -63,6 +66,7 @@ export const data = [
     expectedCost: 280,
     requiredAction: null,
     notifications: [],
+    image: [productImages.samsungalaxyS23],
   },
   {
     processId: 11,
@@ -93,6 +97,7 @@ export const data = [
         createdAt: '2025-12-02',
       },
     ],
+    image: [productImages.macbook, productImages.macbook2],
   },
   {
     processId: 7,

@@ -2,41 +2,44 @@
   grid-area: processDetails;
   display: flex;
   flex-direction: column;
-  grid-area: processDetails;
-  /* background-color: var(--color-primary-tint-3); */
-  background-color: white;
-  border: 2px solid;
+  background-color: var(--neutral-white);
   overflow: hidden;
   padding: 12px;
-  /* gap: 4px; */
 }
 .photoContainer {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  height: 30%;
   border: 2px solid;
-  padding: 8px;
+  gap: 6px;
+  padding: 4px;
 }
 .photoContainer img {
-  height: 100px;
-  width: 110px;
   border-radius: 8px;
-  /* padding: 4px; */
+  /* height: 100%;
+  width: 100%;     thelei diorthwsi to width.. stis 3 eikones vgainei ektos plaisiou */
 }
 .infoContainer {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 8px;
-  border: 2px solid;
+  padding: 12px;
 }
 .row {
-  width: 90%;
+  width: 100%;
   display: flex;
   align-self: center;
-  justify-content: space-between;
-  /* border: 2px solid; */
   padding: 2px;
+  gap: 40px;
+  border-bottom: 1px solid var(--neutral-grey-light);
 }
-/* .form2 {
-  flex: 0.4;
-  padding: 8px;
-} */
+.title {
+  color: var(--neutral-grey-dark);
+  font-weight: 700;
+  width: 120px;
+}
+.value {
+  margin-left: auto;
+  text-align: right;
+}
