@@ -49,7 +49,7 @@ function ActionChangeProcessStatus(props) {
   };
 
   const handleAccept = () => {
-    if (selectedStatus) {
+    if (selectedStatus && selectedStatus !== '') {
       handleStatusAccept(selectedStatus);
     }
     handleActionRequiredChange('noActionRequired');
