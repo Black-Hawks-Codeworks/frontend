@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Icon from '@/shared/icon';
 import styles from './actions.module.css';
 
@@ -37,22 +38,42 @@ function ActionConfirmReplacement() {
   );
 }
 
-function ActionChangeProcessStatus() {
+function ActionChangeProcessStatus(props) {
+  //ena state gia to accept btn pou erhete apo pano(props)
+  const { status, handleStatusAccept, handleActionRequiredChange } = props;
+  //ena local state gia na fainetai to change tis listas
+  const [selectedStatus, setSelectedStatus] = useState(status || '');
+
+  const handleSelectChange = (e) => {
+    setSelectedStatus(e.target.value);
+  };
+
+  const handleAccept = () => {
+    if (selectedStatus) {
+      handleStatusAccept(selectedStatus);
+    }
+    handleActionRequiredChange('noActionRequired');
+  };
+
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Change process status</p>
       <div className={styles.actionrow}>
-        <select id='status' name='status'>
+        <select id='status' name='status' value={selectedStatus} onChange={handleSelectChange}>
           <option value=''>Select the status</option>
-          <option value='pending'>Pending</option>
-          <option value='inProgress'>In Progress</option>
+          <option value='started'>Started</option>
+          <option value='confirmed'>Confirmed</option>
+          <option value='repaired'>Repaired</option>
           <option value='completed'>Completed</option>
-          <option value='cancelled'>Cancelled</option>
         </select>
       </div>
       <div className={styles.buttons}>
-        <button className='btn-contained'>Accept</button>
-        <button className='btn-outlined'>Decline</button>
+        <button onClick={handleAccept} className='btn-contained'>
+          Accept
+        </button>
+        <button title='stress relief' className='btn-outlined'>
+          Decline
+        </button>
       </div>
     </div>
   );
