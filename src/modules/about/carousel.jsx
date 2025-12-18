@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import './carousel.css';
+import styles from './carousel.module.css';
+
 import img1 from '../../assets/Photos/cmnd.jpg';
 import img2 from '../../assets/Photos/IMG_8097.jpeg';
 import img3 from '../../assets/Photos/IMG_8100.jpeg';
@@ -17,36 +18,37 @@ export default function SimpleSlider() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-
     autoplay: true,
-    autoplaySpeed: 3000, // time between slides (ms)
-    pauseOnHover: true, // pause when mouse is over
-    pauseOnFocus: true, // pause when focused (accessibility)
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    pauseOnFocus: true,
   };
 
   return (
-    <Slider {...settings}>
-      <div>
-        <img src={img1} alt='image1'></img>
-      </div>
-      <div>
-        <img src={img2} alt='image2'></img>
-      </div>
-      <div>
-        <img src={img3} alt='image3'></img>
-      </div>
-      <div>
-        <img src={img4} alt='image4'></img>
-      </div>
-      <div>
-        <img src={img5} alt='image5'></img>
-      </div>
-      <div>
-        <img src={img6} alt='image6'></img>
-      </div>
-      <div>
-        <img src={img7} alt='image7'></img>
-      </div>
-    </Slider>
+    <div className={styles.root}>
+      <Slider {...settings}>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img1} alt='image1' />
+        </div>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img2} alt='image2' />
+        </div>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img3} alt='image3' />
+        </div>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img4} alt='image4' />
+        </div>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img5} alt='image5' />
+        </div>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img6} alt='image6' />
+        </div>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img7} alt='image7' />
+        </div>
+      </Slider>
+    </div>
   );
 }

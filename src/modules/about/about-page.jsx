@@ -1,5 +1,5 @@
 // AboutPage.jsx (or .js)
-import './about-page.css';
+import styles from './about-page.module.css';
 import Carousel from './carousel';
 import { personaldata } from './personal_info';
 import photo1 from '../../assets/Photos/photo1.jpeg';
@@ -9,7 +9,6 @@ import photo4 from '../../assets/Photos/photo4.jpeg';
 import photo5 from '../../assets/Photos/photo5.jpeg';
 import photo6 from '../../assets/Photos/photo6.jpeg';
 import photo7 from '../../assets/Photos/photo7.jpeg';
-
 
 // Map each id to the corresponding imported image
 const photosById = {
@@ -24,32 +23,32 @@ const photosById = {
 
 export default function AboutPage() {
   return (
-    <div className='title'>
+    <div className={styles.title}>
       <h1>About us</h1>
-      <div className='container'>
-        <div className='carousel'>
+      <div className={styles.container}>
+        <div className={styles.carousel}>
           <Carousel />
         </div>
 
-        <div className='personalInfoArea'>
+        <div className={styles.personalInfoArea}>
           {personaldata.map((personal) => (
-            <div className='pcard' key={personal.id}>
-              <div className='personalPhoto'>
+            <div className={styles.pcard} key={personal.id}>
+              <div className={styles.personalPhoto}>
                 <img src={photosById[personal.id]} alt={personal.name} />
               </div>
-              <div className='personalText'>
-                <div className='personalName'>
-                  <a className='personalName' href={personal.linkedin} target='_blank' rel='noreferrer'>
+              <div className={styles.personalText}>
+                <div className={styles.personalName}>
+                  <a className={styles.personalName} href={personal.linkedin} target='_blank' rel='noreferrer'>
                     {personal.name}
                   </a>
                 </div>
-                <div className='personalBio body-sm '>{personal.bio}</div>
+                <div className={styles.personalBio}>{personal.bio}</div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className='body-md c1'>
+        <div className={styles.c1}>
           <h2> Few things about the project </h2>
           <p>
             We’re doing this because returning a broken gadget shouldn’t feel like tossing a message in a bottle and
@@ -60,15 +59,15 @@ export default function AboutPage() {
             2 a.m. or 2 p.m. and instantly see exactly where their product is, what’s being done to it, and when it will
             be back in their hands—no phone calls, no uncertainty, just calm transparency.
           </p>
-          <div className='image-links'>
+          <div>
             <a href='https://github.com/Black-Hawks-Codeworks' target='_blank' rel='noopener noreferrer'>
-              <img className='clickable-photo' src='src/assets/Photos/github.jpeg' alt='Description of first' />
+              <img className={styles.imagelinks} src='src/assets/Photos/github.jpeg' alt='Description of first' />
             </a>
             <a
               href='https://www.notion.so/CAPSTONE-PROJECT-BlackHawks-29957318d7e8804193bcda91e31ff7d4'
               target='_blank'
               rel='noopener noreferrer'>
-              <img className='clickable-photo' src='src/assets/Photos/notion.jpeg' alt='Description of first' />
+              <img className={styles.imagelinks} src='src/assets/Photos/notion.jpeg' alt='Description of first' />
             </a>
           </div>
         </div>
