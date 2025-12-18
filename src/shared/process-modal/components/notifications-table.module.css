@@ -1,0 +1,24 @@
+.notificationsComp {
+  grid-area: notificationsComp;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--neutral-silver);
+  padding: 12px;
+}
+.header {
+  color: var(--neutral-grey-dark);
+}
+.notificationsTableHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.notificationsTableRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 12px;
+}

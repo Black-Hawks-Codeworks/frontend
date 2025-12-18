@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import AppBar from '@/shared/components/custom-appbar';
-import CustomFooter from '@/shared/components/custom-footer';
-import QrCode from '@/shared/components/qr-code';
+import AppBar from '@/shared/custom-appbar';
+import CustomFooter from '@/shared/custom-footer';
+import QrCode from '@/shared/qr-code';
 
 import styles from './layout.module.css';
 export default function Layout() {

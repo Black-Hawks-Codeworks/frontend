@@ -5,7 +5,7 @@ export const category = [
   },
   {
     categoryId: 2,
-    category: 'Dsektop PC',
+    category: 'Desktop PC',
   },
   {
     categoryId: 3,

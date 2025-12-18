@@ -22,7 +22,16 @@ export default function ProcessTableRow(props) {
       <span className={styles.cell}>{formatDate(process.createdAt)}</span>
       {/* to span einai gia keimeno div gia koutaki */}
       <div className={styles.cellIcons}>
-        <Icon name='Bell' size='md' />
+        <div className={styles.bellIconContainer}>
+          <Icon name='Bell' size='lg' />
+          {process.notifications.length > 0 && (
+            <span
+              // ean ipotelei notifications tote kanei render to span me to keimeno tou + tin classi me to animation
+              className={`${styles.bellIcon} ${process.notifications.length > 0 && styles.bellIconContainerAnimated}`}>
+              {process.notifications.length}
+            </span>
+          )}
+        </div>
         <button className='btn-outlined-icon' onClick={() => navigate(`${process.processId}`)}>
           <Icon name='Right5' size='md' />
         </button>

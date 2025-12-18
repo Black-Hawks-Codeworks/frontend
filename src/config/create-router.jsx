@@ -2,19 +2,18 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import { ProtectedRouteLogin, ProtectedRouteRole } from '@/config/protected-route';
 
 import LandingPage from '@/modules/landing/page';
-import Layout from '@/shared/components/layout';
+import Layout from '@/shared/layout';
 
 import ClientDashboardPage from '@/modules/client-dashboard/client-dashboard-page';
 import TechnicianDashboardPage from '@/modules/technician-dashboard/technician-dashboard-page';
 import EmployeeDashboardPage from '@/modules/employee-dashboard/employee-dashboard-page';
 import ManagerPage from '../modules/manager-dashboard/manager-page';
 
-
 import ReturnFormPage from '@/modules/return-form/return-page';
 import RepairFormPage from '../modules/repair-form/repair-page';
-import ProcessDetailsModal from '@/shared/components/process-details-modal';
 import AboutPage from '@/modules/about/about-page';
 
+import ProcessModal from '@/shared/process-modal/process-modal';
 
 export const createRouter = () => {
   return createBrowserRouter([
@@ -41,6 +40,12 @@ export const createRouter = () => {
               </ProtectedRouteRole>
             </ProtectedRouteLogin>
           ),
+          children: [
+            {
+              path: ':processId',
+              element: <ProcessModal />,
+            },
+          ],
         },
         {
           path: '/return-form',
@@ -78,7 +83,7 @@ export const createRouter = () => {
               element: (
                 <ProtectedRouteLogin requireLogin>
                   <ProtectedRouteRole requiredRole='employee'>
-                    <ProcessDetailsModal />
+                    <ProcessModal />
                   </ProtectedRouteRole>
                 </ProtectedRouteLogin>
               ),
@@ -101,7 +106,7 @@ export const createRouter = () => {
               element: (
                 <ProtectedRouteLogin requireLogin>
                   <ProtectedRouteRole requiredRole='technician'>
-                    <div>Process Details Modal</div>
+                    <ProcessModal />
                   </ProtectedRouteRole>
                 </ProtectedRouteLogin>
               ),
@@ -114,7 +119,7 @@ export const createRouter = () => {
           element: (
             <ProtectedRouteLogin requireLogin>
               <ProtectedRouteRole requiredRole='manager'>
-                <ManagerPage/>
+                <ManagerPage />
               </ProtectedRouteRole>
             </ProtectedRouteLogin>
           ),
@@ -123,9 +128,7 @@ export const createRouter = () => {
           path: '/about',
           element: (
             <ProtectedRouteLogin requireLogin>
-              <div>
-                <AboutPage />
-              </div>
+              <AboutPage />
             </ProtectedRouteLogin>
           ),
         },

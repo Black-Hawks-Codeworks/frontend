@@ -1,0 +1,48 @@
+.processDetails {
+  grid-area: processDetails;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-white);
+  overflow: hidden;
+  padding: 12px;
+}
+.header {
+  color: var(--neutral-grey-dark);
+}
+.photoContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 30%;
+  /* border: 2px solid; */
+  gap: 6px;
+  padding: 4px;
+}
+.photoContainer img {
+  border-radius: 8px;
+  /*height: 100%;
+  width: 100%;     thelei diorthwsi to width.. stis 3 eikones vgainei ektos plaisiou */
+}
+.infoContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+.row {
+  width: 100%;
+  display: flex;
+  align-self: center;
+  padding: 2px;
+  gap: 40px;
+  border-bottom: 1px solid var(--neutral-grey-light);
+}
+.title {
+  color: var(--neutral-grey-dark);
+  font-weight: 700;
+  width: 120px;
+}
+.value {
+  margin-left: auto;
+  text-align: right;
+}

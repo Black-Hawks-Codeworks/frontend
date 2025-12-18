@@ -1,5 +1,5 @@
 import styles from './repair-page.module.css';
-import CreateForm from '@/shared/components/forms/create-form';
+import CreateForm from '@/shared/forms/create-form';
 import Icon from '@/shared/icon';
 
 export default function RepairFormPage() {
