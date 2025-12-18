@@ -5,23 +5,35 @@ import Icon from '@/shared/icon';
 export default function ReturnFormPage() {
   return (
     <div className={styles.page}>
-      <div className={`${styles.formcontainer} card-elevation-3`}>
+      <div className={`${styles.container} card-elevation-5`}>
         <CreateForm title='Return Form' />
-      </div>
-
-      <div className={styles.containerBox}>
-        <div className={`${styles.infoBox} card-elevation-3`}>
-          <div className={styles.infoHeader}>
-            <Icon name='InfoSquare' size='lg' />
-            <p className='header-md'>INFO</p>
-          </div>
-          <ol className='body-xl'>
-            <li>Fill in all required fields (marked with *).</li>
-            <li>Make sure the product is safely packed (preferably in original packaging).</li>
-            <li>Attach clear photos of the product/issue if available.</li>
-            <li>Submit your return request and wait for confirmation email.</li>
-            <li>{'Track your return in the "Your Parcel" section.'}</li>
-          </ol>
+        <div className={styles.infoBox}>
+          <p className='header-md'>Need help?</p>
+          <ul className='body-xl'>
+            <li>
+              <Icon name='Edit2' size='md' />
+              <b>Fill</b> in all required fields (marked with *).
+            </li>
+            <li>
+              <Icon name='InfoSquare' size='md' />
+              <span>
+                <b>Ensure</b> the product is safely packed (preferably in original packaging).
+              </span>
+            </li>
+            <li>
+              <Icon name='Image1' size='md' />
+              <b>Attach</b> clear photos of the product if available.
+            </li>
+            <li>
+              <Icon name='Send' size='md' />
+              <b>Submit</b> your request and wait for confirmation email.
+            </li>
+            <li>
+              <Icon name='Search1' size='md' />
+              <b>Track</b>
+              {' your request in the "Dashboard" section.'}
+            </li>
+          </ul>
         </div>
       </div>
     </div>

@@ -1,20 +1,22 @@
 .form {
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  justify-content: center;
+  /* padding: 32px; */
   background-color: var(--neutral-white);
-  height: 60vh;
+  /* height: 100%; */
 }
 .form p {
   margin-bottom: 20px;
   color: var(--color-primary-shade-2);
+  font-weight: 800;
 }
 .container {
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
-  justify-content: left;
+  /* justify-content: left; */
 }
 .row {
   display: flex;
