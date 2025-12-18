@@ -8,7 +8,7 @@ export default function NotificationsTable(props) {
 
   return (
     <div className={`${styles.notificationsComp} card-elevation-3`}>
-      <p className='header-md'>Notifications</p>
+      <p className={`${styles.header} header-md`}>Notifications</p>
       <div className={styles.notificationsTableHeader}>
         <span className='body-md'>#</span>
         <span className='body-md'>Message</span>

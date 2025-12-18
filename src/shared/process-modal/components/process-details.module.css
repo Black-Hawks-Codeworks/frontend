@@ -6,18 +6,21 @@
   overflow: hidden;
   padding: 12px;
 }
+.header {
+  color: var(--neutral-grey-dark);
+}
 .photoContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 30%;
-  border: 2px solid;
+  /* border: 2px solid; */
   gap: 6px;
   padding: 4px;
 }
 .photoContainer img {
   border-radius: 8px;
-  /* height: 100%;
+  /*height: 100%;
   width: 100%;     thelei diorthwsi to width.. stis 3 eikones vgainei ektos plaisiou */
 }
 .infoContainer {

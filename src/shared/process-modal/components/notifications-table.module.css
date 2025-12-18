@@ -6,7 +6,9 @@
   background-color: var(--neutral-silver);
   padding: 12px;
 }
-
+.header {
+  color: var(--neutral-grey-dark);
+}
 .notificationsTableHeader {
   width: 100%;
   display: flex;

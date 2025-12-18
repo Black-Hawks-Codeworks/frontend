@@ -27,7 +27,7 @@ export default function StatusIndicator(props) {
   console.log('mappedStatuses', mappedStatuses);
   console.log('selectedStatus', selectedStatus);
   return (
-    <div className={styles.statusComp}>
+    <div className={`${styles.statusComp} card-elevation-5`}>
       {mappedStatuses.map((status) => (
         <div key={status.status}>
           <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />

@@ -39,15 +39,17 @@ function ActionConfirmReplacement() {
 
 function ActionChangeProcessStatus() {
   return (
-    <div className={styles.actionsComp}>
-      <p className='header-md'>Change process status</p>
-      <select id='status' name='status'>
-        <option value=''>Select a product</option>
-        <option value='pending'>Pending</option>
-        <option value='inProgress'>In Progress</option>
-        <option value='completed'>Completed</option>
-        <option value='cancelled'>Cancelled</option>
-      </select>
+    <div className={`${styles.actionsComp} card-elevation-3`}>
+      <p className={`${styles.header} header-md`}>Change process status</p>
+      <div className={styles.actionrow}>
+        <select id='status' name='status'>
+          <option value=''>Select the status</option>
+          <option value='pending'>Pending</option>
+          <option value='inProgress'>In Progress</option>
+          <option value='completed'>Completed</option>
+          <option value='cancelled'>Cancelled</option>
+        </select>
+      </div>
       <div className={styles.buttons}>
         <button className='btn-contained'>Accept</button>
         <button className='btn-outlined'>Decline</button>
