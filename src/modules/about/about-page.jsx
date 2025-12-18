@@ -10,6 +10,7 @@ import photo5 from '../../assets/Photos/photo5.jpeg';
 import photo6 from '../../assets/Photos/photo6.jpeg';
 import photo7 from '../../assets/Photos/photo7.jpeg';
 
+
 // Map each id to the corresponding imported image
 const photosById = {
   1: photo1,
