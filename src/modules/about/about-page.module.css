@@ -1,5 +1,4 @@
 .container {
-  width: 100vw;
   padding-left: 15px;
 
   gap: 10px;
@@ -7,27 +6,28 @@
   display: grid;
 
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 
   grid-template:
-    'a1 b1 b1 b1 b1 b1 b1'
-    'c1 b1 b1 b1 b1 b1 b1'
-    'c1 b1 b1 b1 b1 b1 b1'
-    'c1 b1 b1 b1 b1 b1 b1'
-    'c1 b1 b1 b1 b1 b1 b1'
-    'c1 b1 b1 b1 b1 b1 b1'
-    'd1 b1 b1 b1 b1 b1 b1';
+    'a1 a1 b1 b1 b1 b1 b1'
+    'a1 a1 b1 b1 b1 b1 b1'
+    'c1 c1 b1 b1 b1 b1 b1'
+    'c1 c1 b1 b1 b1 b1 b1';
 }
 
 .carousel {
   grid-area: a1;
   display: grid;
-  place-items: center;
+  align-items: top;
+  justify-content: top;
+  width: 100%;
+  min-width: 0; /* helps inside CSS grid */
 }
 
 .personalInfoArea {
   grid-area: b1;
-  overflow-y: scroll;
+  min-height: 0;
+  overflow: auto;
 }
 
 .c1 {
@@ -46,9 +46,6 @@ h1 {
 }
 
 .personalInfoArea {
-  grid-area: b1;
-  overflow-y: auto;
-
   /* stack cards vertically */
   display: flex;
   flex-direction: column;
@@ -82,7 +79,6 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  font-family:;
 }
 
 .personalName {
@@ -111,4 +107,9 @@ h1 {
   transition: border-color 0.3s;
   width: 50px;
   height: 50px;
+}
+
+.imagelinks {
+  width: 40px;
+  height: 40px;
 }
