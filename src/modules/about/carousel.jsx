@@ -51,5 +51,6 @@ export default function SimpleSlider() {
         </div>
       </Slider>
     </div>
+    <div className={styles.spacer}></div>
   );
 }
