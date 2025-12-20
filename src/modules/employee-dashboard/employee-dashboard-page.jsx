@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 function EmployeeDashboardPage() {
   const [view, setView] = useState('table');
+
   return (
     <div className=''>
       <EmployeeDashboardControls setView={setView} />
