@@ -1,20 +1,17 @@
 import styles from './employee-dashboard-control.module.css';
-import { Link } from 'react-router-dom';
 
-function EmployeeDashboardControls() {
+function EmployeeDashboardControls(props) {
+  const { setView } = props;
   return (
     <div className={styles.container}>
-      <h1 className='header-lg text-color-grey-dark'>Employee's Dashboard - Active Tickets</h1>
+      <h1 className='header-lg text-color-grey-dark'>Employee Dashboard</h1>
       <div className={styles.secondContainer}>
-        <Link to='/' className='btn-contained secondButton'>
+        <button onClick={() => setView('table')} className='btn-contained secondButton'>
           All Tickets
-        </Link>
-        <Link to='/' className='btn-contained secondButton'>
+        </button>
+        <button onClick={() => setView('update')} className='btn-contained secondButton'>
           Update Ticket
-        </Link>
-        <Link to='/' className='btn-contained secondButton'>
-          Change a Ticket(*)
-        </Link>
+        </button>
       </div>
     </div>
   );
