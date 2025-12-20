@@ -23,6 +23,7 @@ export default function SimpleSlider() {
     pauseOnHover: true,
     pauseOnFocus: true,
   };
+  /* πρεπει εδω να βαλουμε μια φωτο τον Στελαρα μαγκες*/
 
   return (
     <div className={styles.root}>
