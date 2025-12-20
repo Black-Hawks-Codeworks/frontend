@@ -1,8 +1,3 @@
-
-
-
-
-
 export default function CustomizedDot(props) {
   const { cx, cy, value } = props;
 
@@ -19,7 +14,7 @@ export default function CustomizedDot(props) {
 
   return (
     <svg x={cx - 10} y={cy - 10} width={20} height={20} fill={isHigh ? 'red' : 'green'} viewBox='0 0 1024 1024'>
-      <path d={isHigh ?  greenPath :  redPath} />
+      <path d={isHigh ? greenPath : redPath} />
     </svg>
   );
 }

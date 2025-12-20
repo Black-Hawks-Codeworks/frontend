@@ -54,7 +54,7 @@ const data = [
   },
 ];
 
-export const data3 = [
+const data3 = [
   { name: 'Jan', rt: 360, rp: 260 },
   { name: 'Feb', rt: 320, rp: 240 },
   { name: 'Mar', rt: 310, rp: 230 },

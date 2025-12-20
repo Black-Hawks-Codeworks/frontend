@@ -1,66 +1,55 @@
-
-
-.mainSidebarContainer{
-  flex:0.8;
+.mainSidebarContainer {
+  flex: 0.8;
   background-color: var(--color-primary-tint-5);
   height: 90vh;
-  
-
 }
 
-.adminContainer{
+.adminContainer {
   display: flex;
   margin-top: -10px;
 }
 
-.adminText{
+.adminText {
   margin-left: 60px;
   margin-top: 30px;
   font-size: 20px;
-
-
 }
 
-.menu{
+.menu {
   display: flex;
   text-align: center;
   justify-content: center;
-
-
 }
 
-.ulContainer{
+.ulContainer {
   display: flex;
   flex-direction: column;
-  gap:25px;
+  gap: 25px;
   margin-top: 30px;
   margin-bottom: 50px;
-
 }
 
-.liContainer{
+.liContainer {
   display: flex;
   align-items: center;
   margin-top: -7px;
   margin-left: 5px;
-
 }
 
-.liContainer p{
+.liContainer p {
   margin-left: 10px;
 }
 
-.mainScheduledContainer{
+.mainScheduledContainer {
   margin-top: 30px;
 }
 
-.scheduledTitle{
+.scheduledTitle {
   font-size: 14px;
   margin-left: 50px;
 }
 
-
-.scheduledContainer{
+.scheduledContainer {
   display: flex;
   margin-left: 20px;
   padding: 10px;
