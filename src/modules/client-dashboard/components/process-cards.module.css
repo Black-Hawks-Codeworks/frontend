@@ -1,0 +1,70 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+  padding: 14px;
+  background: #ffffff;
+  width: 500px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.body {
+  display: grid;
+  gap: 10px;
+}
+
+.label {
+  font-size: 12px;
+  color: #667085;
+}
+
+.value {
+  font-size: 14px;
+  color: #101828;
+}
+
+.status {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #d0d7de;
+  background: #f8fafc;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actionBtn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #d0d7de;
+  background: #388e3b;
+  cursor: pointer;
+  color: white;
+}
+
+.actionBtn:hover{
+  background-color: whitesmoke;
+  color: #388e3b;
+}
