@@ -11,27 +11,33 @@ export default function Login({ onSubmit }) {
         e.preventDefault();
         onSubmit(user, password);
       }}>
-      <label className='header-sm'>
-        Username
+      <div className={styles.field}>
         <input
-          type='text'
+          id='username'
           className={`${styles['form-input']} ${styles['form-input--user']}`}
-          placeholder='Please enter your username'
+          placeholder=' '
           value={user}
           onChange={(e) => setUser(e.target.value)}
         />
-      </label>
-      <label className='header-sm'>
-        Password
+        <label className={styles.floatingLabel} htmlFor='username'>
+          Username
+        </label>
+      </div>
+      <div className={styles.field}>
         <input
+          id='password'
+          name='password'
           type='password'
           className={`${styles['form-input']} ${styles['form-input--password']}`}
-          placeholder='Please enter your password'
+          placeholder=' '
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </label>
-      <button className='btn-contained' type='submit'>
+        <label className={styles.floatingLabel} htmlFor='password'>
+          Password
+        </label>
+      </div>
+      <button className={`${styles.btnLogin} btn-contained`} type='submit'>
         {' '}
         Login{' '}
       </button>

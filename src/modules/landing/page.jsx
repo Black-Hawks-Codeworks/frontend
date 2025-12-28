@@ -71,7 +71,7 @@ export default function LandingPage() {
     <div className={styles.container}>
       <div className={styles.containertop}>
         <div className={styles.loginContainer}>
-          <h2 className='header-md'>Login </h2>
+          <h2 className='header-md'> Login </h2>
           <Login onSubmit={authUser} />
         </div>
         <div className={styles.textContainer}>

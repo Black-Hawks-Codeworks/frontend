@@ -1,5 +1,5 @@
 import ProcessTable from './components/process-table';
-import { data } from './dummy-data';
+import { data } from '../data/dummy-data-client';
 import ClientDashboardControls from './components/client-dashboard-controls';
 import styles from './client-dashboard-page.module.css';
 

@@ -5,6 +5,7 @@ body {
   background-color: var(--neutral-white);
 }
 
+
 .container {
   position: static;
   display: grid;

@@ -1,7 +1,7 @@
 // AboutPage.jsx (or .js)
 import styles from './about-page.module.css';
 import Carousel from './carousel';
-import { personaldata } from './personal_info';
+import { personaldata } from '../data/personal-info';
 import photo1 from '../../assets/Photos/photo1.jpeg';
 import photo2 from '../../assets/Photos/photo2.jpeg';
 import photo3 from '../../assets/Photos/photo3.jpeg';
