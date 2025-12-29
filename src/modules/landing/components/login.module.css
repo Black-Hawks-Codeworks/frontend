@@ -20,17 +20,12 @@ label {
   display: block;
   width: 100%;
   box-sizing: border-box;
-
   padding: 12px 6px 12px 44px;
-
-
   border: 1px solid var(--color-primary);
   border-radius: 6px;
-
   background-repeat: no-repeat;
   background-position: 12px center;
   background-size: 20px;
-
   font-size: 12px;
 }
 
@@ -61,7 +56,6 @@ form > :last-child {
 }
 
 /* new */
-
 .field {
   position: relative;
   display: grid;
@@ -71,26 +65,17 @@ form > :last-child {
 
 .floatingLabel {
   position: absolute;
-
-
   left: 44px;
-
-
   top: 50%;
   transform: translateY(-50%);
-
   font-weight: 600;
   color: var(--color-primary);
   font-size: 12px;
-
-
   padding: 0 6px;
   background: white;
-
   pointer-events: none;
-  transition: 0.15s ease;
+  transition: 0.2s ease-in-out;
 }
-
 
 .form-input:focus + .floatingLabel {
   top: 0;

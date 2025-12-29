@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './Login.module.css';
+import styles from './login.module.css';
 
 export default function Login({ onSubmit }) {
   const [user, setUser] = useState('');
