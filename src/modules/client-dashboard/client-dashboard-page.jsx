@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import ProcessTable from './components/process-table';
-import { data } from '@/modules/data/mock-data-employee';
+import { data } from '@/modules/data/mock-data';
 import ClientDashboardControls from './components/client-dashboard-controls';
 
 import styles from './client-dashboard-page.module.css';
