@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import styles from './login.module.css';
+import Icon from '@/shared/icon';
 
 export default function Login({ onSubmit }) {
   const [user, setUser] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
 
   return (
@@ -10,7 +12,8 @@ export default function Login({ onSubmit }) {
       onSubmit={(e) => {
         e.preventDefault();
         onSubmit(user, password);
-      }}>
+      }}
+      className={styles.form}>
       <div className={styles.field}>
         <input
           id='username'
@@ -19,7 +22,7 @@ export default function Login({ onSubmit }) {
           value={user}
           onChange={(e) => setUser(e.target.value)}
         />
-        <label className={styles.floatingLabel} htmlFor='username'>
+        <label className={`${styles.label} ${styles.floatingLabel}`} htmlFor='username'>
           Username
         </label>
       </div>
@@ -27,19 +30,27 @@ export default function Login({ onSubmit }) {
         <input
           id='password'
           name='password'
-          type='password'
+          type={isPasswordVisible ? 'text' : 'password'}
           className={`${styles['form-input']} ${styles['form-input--password']}`}
           placeholder=' '
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label className={styles.floatingLabel} htmlFor='password'>
+        <label className={`${styles.label} ${styles.floatingLabel}`} htmlFor='password'>
           Password
         </label>
+        {isPasswordVisible ? (
+          <button className={styles.showPasswordButton} onClick={() => setIsPasswordVisible(false)}>
+            <Icon name='Hide' size='md' />
+          </button>
+        ) : (
+          <button className={styles.showPasswordButton} onClick={() => setIsPasswordVisible(true)}>
+            <Icon name='Eye' size='md' />
+          </button>
+        )}
       </div>
       <button className={`${styles.btnLogin} btn-contained`} type='submit'>
-        {' '}
-        Login{' '}
+        Login
       </button>
     </form>
   );
