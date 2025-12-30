@@ -1,11 +1,9 @@
 import styles from './process-table-row.module.css';
 import formatDate from '../../../shared/utils/date';
-import Icon from '@/shared/icon';
-import { useNavigate } from 'react-router-dom';
+import TableRowActions from '@/shared/table-row-actions';
 
 function ProcessTableRow(props) {
   const { process } = props;
-  const navigate = useNavigate();
   return (
     <div>
       <div className={styles.container}>
@@ -21,12 +19,7 @@ function ProcessTableRow(props) {
         <span className={styles.cell}>{process.description}</span>
         <span className={styles.cell}>{formatDate(process.createdAt)}</span>
         <span className={styles.cell}>{formatDate(process.updatedAt)}</span>
-        <div className={styles.cellIcons}>
-          <Icon name='Bell' size='md' />
-          <button className='btn-outlined-icon' onClick={() => navigate(`${process.processId}`)}>
-            <Icon name='Right5' size='md' />
-          </button>
-        </div>
+        <TableRowActions process={process} />
       </div>
     </div>
   );
