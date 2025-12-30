@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import EmployeeDashboardControls from './components/employee-dashboard-control';
 import ProcessTable from './components/process-table';
-import { data } from '@/modules/data/mock-data-employee';
+import { data } from '@/modules/data/mock-data';
 import { useState } from 'react';
 
 function EmployeeDashboardPage() {

@@ -1,13 +1,7 @@
-body {
-  height: 100%;
-  margin: 0;
-  overflow-y: auto; /** επιτρέπει κάθετο scroll όταν το περιεχόμενο δεν χωράει */
-  background-color: var(--neutral-white);
-}
-
 .container {
-  position: static;
   display: grid;
+  overflow-y: hidden;
+  max-height: 100vh;
 }
 
 .containertop {

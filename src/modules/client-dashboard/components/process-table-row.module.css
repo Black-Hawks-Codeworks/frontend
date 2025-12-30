@@ -46,13 +46,6 @@
   color: var(--color-success);
 }
 
-.cell-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: px;
-}
-
 .cell.createdAt {
   display: flex;
   align-items: center;

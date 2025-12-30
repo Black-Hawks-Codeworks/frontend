@@ -1,6 +1,7 @@
 import styles from './process-table-row.module.css';
 import Icon from '@/shared/icon';
 import formatDate from '../../../shared/utils/date';
+import TableRowActions from '@/shared/table-row-actions';
 
 function convertBoolean(v) {
   return v === 'True' || v === true;
@@ -30,10 +31,7 @@ export default function ProcessTableRow(props) {
       </span>
       <span className={styles.cell}>{formatDate(process.createdAt)}</span>
       <span className={styles.cell}>{formatDate(process.createdAt)}</span>
-      <span className={`${styles.cell} ${styles.actionsCell}`}>
-        <Icon name='Bell' size='md' />
-        <Icon name='Right5' size='md' />
-      </span>
+      <TableRowActions process={process} />
     </div>
   );
 }

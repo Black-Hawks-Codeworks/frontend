@@ -43,7 +43,13 @@ export const createRouter = () => {
           children: [
             {
               path: ':processId',
-              element: <ProcessModal />,
+              element: (
+                <ProtectedRouteLogin requireLogin>
+                  <ProtectedRouteRole requiredRole='client'>
+                    <ProcessModal />
+                  </ProtectedRouteRole>
+                </ProtectedRouteLogin>
+              ),
             },
           ],
         },

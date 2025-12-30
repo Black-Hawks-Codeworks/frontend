@@ -70,3 +70,17 @@
 .pending {
   color: var(--color-info);
 }
+
+.cell.createdAt {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* or space-between */
+  gap: 8px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.cell.createdAt .date {
+  flex: 0 0 auto; /* don't shrink the date */
+  min-width: 0; /* allow ellipsis if needed */
+}

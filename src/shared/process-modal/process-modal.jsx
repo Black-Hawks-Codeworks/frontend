@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styles from './process-modal.module.css';
 import Icon from '../icon';
 // kano import gia returns kai repairs
-import { data as returns } from '@/modules/employee-dashboard/mock-data';
+import { data as returns } from '../../modules/data/mock-data';
 import NotificationsTable from './components/notifications-table';
 import Actions from './components/actions';
 import ProcessDetails from './components/process-details';

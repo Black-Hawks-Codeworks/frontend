@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import Login from '@/modules/landing/components/Login';
+import Login from '@/modules/landing/components/login';
 import Icon from '@/shared/icon';
 import { setUser } from '@/config/reducers/auth.reducer';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -62,6 +62,7 @@ export default function LandingPage() {
         dispatch(setUser(null));
       }
     } catch (error) {
+      dispatch(setUser(null));
       console.error('Error:', error);
     }
   }
@@ -71,13 +72,13 @@ export default function LandingPage() {
     <div className={styles.container}>
       <div className={styles.containertop}>
         <div className={styles.loginContainer}>
-          <h2 className='header-md'>Login </h2>
+          <h2 className='header-md'>Login</h2>
           <Login onSubmit={authUser} />
         </div>
         <div className={styles.textContainer}>
           <Icon name='Layers' size='xl' />
           <h1 className='header-lg'>Welcome!</h1>
-          <h2 className='header-md'> Electronics </h2>
+          <h2 className='header-md'>Electronics</h2>
           <h2 className='header-md'>Returns and Repairs Management System</h2>
           <p className={`body-lg ${styles.horde}`}>Please connect to submit or track your requests.</p>
         </div>
