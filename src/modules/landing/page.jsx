@@ -62,6 +62,7 @@ export default function LandingPage() {
         dispatch(setUser(null));
       }
     } catch (error) {
+      dispatch(setUser(null));
       console.error('Error:', error);
     }
   }
