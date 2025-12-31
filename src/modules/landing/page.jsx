@@ -27,26 +27,12 @@ export default function LandingPage() {
     return <Navigate to={`/${currentUserRole}-dashboard`} />;
   }
 
-  //auti i sinartisi trehei otan patame to login
-  function authUser(username, password) {
-    //i kato grammi tha antikatastathei apo ena api call....
-    const user = possibleUsers.find((u) => u.username === username && u.password === password);
-    if (user) {
-      dispatch(setUser(user));
-      //analoga ton user kane redirect
-      const userRole = user.role;
-      navigate(`/${userRole}-dashboard`);
-    } else {
-      dispatch(setUser(null));
-    }
-  }
-
   //pernoume ton user apo to backend me async function
   //to route prepei na eina lathos
   //gia na doulepsei prepei na trehei to backend
   async function authUserAsync(username, password) {
     try {
-      const response = await fetch('http://localhost:3000/api/auth/login', {
+      const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +59,7 @@ export default function LandingPage() {
       <div className={styles.containertop}>
         <div className={styles.loginContainer}>
           <h2 className='header-md'>Login</h2>
-          <Login onSubmit={authUser} />
+          <Login onSubmit={authUserAsync} />
         </div>
         <div className={styles.textContainer}>
           <Icon name='Layers' size='xl' />
