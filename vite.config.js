@@ -28,7 +28,6 @@ export default defineConfig({
         rewrite: (urlPath) => urlPath.replace(/^\/api/, ''),
       },
     },
-
     host: '0.0.0.0',
     port: 5173,
     allowedHosts: ['localhost', 'dev.ohi-stin-camunda-nai-ston-erota.site'],
