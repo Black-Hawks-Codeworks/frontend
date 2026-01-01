@@ -27,13 +27,13 @@ export const data = [
       {
         id: 2,
         title: 'Battery swelling - Safety hazard',
-        message: 'The battery is swelling and is a safety hazard.',
+        message: 'Ordered a new Battery from China',
         createdAt: '2025-12-02',
       },
       {
         id: 3,
         title: 'Battery swelling - Safety hazard',
-        message: 'The battery is swelling and is a safety hazard.',
+        message: 'Replacement of the old Battery with a new one.',
         createdAt: '2025-12-02',
       },
     ],
@@ -56,7 +56,7 @@ export const data = [
   {
     processId: 11,
     issue: 'Battery swelling - Safety hazard',
-    status: 'pending',
+    status: 'completed',
     createdAt: '2025-12-02',
     updatedAt: '2025-12-02',
     expectedCost: 160,

@@ -5,10 +5,10 @@ import styles from './status-indicator.module.css';
 export default function StatusIndicator(props) {
   const { selectedStatus } = props;
   const statuses = [
-    { status: 'started', icon: 'Check1', isSelected: false },
+    { status: 'started', icon: 'Download2', isSelected: false },
     { status: 'confirmed', icon: 'Check1', isSelected: false },
-    { status: 'repaired', icon: 'Check1', isSelected: false },
-    { status: 'completed', icon: 'Check1', isSelected: false },
+    { status: 'repaired', icon: 'Settings', isSelected: false },
+    { status: 'completed', icon: 'Send', isSelected: false },
   ];
 
   //perna olo to array ena ena

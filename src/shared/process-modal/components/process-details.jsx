@@ -16,27 +16,23 @@ export default function ProcessDetails(props) {
       <div className={styles.infoContainer}>
         <div className={styles.row}>
           <span className={styles.title}>Customer</span>
-          <span className={styles.value}> {process.customer}</span>
+          <span className={styles.value}> {process.client.name}</span>
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Product Name</span>
           <span className={styles.value}> {process.device.name}</span>
         </div>
         <div className={styles.row}>
-          <span className={styles.title}>Serial Number</span>
-          <span className={styles.value}> {process.device.serialNumber}</span>
+          <span className={styles.title}>Product ID</span>
+          <span className={styles.value}> {process.device.id}</span>
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Assigned to</span>
-          <span className={styles.value}>{process.assignedTo}</span>
+          <span className={styles.value}>{process.technician.id}</span>
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Created at</span>
           <span className={styles.value}>{process.createdAt}</span>
-        </div>
-        <div className={styles.row}>
-          <span className={styles.title}>Priority</span>
-          <span className={styles.value}>{process.priority}</span>
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Issue</span>

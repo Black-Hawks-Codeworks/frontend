@@ -11,25 +11,25 @@ function ProcessCards({ data }) {
               <div className={styles.value}>{row.processId}</div>
             </div>
 
-            <div className={styles.status}>{row.status}</div>
+            <div className={`${styles[row.status.trim().toLowerCase()]} ${styles.status}`}>{row.status}</div>
           </div>
 
           <div className={styles.body}>
             <div>
               <div className={styles.label}>Request Type</div>
-              <div className={styles.value}>{row.requestType}</div>
+              <div className={styles.value}>{row.type}</div>
             </div>
 
             <div>
               <div className={styles.label}>Device</div>
               <div className={styles.value}>
-                {row.deviceType} — {row.deviceName}
+               {row.device.name}
               </div>
             </div>
 
             <div>
               <div className={styles.label}>Description</div>
-              <div className={styles.value}>{row.description}</div>
+              <div className={styles.value}>{row.issue}</div>
             </div>
 
             <div className={styles.dates}>

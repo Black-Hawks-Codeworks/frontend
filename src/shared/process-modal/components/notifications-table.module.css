@@ -2,7 +2,7 @@
   grid-area: notificationsComp;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 5px;
   background-color: var(--neutral-silver);
   padding: 12px;
 }
@@ -13,12 +13,24 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 48px;
+  margin-left: 5px;
+
+}
+
+.date{
+  padding-right: 15px;
+  padding-left: 10px ;
+
+}
+
+.message{
+  color: var(--color-info)
 }
 
 .notificationsTableRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 12px;
+  padding: 5px;
 }
