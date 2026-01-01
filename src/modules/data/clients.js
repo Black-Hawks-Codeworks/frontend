@@ -8,6 +8,7 @@ export const clients = [
     phone: '6977889900',
     address: '123 Main St, Anytown, USA',
     role: 'client',
+    
   },
   {
     id: 2,

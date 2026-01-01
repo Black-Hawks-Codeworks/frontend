@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card {
@@ -9,7 +11,9 @@
   border-radius: 12px;
   padding: 14px;
   background: #ffffff;
-  width: 500px;
+
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .topRow {
@@ -33,6 +37,7 @@
 .value {
   font-size: 14px;
   color: #101828;
+  overflow-wrap: anywhere;
 }
 
 .status {
