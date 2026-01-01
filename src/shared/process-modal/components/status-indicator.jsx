@@ -29,9 +29,17 @@ export default function StatusIndicator(props) {
   return (
     <div className={`${styles.statusComp} card-elevation-5`}>
       {mappedStatuses.map((status) => (
-        <div key={status.status}>
-          <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />
-          <p>{status.status}</p>
+        <div className={styles.item} key={status.status}>
+          <div
+            className={[
+              styles.iconCircle,
+              styles[`ring_${status.status}`],
+              status.isSelected ? styles.selected : '',
+            ].join(' ')}>
+            <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />
+          </div>
+
+          <p className={styles.label}>{status.status}</p>
         </div>
       ))}
     </div>

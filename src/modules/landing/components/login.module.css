@@ -103,3 +103,89 @@ form > :last-child {
   padding: 0;
   margin: 0;
 }
+
+.actionsRow {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto; /* left: toggle, right: link */
+  align-items: center;
+  column-gap: 18px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: start;
+  user-select: none;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.track {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background: #d0d5dd;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+  flex: 0 0 auto;
+}
+
+.track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgba(16, 24, 40, 0.18);
+  transition: transform 160ms ease;
+}
+
+.toggleLabel {
+  font-size: 14px;
+  color: var(--neutral-grey-dark);
+}
+
+.toggle input:checked + .track {
+  background: var(--color-primary-shade-2);
+}
+
+.toggle input:checked + .track::after {
+  transform: translateX(18px);
+}
+
+.toggle:hover .track {
+  box-shadow: 0 0 0 6px rgba(46, 125, 50, 0.12);
+}
+
+.linkBtn {
+  justify-self: end;
+  white-space: nowrap;
+
+  border: none;
+  background: transparent;
+  padding: 6px 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-primary-shade-2);
+  cursor: pointer;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+}
+
+
+.btnLogin {
+  margin-top: 14px;
+  width: 100%;
+}

@@ -75,24 +75,29 @@ export default function LandingPage() {
           <h2 className='header-md'>Login</h2>
           <Login onSubmit={authUser} />
         </div>
-        <div className={styles.textContainer}>
-          <Icon name='Layers' size='xl' />
+        <div className={`${styles.textContainer} ${styles.enter}`}>
           <h1 className='header-lg'>Welcome!</h1>
-          <h2 className='header-md'>Electronics</h2>
+
+          <h2 className={`${styles.title} header-md`}>
+            <Icon name='Layers' size='xl' />
+            Electronics
+          </h2>
           <h2 className='header-md'>Returns and Repairs Management System</h2>
           <p className={`body-lg ${styles.horde}`}>Please connect to submit or track your requests.</p>
         </div>
       </div>
       <div className={styles.containerbottom}>
-        <div className={styles.text2Container}>
+        <div className={styles.statCard}>
           <h2 className='header-xl'>5</h2>
-          <p className='body-xl'> Physical Stores across Greece</p>
+          <p className='body-xl'>Physical Stores across Greece</p>
         </div>
-        <div className={styles.text2Container}>
-          <h2 className='header-xl'> 20000+</h2>
+
+        <div className={styles.statCard}>
+          <h2 className='header-xl'>20000+</h2>
           <p className='body-xl'>Unique product codes for electronic items.</p>
         </div>
-        <div className={styles.text2Container}>
+
+        <div className={styles.statCard}>
           <h2 className='header-xl'>15+</h2>
           <p className='body-xl'>Years of presence.</p>
         </div>
