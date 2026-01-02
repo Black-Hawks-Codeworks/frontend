@@ -17,7 +17,7 @@
 
 .carousel {
   grid-area: a1;
-  display: grid;
+  display: table-row;
   align-items: top;
   justify-content: top;
   width: 100%;
@@ -37,7 +37,6 @@
   display: grid;
   place-items: center;
   background-color: var(--neutral-silver);
-  padding: 0.5rem 0.25rem;
 }
 
 h1 {
