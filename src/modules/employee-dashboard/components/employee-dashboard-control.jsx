@@ -9,9 +9,7 @@ function EmployeeDashboardControls(props) {
         <button onClick={() => setView('table')} className='btn-contained secondButton'>
           All Tickets
         </button>
-        <button onClick={() => setView('update')} className='btn-contained secondButton'>
-          Update Ticket
-        </button>
+        
       </div>
     </div>
   );

@@ -49,7 +49,7 @@ export const data = [
     type: 'repair',
     device: devices[1],
     client: clients[0],
-    technician: null,
+    technician: technicians[0],
     employee: employees[0],
     notifications: [],
   },
