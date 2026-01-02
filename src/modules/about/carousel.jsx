@@ -7,8 +7,8 @@ import img2 from '../../assets/Photos/IMG_8097.jpeg';
 import img3 from '../../assets/Photos/IMG_8100.jpeg';
 import img4 from '../../assets/Photos/IMG_8166.jpeg';
 import img5 from '../../assets/Photos/IMG_8241.jpeg';
-import img6 from '../../assets/Photos/zrkd.jpg';
-import img7 from '../../assets/Photos/ilias.png';
+import img6 from '../../assets/Photos/zrkd.jpeg';
+import img7 from '../../assets/Photos/ilias.jpg';
 
 export default function SimpleSlider() {
   const settings = {
