@@ -19,7 +19,7 @@
 }
 .infoBox {
   /* flex-basis: auto; */
-  flex: 0 0 50%;
+  flex: 0 0 60%;
   background: linear-gradient(to bottom, var(--color-primary-tint-4), var(--neutral-white));
   display: flex;
   flex-direction: column;
