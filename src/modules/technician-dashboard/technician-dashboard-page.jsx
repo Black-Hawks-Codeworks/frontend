@@ -4,10 +4,12 @@ import { data } from '@/modules/data/mock-data';
 import { Outlet } from 'react-router-dom';
 
 function TechnicianDashboardPage() {
+  const repairData = data.filter((x) => x.type === 'repair');
+
   return (
     <div>
       <TechnicianDashboardControls />
-      <ProcessTable data={data} />
+      <ProcessTable data={repairData} />
       <Outlet />
     </div>
   );

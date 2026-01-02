@@ -46,7 +46,7 @@ export const data = [
     updatedAt: '2025-12-02',
     expectedCost: 160,
     requiredAction: 'changeProcessStatus',
-    type: 'repair',
+    type: 'return',
     device: devices[1],
     client: clients[0],
     technician: technicians[0],

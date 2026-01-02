@@ -7,18 +7,15 @@
 
 .container {
   grid-template-columns:
-    minmax(60px, 0.6fr)
+   minmax(60px, 0.6fr)
     minmax(80px, 0.8fr)
     minmax(80px, 0.8fr)
-    minmax(100px, 1fr)
-    minmax(60px, 0.6fr)
-    minmax(90px, 0.9fr)
-    minmax(300px, 3fr)
-    minmax(50px, 0.5fr)
-    minmax(50px, 0.5fr)
+    minmax(120px, 1.2fr)
     minmax(80px, 0.8fr)
     minmax(80px, 0.8fr)
-    minmax(70px, 0.7fr);
+    minmax(80px, 0.8fr);
+
+
 }
 
 .container:last-child {
@@ -54,21 +51,16 @@
   border-right: none;
 }
 
+
 /* Status colors */
-.cancelled {
-  color: var(--color-error);
-}
-
-.completed {
-  color: var(--color-success);
-}
-
-.inprogress {
+.started {
   color: var(--color-warning);
 }
-
 .pending {
   color: var(--color-info);
+}
+.completed{
+  color: var(--color-success);
 }
 
 .cell.createdAt {
