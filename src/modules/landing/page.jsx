@@ -2,10 +2,17 @@ import styles from './page.module.css';
 import Login from '@/modules/landing/components/login';
 import Icon from '@/shared/icon';
 import useLanding from '@/modules/landing/hooks/use-landing';
+import { getStore } from '@/config/store';
+import { Navigate } from 'react-router-dom';
 
 export default function LandingPage() {
   const { authUser } = useLanding();
-
+  //edo an iparhei user feugoume apo to landing page se to dashboard pou antistoixei ston role tou user
+  const currentUser = getStore().getState().auth.user;
+  if (currentUser) {
+    const currentUserRole = currentUser.role;
+    return <Navigate to={`/${currentUserRole}-dashboard`} />;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.containertop}>
