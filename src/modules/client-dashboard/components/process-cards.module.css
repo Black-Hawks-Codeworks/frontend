@@ -48,6 +48,7 @@
 .value {
   font-size: 14px;
   color: #101828;
+  overflow-wrap: anywhere;
 }
 
 .status {
