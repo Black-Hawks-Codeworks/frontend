@@ -6,19 +6,23 @@ import { getStore } from '@/config/store';
 import { Navigate } from 'react-router-dom';
 
 export default function LandingPage() {
-  const { authUser } = useLanding();
-  //edo an iparhei user feugoume apo to landing page se to dashboard pou antistoixei ston role tou user
+  // 1. Extract isLoading from the hook
+  const { authUser, isLoading } = useLanding();
+
+  // Check if user is already logged in
   const currentUser = getStore().getState().auth.user;
   if (currentUser) {
     const currentUserRole = currentUser.role;
     return <Navigate to={`/${currentUserRole}-dashboard`} />;
   }
+
   return (
     <div className={styles.container}>
       <div className={styles.containertop}>
         <div className={styles.loginContainer}>
           <h2 className='header-md'>Login</h2>
-          <Login onSubmit={authUser} />
+          {/* 2. Pass isLoading to the Login component */}
+          <Login onSubmit={authUser} isLoading={isLoading} />
         </div>
         <div className={`${styles.textContainer} ${styles.enter}`}>
           <h1 className='header-lg'>Welcome!</h1>

@@ -124,7 +124,9 @@
   border: 1px solid rgba(46, 125, 50, 0.12);
 
   transform: translateY(0) scale(1);
-  transition: transform 220ms ease, box-shadow 220ms ease,
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
     border-color 220ms ease;
 }
 
@@ -269,9 +271,6 @@
     filter: none;
   }
 }
-
-
-
 /* κινητά */
 @media (max-width: 600px) {
   .containertop {
@@ -306,22 +305,21 @@
     margin-bottom: 6px;
   }
 
- .textContainer p {
-  color: var(--neutral-grey-dark);
+  .textContainer p {
+    color: var(--neutral-grey-dark);
 
+    line-height: 1.5;
 
-  line-height: 1.5;
+    margin: 8px 0 0 0;
+  }
 
-  margin: 8px 0 0 0;
-}
-
- .horde {
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--color-error);
-  margin-top: 14px;
-  line-height: 1.35;
-}
+  .horde {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-error);
+    margin-top: 14px;
+    line-height: 1.35;
+  }
 
   /*(5, 20000+, 15+)*/
 
@@ -341,4 +339,33 @@
     font-size: 14px;
     line-height: 1.4;
   }
+}
+/* Spinner Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff; /* White color */
+  border-top: 2px solid transparent; /* Makes it look like a circle */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+/* Optional: Style specifically for the disabled button */
+.buttonLoading {
+  cursor: not-allowed;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Space between text and spinner if you keep both */
 }
