@@ -14,6 +14,7 @@ export default function RepairFormPage() {
               <Icon name='Edit2' size='md' />
               <b>Fill</b> in all required fields (marked with *).
             </li>
+            <br></br>
             <li>
               <Icon name='Image1' size='md' />
               <b>Attach</b> clear photos of the issue if available.

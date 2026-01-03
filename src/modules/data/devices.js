@@ -1,4 +1,4 @@
-import productImages from '@/assets/products';
+import productImages from '@/assets/products/index';
 
 export const devices = [
   {
@@ -15,7 +15,7 @@ export const devices = [
     category: 'Phones',
     warrantyType: 'premium',
     warrantyExpires: '2027-05-18',
-    image: [productImages.samsungalgalaxyS23],
+    image: [productImages.samsungalaxyS23],
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ export const devices = [
     category: 'Tablets',
     warrantyType: 'basic',
     warrantyExpires: '2026-06-30',
-    image: [productImages.samsunggalaxyTabS8],
+    image: [productImages.macbook],
   },
   {
     id: 5,
@@ -39,6 +39,6 @@ export const devices = [
     category: 'Printers',
     warrantyType: 'basic',
     warrantyExpires: '2026-10-15',
-    image: [productImages.canonPixmaPrinter],
+    image: [productImages.macbook],
   },
 ];

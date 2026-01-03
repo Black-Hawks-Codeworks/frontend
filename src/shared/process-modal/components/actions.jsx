@@ -84,7 +84,7 @@ function ActionNoActionRequired() {
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Actions</p>
       <div className={`${styles.actionrow} body-lg`}>
-        <Icon name='Loading1' size='md' />
+        <Icon className={styles.granazi} name='Loading1' size='md' />
         <p>No action needed.</p>
       </div>
     </div>

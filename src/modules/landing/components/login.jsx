@@ -9,11 +9,11 @@ export default function Login({ onSubmit }) {
 
   return (
     <form
+      className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
         onSubmit(user, password);
-      }}
-      className={styles.form}>
+      }}>
       <div className={styles.field}>
         <input
           id='username'
@@ -26,6 +26,7 @@ export default function Login({ onSubmit }) {
           Username
         </label>
       </div>
+
       <div className={styles.field}>
         <input
           id='password'
@@ -36,19 +37,33 @@ export default function Login({ onSubmit }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
         <label className={`${styles.label} ${styles.floatingLabel}`} htmlFor='password'>
           Password
         </label>
-        {isPasswordVisible ? (
-          <button className={styles.showPasswordButton} onClick={() => setIsPasswordVisible(false)}>
-            <Icon name='Hide' size='md' />
-          </button>
-        ) : (
-          <button className={styles.showPasswordButton} onClick={() => setIsPasswordVisible(true)}>
-            <Icon name='Eye' size='md' />
-          </button>
-        )}
+
+        <button
+          type='button'
+          className={styles.showPasswordButton}
+          onClick={() => setIsPasswordVisible((v) => !v)}
+          aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}>
+          <Icon name={isPasswordVisible ? 'Hide' : 'Eye'} size='md' />
+        </button>
       </div>
+
+      {/* Toggles row (placeholders UI) */}
+      <div className={styles.actionsRow}>
+        <label className={styles.toggle}>
+          <input type='checkbox' />
+          <span className={styles.track} aria-hidden='true' />
+          <span className={styles.toggleLabel}>Remember me</span>
+        </label>
+
+        <button type='button' className={styles.linkBtn}>
+          Forgot password?
+        </button>
+      </div>
+
       <button className={`${styles.btnLogin} btn-contained`} type='submit'>
         Login
       </button>

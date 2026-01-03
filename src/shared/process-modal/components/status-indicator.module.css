@@ -1,9 +1,99 @@
 .statusComp {
   grid-area: statusComp;
-  /* stin tihi einai to hroma feel free to change it */
-  background-color: var(--color-primary-tint-4);
+
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+
+  padding: 24px;
+}
+
+.item {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.label {
+  margin: 0;
+  font-size: 18px;
+  color: #101828;
+  text-transform: lowercase;
+}
+
+.iconCircle {
+  width: 82px;
+  height: 82px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: #ffffff;
+
+
+  border: 3px solid transparent;
+
+
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.08);
+}
+
+/* χρώματα ανά status */
+.ring_started {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.ring_confirmed {
+  border-color: #a855f7;
+  color: #a855f7;
+}
+
+.ring_repaired {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.ring_completed {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+
+.selected {
+  border-width: 4px;
+  box-shadow:
+    0 0 0 6px rgba(34, 197, 94, 0.12),
+    0 10px 24px rgba(16, 24, 40, 0.14);
+}
+
+@keyframes pulseSoft {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(16, 24, 40, 0.08);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 0 8px rgba(34, 197, 94, 0.14),
+      0 12px 28px rgba(16, 24, 40, 0.14);
+    opacity: 0.92;
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(16, 24, 40, 0.08);
+    opacity: 1;
+  }
+}
+
+
+
+.selected {
+  border-width: 4px;
+  animation: pulseSoft 1.1s ease-in-out infinite;
+  will-change: transform, opacity, box-shadow;
 }

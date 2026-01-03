@@ -1,8 +1,9 @@
 .processDetails {
   grid-area: processDetails;
+
   display: flex;
   flex-direction: column;
-  background-color: var(--neutral-white);
+  background-color: var(--neutral-silver);
   overflow: hidden;
   padding: 12px;
 }

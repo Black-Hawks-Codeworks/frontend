@@ -5,10 +5,10 @@ import styles from './status-indicator.module.css';
 export default function StatusIndicator(props) {
   const { selectedStatus } = props;
   const statuses = [
-    { status: 'started', icon: 'Check1', isSelected: false },
+    { status: 'started', icon: 'Download2', isSelected: false },
     { status: 'confirmed', icon: 'Check1', isSelected: false },
-    { status: 'repaired', icon: 'Check1', isSelected: false },
-    { status: 'completed', icon: 'Check1', isSelected: false },
+    { status: 'repaired', icon: 'Settings', isSelected: false },
+    { status: 'completed', icon: 'Send', isSelected: false },
   ];
 
   //perna olo to array ena ena
@@ -29,9 +29,17 @@ export default function StatusIndicator(props) {
   return (
     <div className={`${styles.statusComp} card-elevation-5`}>
       {mappedStatuses.map((status) => (
-        <div key={status.status}>
-          <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />
-          <p>{status.status}</p>
+        <div className={styles.item} key={status.status}>
+          <div
+            className={[
+              styles.iconCircle,
+              styles[`ring_${status.status}`],
+              status.isSelected ? styles.selected : '',
+            ].join(' ')}>
+            <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />
+          </div>
+
+          <p className={styles.label}>{status.status}</p>
         </div>
       ))}
     </div>

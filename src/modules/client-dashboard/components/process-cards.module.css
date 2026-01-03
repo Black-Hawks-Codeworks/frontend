@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card {
@@ -9,7 +11,9 @@
   border-radius: 12px;
   padding: 14px;
   background: #ffffff;
-  width: 500px;
+
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .topRow {
@@ -18,6 +22,17 @@
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+/* Status colors */
+.started {
+  color: var(--color-warning);
+}
+.pending {
+  color: var(--color-info);
+}
+.completed{
+  color: var(--color-success);
 }
 
 .body {

@@ -9,16 +9,14 @@ function ProcessTableRow(props) {
       <div className={styles.container}>
         <span className={styles.cell}>{process.processId}</span>
         {/* `${metavliti} keimeno ${alliMetavliti}` <-olo auto tha metatrapei se ena string, mporo na valo js mesa se string*/}
-        <span className={styles.cell}>{process.requestType}</span>
+        <span className={styles.cell}>{process.type}</span>
+        <span className={styles.cell}>{process.device.name}</span>
+        <span className={styles.cell}>{process.issue}</span>
+
+        <span className={styles.cell}>{formatDate(process.updatedAt)}</span>
         <span className={`${styles[process.status.trim().toLowerCase().replace(/\s+/g, '')]} ${styles.cell}`}>
           {process.status}
-        </span>{' '}
-        <span className={styles.cell}>{process.productid}</span>
-        <span className={styles.cell}>{process.productType}</span>
-        <span className={styles.cell}>{process.product}</span>
-        <span className={styles.cell}>{process.description}</span>
-        <span className={styles.cell}>{formatDate(process.createdAt)}</span>
-        <span className={styles.cell}>{formatDate(process.updatedAt)}</span>
+        </span>
         <TableRowActions process={process} />
       </div>
     </div>

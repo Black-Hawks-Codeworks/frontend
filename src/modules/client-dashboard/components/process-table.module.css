@@ -70,12 +70,8 @@
     minmax(80px, 0.8fr)
     minmax(100px, 1fr)
     minmax(100px, 1fr)
-    minmax(190px, 1.9fr)
     minmax(60px, 0.6fr)
-    minmax(90px, 0.9fr)
-    minmax(60px, 0.6fr)
-    minmax(110px, 0.9fr)
-    minmax(10px, 0.1fr);
+    minmax(90px, 0.9fr);
 }
 
 /* center-alignment for specif fields. Adjust According to each table */

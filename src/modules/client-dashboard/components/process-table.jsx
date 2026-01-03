@@ -9,14 +9,11 @@ function ProcessTable(props) {
       <div className={styles.processTable}>
         <div className={styles.processTableHeader}>
           <span>Process ID</span>
-          <span> Request Type</span>
-          <span>Status</span>
-          <span> Device Id</span>
-          <span> Device Type</span>
-          <span> Device Name</span>
-          <span> Description</span>
+          <span>Request Type</span>
+          <span>Device</span>
+          <span>Issue</span>
           <span>Created At</span>
-          <span>Updated At</span>
+          <span>Status</span>
           <span> Actions</span>
         </div>
         {data.map((process) => (
