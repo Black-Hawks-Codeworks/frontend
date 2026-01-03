@@ -9,7 +9,6 @@ export default function useLanding() {
   //to store einai to global state tou app, perissotera @/config/store.js
 
   //pernoume ton user apo to backend me async function
-  //to route prepei na eina lathos
   //gia na doulepsei prepei na trehei to backend
   async function authUser(username, password) {
     try {
