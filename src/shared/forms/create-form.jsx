@@ -2,7 +2,7 @@ import FormField from './form-field';
 import styles from './form.module.css';
 import { useState } from 'react';
 
-export default function CreateForm({ title, showProblemDescription = false }) {
+export default function CreateForm({ title, showProblemDescription = false, onSubmit }) {
   const [inputs, setInputs] = useState({
     productType: '',
     serialNumber: '',
@@ -18,16 +18,9 @@ export default function CreateForm({ title, showProblemDescription = false }) {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('submitted');
-    console.log(inputs);
-    alert('submitted');
-  };
-
   return (
     <div>
-      <form onSubmit={handleSubmit} className={`${styles.form}  card-elevation-3`}>
+      <form onSubmit={onSubmit} className={`${styles.form}  card-elevation-3`}>
         <p className='header-lg text-color-primary-shade-2 '>{title} </p>
         <div className={styles.container}>
           <FormField

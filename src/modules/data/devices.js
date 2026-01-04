@@ -1,5 +1,3 @@
-import productImages from '@/assets/products/index';
-
 export const devices = [
   {
     id: 1,
@@ -7,7 +5,7 @@ export const devices = [
     category: 'Phones',
     warrantyType: 'basic',
     warrantyExpires: '2026-12-02',
-    image: [productImages.oneplus],
+    image: null,
   },
   {
     id: 2,
@@ -15,7 +13,7 @@ export const devices = [
     category: 'Phones',
     warrantyType: 'premium',
     warrantyExpires: '2027-05-18',
-    image: [productImages.samsungalaxyS23],
+    image: null,
   },
   {
     id: 3,
@@ -23,7 +21,7 @@ export const devices = [
     category: 'Laptops',
     warrantyType: 'extended',
     warrantyExpires: '2028-01-10',
-    image: [productImages.macbook],
+    image: null,
   },
   {
     id: 4,
@@ -31,7 +29,7 @@ export const devices = [
     category: 'Tablets',
     warrantyType: 'basic',
     warrantyExpires: '2026-06-30',
-    image: [productImages.macbook],
+    image: null,
   },
   {
     id: 5,
@@ -39,6 +37,6 @@ export const devices = [
     category: 'Printers',
     warrantyType: 'basic',
     warrantyExpires: '2026-10-15',
-    image: [productImages.macbook],
+    image: null,
   },
 ];
