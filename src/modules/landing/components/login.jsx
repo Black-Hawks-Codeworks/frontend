@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './login.module.css';
 import Icon from '@/shared/icon';
 
@@ -51,7 +52,6 @@ export default function Login({ onSubmit }) {
         </button>
       </div>
 
-      {/* Toggles row (placeholders UI) */}
       <div className={styles.actionsRow}>
         <label className={styles.toggle}>
           <input type='checkbox' />
@@ -59,9 +59,9 @@ export default function Login({ onSubmit }) {
           <span className={styles.toggleLabel}>Remember me</span>
         </label>
 
-        <button type='button' className={styles.linkBtn}>
+        <Link to='/forgot-password' className={styles.linkBtn}>
           Forgot password?
-        </button>
+        </Link>
       </div>
 
       <button className={`${styles.btnLogin} btn-contained`} type='submit'>
