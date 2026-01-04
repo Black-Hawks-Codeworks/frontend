@@ -14,9 +14,9 @@ export default function QrCode() {
   // otan allaze to match apo null se object, tote to setIsOpen(true)
   useEffect(() => {
     if (matchRoot) {
-      setIsOpen(false);
-    } else {
       setIsOpen(true);
+    } else {
+      setIsOpen(false);
     }
   }, [matchRoot]);
   return (

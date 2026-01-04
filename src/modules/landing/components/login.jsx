@@ -69,12 +69,12 @@ export default function Login({ onSubmit, isLoading, error }) {
         </button>
       </div>
 
-      {/* 2. Show the error message if it exists */}
-      {error && <div className={styles.errorMessage}>{error}</div>}
-
       <button className={`${styles.btnLogin} btn-contained`} type='submit' disabled={isLoading}>
         {isLoading ? <div className={styles.spinner}></div> : 'Login'}
       </button>
+      {/* 2. Show the error message if it exists */}
+      {/* {error && <div className={styles.errorMessage}>{error}</div>} */}
+      <div className={styles.errorMessage}>{error || ''}</div>
     </form>
   );
 }
