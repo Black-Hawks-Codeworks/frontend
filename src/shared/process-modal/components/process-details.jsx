@@ -1,7 +1,7 @@
 import styles from './process-details.module.css';
 
 export default function ProcessDetails({ process }) {
-  const imageUrl = process?.device?.image.url;
+  const imageUrl = `/api${process?.device?.image.url}`;
   console.log('imageUrl', imageUrl);
   console.log('process', process.device.image);
 
@@ -10,7 +10,7 @@ export default function ProcessDetails({ process }) {
       <p className={`${styles.header} header-md`}>Details</p>
 
       <div className={styles.photoContainer}>
-        <img key={`${process?.device?.id ?? 'device'}-${imageUrl}`} src={imageUrl} alt='product-preview' />
+        <img src={imageUrl} alt='product-preview' />
       </div>
 
       <div className={styles.infoContainer}>
