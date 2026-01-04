@@ -9,19 +9,21 @@ function convertBoolean(v) {
 
 export default function ProcessTableRow(props) {
   const { process } = props;
-  const isDamaged = convertBoolean(process.isDamaged);
-  const warranty = convertBoolean(process.warranty);
+
+  // gia na mhn crasharei h selida an !device
+  const deviceId = process.device?.id || 'N/A';
+  const deviceName = process.device?.name || 'Unknown Device';
+
+  const statusClass = process.status?.trim().toLowerCase().replace(/\s+/g, '') || '';
 
   return (
     <div className={styles.container}>
       <span className={styles.cell}>{process.processId}</span>
-      <span className={styles.cell}>{process.device.id}</span>
-      <span className={styles.cell}>{process.device.name}</span>
+      <span className={styles.cell}>{deviceId}</span>
+      <span className={styles.cell}>{deviceName}</span>
       <span className={styles.cell}>{process.issue}</span>
       <span className={styles.cell}>{formatDate(process.createdAt)}</span>
-      <span className={`${styles[process.status.trim().toLowerCase().replace(/\s+/g, '')]} ${styles.cell}`}>
-        {process.status}
-      </span>
+      <span className={`${styles[statusClass]} ${styles.cell}`}>{process.status}</span>
 
       <TableRowActions process={process} />
     </div>
