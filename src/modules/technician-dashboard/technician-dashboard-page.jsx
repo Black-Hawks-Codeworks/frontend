@@ -4,7 +4,9 @@ import TechnicianDashboardControls from './components/technician-dashboard-contr
 import ProcessTable from './components/process-table';
 
 import { useAppSelector } from '@/config/store';
-import { useProcesses } from '../landing/hooks/use-processes';
+import { useProcesses } from '../../shared/hooks/use-processes';
+
+import Loading from '../../shared/loading-screen/loading';
 
 function TechnicianDashboardPage() {
   const user = useAppSelector((s) => s.auth.user);
@@ -21,7 +23,7 @@ function TechnicianDashboardPage() {
 
       {!user && <div>Please login.</div>}
 
-      {user && loading && <div>Loading repairs...</div>}
+      {user && loading && <div><Loading/></div>}
 
       {user && !loading && error && (
         <div>

@@ -6,6 +6,7 @@ import ProcessTable from './components/process-table';
 
 import { useAppSelector } from '@/config/store';
 import { useProcesses } from '../../shared/hooks/use-processes';
+import Loading from '../../shared/loading-screen/loading';
 
 function EmployeeDashboardPage() {
   const [view, setView] = useState('table');
@@ -21,7 +22,7 @@ function EmployeeDashboardPage() {
 
       {!user && <div>Please login.</div>}
 
-      {user && loading && <div>Loading processes...</div>}
+      {user && loading && <div><Loading/></div>}
 
       {user && !loading && error && (
         <div>

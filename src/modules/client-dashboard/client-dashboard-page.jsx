@@ -10,6 +10,7 @@ import styles from './client-dashboard-page.module.css';
 
 import { useAppSelector } from '@/config/store';
 import { useProcesses } from '../../shared/hooks/use-processes';
+import Loading from '../../shared/loading-screen/loading';
 
 function ClientDashboardPage() {
   const [viewMode, setViewMode] = useState('table');
@@ -25,7 +26,7 @@ function ClientDashboardPage() {
 
       {!user && <div>Please login.</div>}
 
-      {user && loading && <div>Loading processes...</div>}
+      {user && loading && <div><Loading/></div>}
 
       {user && !loading && error && (
         <div>

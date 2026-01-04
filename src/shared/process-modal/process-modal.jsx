@@ -7,6 +7,7 @@ import NotificationsTable from './components/notifications-table';
 import Actions from './components/actions';
 import ProcessDetails from './components/process-details';
 import StatusIndicator from './components/status-indicator';
+import Loading from '../loading-screen/loading';
 
 export default function ProcessModal() {
   const navigate = useNavigate();
@@ -25,15 +26,13 @@ export default function ProcessModal() {
     getProcess();
   }, [processId]);
 
-  if (isLoading) {
-    //TODO: Na bei ena politismeno loading component(valte fantasia)
-    return <div>Loading...</div>;
-  }
+  // Αφαιρέθηκε το if (isLoading) από εδώ
+
   console.log('process', process);
 
   //hrisimopoio ena state kai vazo mesa olo to process kai meta allazo mono ena apo ta keys tou process
   // const [actionRequired, setActionRequired] = useState(process.requiredAction);
-  const actionRequired = process.requiredAction;
+  const actionRequired = process ? process.requiredAction : null; // Προσθήκη check επειδή στην αρχή το process είναι null
   function setActionRequired(action) {
     setProcess({ ...process, requiredAction: action });
   }
@@ -41,7 +40,7 @@ export default function ProcessModal() {
   const ActionComponent = actionRequired ? Actions[actionRequired] : Actions.noActionRequired;
 
   // const [status, setStatus] = useState(process.status);
-  const status = process.status;
+  const status = process ? process.status : null; // Προσθήκη check
   function setStatus(s) {
     setProcess({ ...process, status: s });
     //TODO: Na ginei ena fetch PUT(?) gia na allaksei to status sto backend
@@ -63,23 +62,29 @@ export default function ProcessModal() {
         <button className={styles.closeBtn} onClick={() => navigate('../')}>
           <Icon name='Close1' size='lg' />
         </button>
-        <div className={styles.gridContainer}>
-          {/* otan teliopoiithei to parakato tha metaferoume sto diko tou file */}
-          <StatusIndicator selectedStatus={status} />
-          {/* <div className={styles.processDetails}> */}
-          <ProcessDetails process={process} />
-          {/* ean iparhei to ActionComponent tote kanei render to component */}
-          {/* <div className={styles.actionsComp}> */}
-          {ActionComponent && (
-            <ActionComponent
-              expectedCost={process.expectedCost}
-              status={status}
-              handleStatusAccept={handleStatusAccept}
-              handleActionRequiredChange={handleActionRequiredChange}
-            />
-          )}
-          <NotificationsTable notifications={process.notifications} />
-        </div>
+
+        {isLoading ? (
+          //TODO: Na bei ena politismeno loading component(valte fantasia)
+          <Loading />
+        ) : (
+          <div className={styles.gridContainer}>
+            {/* otan teliopoiithei to parakato tha metaferoume sto diko tou file */}
+            <StatusIndicator selectedStatus={status} />
+            {/* <div className={styles.processDetails}> */}
+            <ProcessDetails process={process} />
+            {/* ean iparhei to ActionComponent tote kanei render to component */}
+            {/* <div className={styles.actionsComp}> */}
+            {ActionComponent && (
+              <ActionComponent
+                expectedCost={process.expectedCost}
+                status={status}
+                handleStatusAccept={handleStatusAccept}
+                handleActionRequiredChange={handleActionRequiredChange}
+              />
+            )}
+            <NotificationsTable notifications={process.notifications} />
+          </div>
+        )}
       </div>
     </dialog>
   );
