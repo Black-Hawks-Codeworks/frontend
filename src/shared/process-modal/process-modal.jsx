@@ -41,9 +41,27 @@ export default function ProcessModal() {
 
   // const [status, setStatus] = useState(process.status);
   const status = process ? process.status : null; // Προσθήκη check
-  function setStatus(s) {
+
+  async function setStatus(s) {
+    const previousStatus = process.status;
     setProcess({ ...process, status: s });
-    //TODO: Na ginei ena fetch PUT(?) gia na allaksei to status sto backend
+
+    try {
+      const response = await fetch(`/api/process/${processId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...process, status: s }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update status');
+      }
+    } catch (error) {
+      console.error('Error updating status:', error);
+      setProcess({ ...process, status: previousStatus });
+    }
   }
 
   const handleStatusAccept = (selectedStatus) => {
@@ -64,7 +82,6 @@ export default function ProcessModal() {
         </button>
 
         {isLoading ? (
-          //TODO: Na bei ena politismeno loading component(valte fantasia)
           <Loading />
         ) : (
           <div className={styles.gridContainer}>
