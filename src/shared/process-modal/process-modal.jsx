@@ -12,6 +12,7 @@ export default function ProcessModal() {
   const navigate = useNavigate();
   const { processId } = useParams();
   const [process, setProcess] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   console.log('processId', processId);
   useEffect(() => {
     async function getProcess() {
@@ -19,30 +20,41 @@ export default function ProcessModal() {
       const data = await response.json();
       console.log('data', data);
       setProcess(data);
+      setIsLoading(false);
     }
     getProcess();
   }, [processId]);
 
+  if (isLoading) {
+    //TODO: Na bei ena politismeno loading component(valte fantasia)
+    return <div>Loading...</div>;
+  }
   console.log('process', process);
-  console.log(process.device);
 
-  const [actionRequired, setActionRequired] = useState(process.requiredAction);
+  //hrisimopoio ena state kai vazo mesa olo to process kai meta allazo mono ena apo ta keys tou process
+  // const [actionRequired, setActionRequired] = useState(process.requiredAction);
+  const actionRequired = process.requiredAction;
+  function setActionRequired(action) {
+    setProcess({ ...process, requiredAction: action });
+  }
 
   const ActionComponent = actionRequired ? Actions[actionRequired] : Actions.noActionRequired;
 
-  const [status, setStatus] = useState(process.status);
+  // const [status, setStatus] = useState(process.status);
+  const status = process.status;
+  function setStatus(s) {
+    setProcess({ ...process, status: s });
+    //TODO: Na ginei ena fetch PUT(?) gia na allaksei to status sto backend
+  }
+
   const handleStatusAccept = (selectedStatus) => {
     setStatus(selectedStatus);
   };
 
   const handleActionRequiredChange = (action) => {
     setActionRequired(action);
+    //TODO: Na ginei ena fetch PUT(?) gia na allaksei to requiredAction sto backend
   };
-
-  //TODO: Na bei ena politismeno loading component
-  if (!process) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <dialog open={Boolean(processId)} className={styles.processModal}>
