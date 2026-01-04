@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import styles from './return-page.module.css';
 import CreateForm from '@/shared/forms/create-form';
 import Icon from '@/shared/icon';
@@ -5,9 +6,10 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ReturnFormPage() {
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
   // auta logika tha boune se ena share hook gia repair kai return
   //kane upload photo gia device
-  async function uploadDevicePhoto(deviceId = 100, file) {
+  async function uploadDevicePhoto(deviceId = Math.floor(Math.random() * 1000000), file) {
     if (!file) {
       throw new Error('No file provided');
     }
@@ -24,7 +26,6 @@ export default function ReturnFormPage() {
     try {
       const response = await fetch(`/api/device/${deviceId}/photo`, {
         method: 'POST',
-        // Don't set Content-Type header - browser will set it automatically with boundary for multipart/form-data
         body: formData,
       });
 
@@ -86,8 +87,10 @@ export default function ReturnFormPage() {
 
   async function handleCreateProcess(e) {
     e.preventDefault();
-    // Get the file from the form input directly
-    const fileInput = e.target.querySelector('input[type="file"]');
+    // Get the file input using form elements (avoids querySelector)
+    const fileInput = e.target.elements.uploadImages;
+    // Store reference in ref for future use
+    fileInputRef.current = fileInput;
     const file = fileInput?.files?.[0]; // Get the first file from FileList
 
     if (!file) {
@@ -100,6 +103,13 @@ export default function ReturnFormPage() {
     try {
       const imageUpload = await uploadDevicePhoto(1, file);
       console.log('imageUpload', imageUpload);
+
+      // Clear the file input after successful upload
+      if (fileInput) {
+        fileInput.value = '';
+        fileInputRef.current = null;
+      }
+
       // await createProcess(e);
       console.log('createProcess', createProcess);
     } catch (error) {
