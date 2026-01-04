@@ -2,8 +2,8 @@ import { useState } from 'react';
 import styles from './login.module.css';
 import Icon from '@/shared/icon';
 
-// 1. Added isLoading to props
-export default function Login({ onSubmit, isLoading }) {
+// 1. Accept 'error' prop
+export default function Login({ onSubmit, isLoading, error }) {
   const [user, setUser] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
@@ -13,7 +13,6 @@ export default function Login({ onSubmit, isLoading }) {
       className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
-        // 2. Prevent function execution if already loading
         if (!isLoading) {
           onSubmit(user, password);
         }
@@ -24,7 +23,7 @@ export default function Login({ onSubmit, isLoading }) {
           className={`${styles['form-input']} ${styles['form-input--user']}`}
           placeholder=' '
           value={user}
-          disabled={isLoading} /* 3. Disable input while loading */
+          disabled={isLoading}
           onChange={(e) => setUser(e.target.value)}
         />
         <label className={`${styles.label} ${styles.floatingLabel}`} htmlFor='username'>
@@ -40,7 +39,7 @@ export default function Login({ onSubmit, isLoading }) {
           className={`${styles['form-input']} ${styles['form-input--password']}`}
           placeholder=' '
           value={password}
-          disabled={isLoading} /* 3. Disable input while loading */
+          disabled={isLoading}
           onChange={(e) => setPassword(e.target.value)}
         />
 
@@ -70,12 +69,10 @@ export default function Login({ onSubmit, isLoading }) {
         </button>
       </div>
 
-      <button
-        className={`${styles.btnLogin} btn-contained`}
-        type='submit'
-        disabled={isLoading} /* 4. Disable button to prevent double clicks */
-      >
-        {/* 5. Show Spinner or Text */}
+      {/* 2. Show the error message if it exists */}
+      {error && <div className={styles.errorMessage}>{error}</div>}
+
+      <button className={`${styles.btnLogin} btn-contained`} type='submit' disabled={isLoading}>
         {isLoading ? <div className={styles.spinner}></div> : 'Login'}
       </button>
     </form>

@@ -349,23 +349,23 @@
     transform: rotate(360deg);
   }
 }
-
+/*
 .spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid #ffffff; /* White color */
-  border-top: 2px solid transparent; /* Makes it look like a circle */
+  border: 2px solid black; 
+  border-top: 2px solid transparent; 
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   display: inline-block;
-}
+} 
 
-/* Optional: Style specifically for the disabled button */
+
 .buttonLoading {
   cursor: not-allowed;
   opacity: 0.7;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px; /* Space between text and spinner if you keep both */
-}
+  gap: 8px; /* Space between text and spinner if you keep both 
+} */

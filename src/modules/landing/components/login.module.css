@@ -190,14 +190,14 @@ form > :last-child {
   margin-top: 14px;
   width: 100%;
 }
-/* Add this to login.module.css */
 
+/* Spinner Animation */
 .spinner {
   width: 20px;
   height: 20px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  border-top-color: #ffffff;
+  border-top-color: black;
   animation: spin 0.8s ease-in-out infinite;
   display: inline-block;
 }
@@ -208,9 +208,20 @@ form > :last-child {
   }
 }
 
-/* Optional: Make sure the disabled button looks disabled */
 .btnLogin:disabled {
   opacity: 0.7;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+/* ERROR MESSAGE STYLING */
+.errorMessage {
+  color: #d32f2f;
+  background-color: #ffebee;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+  border: 1px solid #ffcdd2;
 }

@@ -6,10 +6,9 @@ import { getStore } from '@/config/store';
 import { Navigate } from 'react-router-dom';
 
 export default function LandingPage() {
-  // 1. Extract isLoading from the hook
-  const { authUser, isLoading } = useLanding();
+  // 1. Extract error along with isLoading
+  const { authUser, isLoading, error } = useLanding();
 
-  // Check if user is already logged in
   const currentUser = getStore().getState().auth.user;
   if (currentUser) {
     const currentUserRole = currentUser.role;
@@ -21,8 +20,8 @@ export default function LandingPage() {
       <div className={styles.containertop}>
         <div className={styles.loginContainer}>
           <h2 className='header-md'>Login</h2>
-          {/* 2. Pass isLoading to the Login component */}
-          <Login onSubmit={authUser} isLoading={isLoading} />
+          {/* 2. Pass the error prop to the Login component */}
+          <Login onSubmit={authUser} isLoading={isLoading} error={error} />
         </div>
         <div className={`${styles.textContainer} ${styles.enter}`}>
           <h1 className='header-lg'>Welcome!</h1>
