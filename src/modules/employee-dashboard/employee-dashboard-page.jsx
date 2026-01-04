@@ -1,4 +1,3 @@
-// src/modules/employee-dashboard/pages/employee-dashboard-page.jsx
 import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -6,19 +5,19 @@ import EmployeeDashboardControls from './components/employee-dashboard-control';
 import ProcessTable from './components/process-table';
 
 import { useAppSelector } from '@/config/store';
-import { useProcesses } from '@/hooks/useProcesses';
+import { useProcesses } from '../../shared/hooks/use-processes';
 
 function EmployeeDashboardPage() {
   const [view, setView] = useState('table');
 
   const user = useAppSelector((s) => s.auth.user);
-  const userId = user?.userId;
+  const userId = user?.id || user?.userId;
 
   const { processes, loading, error, refetch } = useProcesses('employee', userId);
 
   return (
     <div>
-      <EmployeeDashboardControls setView={setView} />
+      <EmployeeDashboardControls view={view} setView={setView} />
 
       {!user && <div>Please login.</div>}
 
@@ -31,7 +30,9 @@ function EmployeeDashboardPage() {
         </div>
       )}
 
-      {user && !loading && !error && <>{view === 'table' ? <ProcessTable data={processes} /> : <div>No data</div>}</>}
+      {user && !loading && !error && (
+        <>{view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}</>
+      )}
 
       <Outlet />
     </div>

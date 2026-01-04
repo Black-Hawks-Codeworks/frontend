@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export function useProcesses(userType, userId) {
   const [processes, setProcesses] = useState([]);
@@ -6,19 +6,22 @@ export function useProcesses(userType, userId) {
   const [error, setError] = useState(null);
 
   const fetchProcesses = useCallback(async () => {
-    if (!userId) return;
+    if (!userType) return;
 
     setLoading(true);
     setError(null);
+
     try {
-      const response = await fetch(`/api/processes/${userType}?userId=${userId}`);
+      const url = `/api/processes/${userType}?userId=${encodeURIComponent(userId)}`;
 
-      if (!response.ok) throw new Error('Failed to fetch data');
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Failed to fetch data');
 
-      const data = await response.json();
+      const data = await res.json();
       setProcesses(data);
-    } catch (err) {
-      setError(err.message);
+    } catch (e) {
+      setError(e?.message || 'Unknown error');
+      setProcesses([]);
     } finally {
       setLoading(false);
     }

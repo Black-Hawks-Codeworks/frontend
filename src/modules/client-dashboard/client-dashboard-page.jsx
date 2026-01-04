@@ -9,17 +9,15 @@ import ProcessCards from './components/process-cards';
 import styles from './client-dashboard-page.module.css';
 
 import { useAppSelector } from '@/config/store';
-import { useProcesses } from '@/hooks/useProcesses';
+import { useProcesses } from '../../shared/hooks/use-processes';
 
 function ClientDashboardPage() {
   const [viewMode, setViewMode] = useState('table');
 
   const user = useAppSelector((s) => s.auth.user);
+  const userId = user?.id || user?.userId;
 
-  const role = user?.role;
-  const userId = user?.userId; // if your field is userId, change to user?.userId
-
-  const { processes, loading, error, refetch } = useProcesses(role, userId);
+  const { processes, loading, error, refetch } = useProcesses('client', userId);
 
   return (
     <div className={styles.pageContainer}>
@@ -37,7 +35,7 @@ function ClientDashboardPage() {
       )}
 
       {user && !loading && !error && (
-        <>{viewMode === 'table' ? <ProcessTable data={processes} /> : <ProcessCards data={processes} />}</>
+        <>{viewMode === 'table' ? <ProcessTable data={processes || []} /> : <ProcessCards data={processes || []} />}</>
       )}
 
       <Outlet />
