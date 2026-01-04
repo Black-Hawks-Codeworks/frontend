@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styles from './login.module.css';
 import Icon from '@/shared/icon';
 
-// 1. Accept 'error' prop
 export default function Login({ onSubmit, isLoading, error, errorType }) {
   const [user, setUser] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -72,9 +71,7 @@ export default function Login({ onSubmit, isLoading, error, errorType }) {
       <button className={`${styles.btnLogin} btn-contained`} type='submit' disabled={isLoading}>
         {isLoading ? <div className={styles.spinner}></div> : 'Login'}
       </button>
-      {/* 2. Show the error message if it exists */}
-      {/* {error && <div className={styles.errorMessage}>{error}</div>} */}
-      {/* <div className={styles.errorMessage}>{error || ''}</div> */}
+
       <div
         className={
           styles.errorMessage +

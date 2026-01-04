@@ -8,8 +8,8 @@ export default function useLanding() {
   const dispatch = useAppDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(''); // <--- Added Error State
-  const [errorType, setErrorType] = useState(null); // 'required', 'login', 'server'
+  const [error, setError] = useState('');
+  const [errorType, setErrorType] = useState(null);
 
   async function authUser(username, password) {
     // Έλεγχος για κενά πεδία
@@ -20,8 +20,8 @@ export default function useLanding() {
       return;
     }
     setIsLoading(true);
-    setError(null); // Clear previous errors
-    await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate API delay
+    setError(null);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -37,11 +37,10 @@ export default function useLanding() {
         dispatch(setUser(data));
         const userRole = data.role;
         navigate(`/${userRole}-dashboard`);
-        // We keep isLoading true while redirecting
       } else {
         dispatch(setUser(null));
         setIsLoading(false);
-        // Set specific error message from backend or fallback
+
         setError(data.message || 'Incorrect username or password');
         setErrorType('login');
       }
@@ -54,5 +53,5 @@ export default function useLanding() {
     }
   }
 
-  return { authUser, isLoading, error, errorType }; // <--- Return error
+  return { authUser, isLoading, error, errorType };
 }
