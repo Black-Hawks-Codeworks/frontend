@@ -3,7 +3,7 @@ import styles from './login.module.css';
 import Icon from '@/shared/icon';
 
 // 1. Accept 'error' prop
-export default function Login({ onSubmit, isLoading, error }) {
+export default function Login({ onSubmit, isLoading, error, errorType }) {
   const [user, setUser] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
@@ -74,7 +74,16 @@ export default function Login({ onSubmit, isLoading, error }) {
       </button>
       {/* 2. Show the error message if it exists */}
       {/* {error && <div className={styles.errorMessage}>{error}</div>} */}
-      <div className={styles.errorMessage}>{error || ''}</div>
+      {/* <div className={styles.errorMessage}>{error || ''}</div> */}
+      <div
+        className={
+          styles.errorMessage +
+          (errorType === 'required' ? ' ' + styles.errorRequired : '') +
+          (errorType === 'login' ? ' ' + styles.errorLogin : '') +
+          (errorType === 'server' ? ' ' + styles.errorServer : '')
+        }>
+        {error || ''}
+      </div>
     </form>
   );
 }

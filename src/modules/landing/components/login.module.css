@@ -232,8 +232,8 @@ form > :last-child {
   width: 280px; /* ή 60%, όσο θέλεις */
   left: 50%;
   transform: translateX(-50%);
-  color: #d32f2f;
-  background-color: #ffebee;
+  /* color: #d32f2f;
+  background-color: #ffebee; */
   font-size: 14px;
   padding: 10px;
   border-radius: 6px;
@@ -244,4 +244,27 @@ form > :last-child {
 
 .errorMessage:not(:empty) {
   visibility: visible;
+}
+.errorRequired {
+  background-color: #fdecde; /* light yellow */
+  color: #fd9d4e;
+  border-color: #f3b37f;
+}
+.errorLogin {
+  background-color: #ffebee; /* light red */
+  color: #d32f2f;
+  border-color: #ffcdd2;
+}
+.errorServer {
+  background-color: #c7e1f4; /* light blue */
+  color: #1565c0;
+  border-color: #90caf9;
+}
+@media (max-width: 600px) {
+  .errorMessage {
+    position: static;
+    transform: none;
+    margin-top: 16px;
+    width: 100%;
+  }
 }

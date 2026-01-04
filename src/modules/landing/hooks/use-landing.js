@@ -8,9 +8,17 @@ export default function useLanding() {
   const dispatch = useAppDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null); // <--- Added Error State
+  const [error, setError] = useState(''); // <--- Added Error State
+  const [errorType, setErrorType] = useState(null); // 'required', 'login', 'server'
 
   async function authUser(username, password) {
+    // Έλεγχος για κενά πεδία
+    if (!username.trim() || !password.trim()) {
+      setError('Username and password are required');
+      setErrorType('required');
+      setIsLoading(false);
+      return;
+    }
     setIsLoading(true);
     setError(null); // Clear previous errors
     await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate API delay
@@ -35,14 +43,16 @@ export default function useLanding() {
         setIsLoading(false);
         // Set specific error message from backend or fallback
         setError(data.message || 'Incorrect username or password');
+        setErrorType('login');
       }
     } catch (err) {
       dispatch(setUser(null));
       console.error('Error:', err);
       setIsLoading(false);
       setError('Server connection failed. Please try again.');
+      setErrorType('server');
     }
   }
 
-  return { authUser, isLoading, error }; // <--- Return error
+  return { authUser, isLoading, error, errorType }; // <--- Return error
 }
