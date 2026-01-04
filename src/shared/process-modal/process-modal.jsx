@@ -1,9 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './process-modal.module.css';
 import Icon from '../icon';
 // kano import gia returns kai repairs
-import { data as returns } from '../../modules/data/mock-data';
 import NotificationsTable from './components/notifications-table';
 import Actions from './components/actions';
 import ProcessDetails from './components/process-details';
@@ -12,19 +11,23 @@ import StatusIndicator from './components/status-indicator';
 export default function ProcessModal() {
   const navigate = useNavigate();
   const { processId } = useParams();
-  // hrisimopoiisete gia na anoigei to modal me open={Boolean(processId)
-  //pernoume to processId apo to url
-  // hrisimopoiise to gia na kaneis search mesa sto dummy data kai na vreis to sosto process
+  const [process, setProcess] = useState(null);
   console.log('processId', processId);
-  console.log('returns', returns);
-  const process = returns.find((r) => r.processId === Number(processId));
+  useEffect(() => {
+    async function getProcess() {
+      const response = await fetch(`/api/process/${processId}`);
+      const data = await response.json();
+      console.log('data', data);
+      setProcess(data);
+    }
+    getProcess();
+  }, [processId]);
+
   console.log('process', process);
   console.log(process.device);
 
   const [actionRequired, setActionRequired] = useState(process.requiredAction);
-  //ena iparhei to process.actions apothikeuetei sto const to component pou ehei to idio onoma
-  // me to keimeno tou process.actions.
-  //allios apothikeuse to noActionRequired component
+
   const ActionComponent = actionRequired ? Actions[actionRequired] : Actions.noActionRequired;
 
   const [status, setStatus] = useState(process.status);
@@ -35,6 +38,11 @@ export default function ProcessModal() {
   const handleActionRequiredChange = (action) => {
     setActionRequired(action);
   };
+
+  //TODO: Na bei ena politismeno loading component
+  if (!process) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <dialog open={Boolean(processId)} className={styles.processModal}>
