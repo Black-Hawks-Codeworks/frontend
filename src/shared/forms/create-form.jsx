@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function CreateForm({ title, showProblemDescription = false, onSubmit }) {
   const [inputs, setInputs] = useState({
     productType: '',
-    serialNumber: '',
+    productName: '',
     purchaseDate: '',
     problemDescription: '',
     uploadImages: '',
@@ -32,11 +32,11 @@ export default function CreateForm({ title, showProblemDescription = false, onSu
             required={true}
           />
           <FormField
-            label='Serial number*'
-            id='serialNumber'
+            label='Product name*'
+            id='productName'
             type='text'
-            placeholder='03npk'
-            value={inputs.serialNumber}
+            placeholder='iphone14'
+            value={inputs.productName}
             onChange={handleChange}
             required={true}
           />
