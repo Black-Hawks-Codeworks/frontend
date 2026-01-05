@@ -5,8 +5,8 @@ function ProcessCards({ data }) {
   const navigate = useNavigate();
   return (
     <div className={styles.grid}>
-      {data.map((row) => (
-        <div className={styles.card} key={row.processId}>
+      {data.map((row,index) => (
+        <div className={styles.card} key={`${row.processId}-${index}`}>
           <div className={styles.topRow}>
             <div>
               <div className={styles.label}>Process ID</div>
