@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+//import { useRef } from 'react';
 import styles from './return-page.module.css';
 import CreateForm from '@/shared/forms/create-form';
 import Icon from '@/shared/icon';
@@ -6,22 +6,18 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ReturnFormPage() {
   const navigate = useNavigate();
-  const fileInputRef = useRef(null);
-  // auta logika tha boune se ena share hook gia repair kai return
-  //kane upload photo gia device
-  async function uploadDevicePhoto(deviceId = Math.floor(Math.random() * 1000000), file) {
+  // Το ref δεν είναι απαραίτητο για αυτή τη λογική, αλλά το αφήνουμε εφόσον υπήρχε
+  //const fileInputRef = useRef(null);
+
+  // 1. Upload Photo Function
+  // Αφαίρεσα το default random ID γιατί πλέον θα παίρνουμε το σωστό ID από το backend
+  async function uploadDevicePhoto(deviceId, file) {
     if (!file) {
       throw new Error('No file provided');
     }
 
     const formData = new FormData();
     formData.append('photo', file);
-
-    // Log FormData contents for debugging
-    console.log('FormData entries:');
-    for (const pair of formData.entries()) {
-      console.log(pair[0] + ': ', pair[1]);
-    }
 
     try {
       const response = await fetch(`/api/device/${deviceId}/photo`, {
@@ -30,8 +26,8 @@ export default function ReturnFormPage() {
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Upload failed');
+        // Αν το backend δεν επιστρέφει json στο error, το χειριζόμαστε γενικά
+        throw new Error('Upload failed');
       }
       const responseData = await response.json();
       console.log('Photo uploaded:', responseData);
@@ -39,88 +35,97 @@ export default function ReturnFormPage() {
       return responseData;
     } catch (error) {
       console.error('Error uploading photo:', error);
-      throw error;
+      // Δεν πετάμε το error (throw) για να μην μπλοκάρει η πλοήγηση (navigate)
+      // αν αποτύχει μόνο η φωτογραφία
     }
   }
-  //dimiourse ena process
-  async function createProcess(e) {
-    e.preventDefault();
-    const processData = {
-      type: 'return',
-      clientId: 1,
-      deviceId: 1,
-      issue: 'Issue',
-      status: 'pending',
-      requiredAction: 'noActionRequired',
-    };
-    const deviceData = {
-      category: 'device',
-      name: 'Device Name',
-      description: 'Device Description',
-      image: null,
-      serialNumber: 'Device Serial Number',
-      purchaseDate: 'Device Purchase Date',
-    };
-    const clientData = {
-      name: 'Client Name',
-      email: 'Client Email',
-      phone: 'Client Phone',
-      address: 'Client Address',
-    };
-    const sendData = {
-      process: processData,
-      device: deviceData,
-      client: clientData,
-    };
+
+  // 2. Create Process Function
+  // Τώρα δέχεται το payload δυναμικά
+  async function createProcess(payload) {
     const response = await fetch('/api/process', {
       method: 'POST',
-      body: JSON.stringify(sendData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
     });
+
     const responseData = await response.json();
-    console.log('responseData', responseData);
-    if (responseData.success) {
-      navigate('/client-dashboard/');
+
+    // Έλεγχος αν το responseData είναι το process object (που έχει processId)
+    // Στο backend σου επιστρέφει απευθείας το αντικείμενο newProcess
+    if (responseData && responseData.processId) {
+      return responseData;
     } else {
-      alert('Failed to create process');
+      throw new Error('Failed to create process');
     }
   }
 
+  // 3. Main Handler
   async function handleCreateProcess(e) {
     e.preventDefault();
-    // Get the file input using form elements (avoids querySelector)
-    const fileInput = e.target.elements.uploadImages;
-    // Store reference in ref for future use
-    fileInputRef.current = fileInput;
-    const file = fileInput?.files?.[0]; // Get the first file from FileList
 
-    if (!file) {
-      console.error('No file selected');
-      alert('Please select a photo to upload');
-      return;
-    }
+    // Λήψη δεδομένων από τη φόρμα
+    // ΣΗΜΕΙΩΣΗ: Για να δουλέψει αυτό, τα inputs στο CreateForm ΠΡΕΠΕΙ να έχουν το attribute name="..."
+    const formData = new FormData(e.currentTarget);
+    const formValues = Object.fromEntries(formData.entries());
 
-    console.log('Uploading file:', file.name, file.type, file.size);
+    // Λήψη αρχείου
+    const fileInput = e.currentTarget.elements.uploadImages;
+    const file = fileInput?.files?.[0];
+
+    // Προετοιμασία δεδομένων για το Backend
+    // Το backend περιμένει { process, device, user }
+    const sendData = {
+      process: {
+        type: 'return',
+        issue: formValues.problemDescription || 'Issue not described',
+        status: 'pending',
+        // Σημείωση: Το backend θα αγνοήσει το requiredAction που στέλνουμε εδώ
+        // και θα βάλει το δικό του string. Αυτό δεν διορθώνεται από εδώ.
+      },
+      device: {
+        category: formValues.productType || 'Device',
+        name: formValues.name, // To 'name' από το input
+        description: formValues.problemDescription,
+        purchaseDate: formValues.purchaseDate,
+      },
+      user: {
+        id: 1, // Hardcoded client ID (όπως απαιτεί το backend req.body.user.id)
+      },
+    };
+
     try {
-      const imageUpload = await uploadDevicePhoto(1, file);
-      console.log('imageUpload', imageUpload);
+      console.log('Step 1: Creating Process...');
+      // Βήμα 1: Δημιουργία της εγγραφής για να πάρουμε το ID
+      const createdProcess = await createProcess(sendData);
+      console.log('Process created:', createdProcess);
 
-      // Clear the file input after successful upload
-      if (fileInput) {
-        fileInput.value = '';
-        fileInputRef.current = null;
+      // Βήμα 2: Ανάκτηση του Device ID
+      // Στο backend σου: res.json(newProcess). Το newProcess έχει πεδίο `device` που είναι το ID.
+      const newDeviceId = createdProcess.device;
+
+      // Βήμα 3: Αν υπάρχει αρχείο και ID, κάνουμε upload
+      if (file && newDeviceId) {
+        console.log(`Step 2: Uploading photo for Device ID: ${newDeviceId}...`);
+        await uploadDevicePhoto(newDeviceId, file);
       }
 
-      // await createProcess(e);
-      console.log('createProcess', createProcess);
+      // Βήμα 4: Ολοκλήρωση
+      alert('Process created successfully!');
+      navigate('/client-dashboard/');
     } catch (error) {
-      console.error('Upload failed:', error);
-      alert('Failed to upload photo: ' + error.message);
+      console.error('Submission failed:', error);
+      alert('Failed to create process: ' + error.message);
     }
   }
+
   return (
     <div className={styles.page}>
       <div className={`${styles.container} card-elevation-5`}>
-        <CreateForm title='Return Form' onSubmit={handleCreateProcess} />
+        {/* Σιγουρέψου ότι το showProblemDescription είναι true για να πάρεις τα δεδομένα */}
+        <CreateForm title='Return Form' onSubmit={handleCreateProcess} showProblemDescription={true} />
         <div className={styles.infoBox}>
           <p className='header-md'>Need help?</p>
           <ul className='body-xl'>

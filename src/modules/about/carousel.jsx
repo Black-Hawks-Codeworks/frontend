@@ -9,6 +9,7 @@ import img4 from '../../assets/Photos/IMG_8166.jpeg';
 import img5 from '../../assets/Photos/IMG_8241.jpeg';
 import img6 from '../../assets/Photos/zrkd.jpeg';
 import img7 from '../../assets/Photos/ilias.jpg';
+import img8 from '../../assets/Photos/image.png';
 
 export default function SimpleSlider() {
   const settings = {
@@ -47,6 +48,9 @@ export default function SimpleSlider() {
         </div>
         <div className={styles.slide}>
           <img className={styles.img} src={img7} alt='image7' />
+        </div>
+        <div className={styles.slide}>
+          <img className={styles.img} src={img8} alt='image8' />
         </div>
       </Slider>
     </div>
