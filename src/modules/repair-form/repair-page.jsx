@@ -4,13 +4,11 @@ import CreateForm from '@/shared/forms/create-form';
 import Icon from '@/shared/icon';
 import { useNavigate } from 'react-router-dom';
 
-// 1. IMPORT ΤΟΥ SELECTOR ΑΠΟ ΤΟ STORE ΣΟΥ
 import { useAppSelector } from '@/config/store';
 
 export default function RepairFormPage() {
   const navigate = useNavigate();
 
-  // 2. ΑΝΑΚΤΗΣΗ ΤΟΥ USER ΑΠΟ ΤΟ REDUX STORE
   const user = useAppSelector((state) => state.auth.user);
 
   // State για να κλειδώνει το κουμπί
@@ -65,13 +63,6 @@ export default function RepairFormPage() {
   // Main Handler
   async function handleCreateProcess(e) {
     e.preventDefault();
-
-    // Έλεγχος αν υπάρχει χρήστης συνδεδεμένος (ίδια φιλοσοφία με ReturnPage)
-    if (!user || !user.id) {
-      alert('Σφάλμα: Δεν βρέθηκε συνδεδεμένος χρήστης. Παρακαλώ κάντε login ξανά.');
-      navigate('/login');
-      return;
-    }
 
     // Κλείδωμα κουμπιού
     setIsSubmitting(true);

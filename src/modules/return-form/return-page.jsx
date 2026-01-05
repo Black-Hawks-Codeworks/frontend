@@ -11,7 +11,6 @@ export default function ReturnFormPage() {
   const navigate = useNavigate();
 
   // 2. ΑΝΑΚΤΗΣΗ ΤΟΥ USER ΑΠΟ ΤΟ REDUX STORE
-  // Υποθέτουμε ότι το slice λέγεται 'auth'. Αν δεν δουλέψει, δοκίμασε 'state.user.user'
   const user = useAppSelector((state) => state.auth.user);
 
   // State για να κλειδώνει το κουμπί
@@ -96,7 +95,6 @@ export default function ReturnFormPage() {
         purchaseDate: formValues.purchaseDate,
       },
       user: {
-        // 3. ΧΡΗΣΗ ΤΟΥ REAL USER ID
         id: user.id,
       },
     };
