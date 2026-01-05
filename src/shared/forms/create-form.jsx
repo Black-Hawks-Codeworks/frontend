@@ -2,6 +2,9 @@ import FormField from './form-field';
 import styles from './form.module.css';
 import { useState } from 'react';
 
+const minDate = '2007-01-01';
+const maxDate = new Date().toISOString().slice(0, 10);
+
 export default function CreateForm({ title, showProblemDescription = false, onSubmit, isSubmitting }) {
   const [inputs, setInputs] = useState({
     productType: '',
@@ -11,16 +14,54 @@ export default function CreateForm({ title, showProblemDescription = false, onSu
     uploadImages: '',
   });
 
+  const [errors, setErrors] = useState({
+    purchaseDate: '',
+  });
+
+  const validatePurchaseDate = (date) => {
+    if (!date) return 'Purchase date is required';
+
+    if (date > maxDate) {
+      return 'Purchase date cannot be in the future';
+    }
+
+    if (date < minDate) {
+      return 'Purchase date cannot be older than 17 years';
+    }
+
+    return '';
+  };
+
   const handleChange = (e) => {
     const target = e.target;
     const value = target.type === 'file' ? target.files : target.value;
     const name = target.name;
+
     setInputs((values) => ({ ...values, [name]: value }));
+
+    if (name === 'purchaseDate') {
+      setErrors((prev) => ({
+        ...prev,
+        purchaseDate: validatePurchaseDate(value),
+      }));
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const purchaseDateError = validatePurchaseDate(inputs.purchaseDate);
+    if (purchaseDateError) {
+      setErrors((prev) => ({ ...prev, purchaseDate: purchaseDateError }));
+      return;
+    }
+
+    // ✅ Κράτα το signature όπως το έχεις στο ReturnFormPage
+    onSubmit?.(e);
   };
 
   return (
     <div>
-      <form onSubmit={onSubmit} className={`${styles.form}  card-elevation-3`}>
+      <form onSubmit={handleSubmit} className={`${styles.form}  card-elevation-3`}>
         <p className='header-lg text-color-primary-shade-2 '>{title} </p>
         <div className={styles.container}>
           <FormField
@@ -50,6 +91,9 @@ export default function CreateForm({ title, showProblemDescription = false, onSu
             value={inputs.purchaseDate}
             onChange={handleChange}
             required={true}
+            error={errors.purchaseDate}
+            max={maxDate}
+            min={minDate} // Περιορίζει το UI του ημερολογίου
           />
           {showProblemDescription && (
             <FormField
