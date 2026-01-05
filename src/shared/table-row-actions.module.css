@@ -29,12 +29,14 @@
   font-weight: 500;
 }
 
-.bellIcon:hover {
-  background-color: var(--color-error);
+
+.bellIconContainer:hover .bellIcon {
+  color: rgb(255, 255, 255); 
+  background-color: rgb(211, 72, 72);
 }
 
 .bellIconContainerAnimated {
-  animation: bellIconContainerAnimated 1s ease-in-out infinite;
+  animation: bellIconContainerAnimated 2s ease-in-out infinite;
 }
 
 @keyframes bellIconContainerAnimated {

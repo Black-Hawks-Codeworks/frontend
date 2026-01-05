@@ -56,14 +56,14 @@
 .started {
   color: var(--color-warning);
 }
-.pending {
-  color: var(--color-info);
+.repaired {
+  color: var(--color-primary-tint-1);
 }
 .confirmed{
-  color:var(--color-secondary);
+   color: var(--color-info);
 }
 .completed{
-  color: var(--color-success);
+  color: var(--color-primary);
 }
 
 .cell.createdAt {
