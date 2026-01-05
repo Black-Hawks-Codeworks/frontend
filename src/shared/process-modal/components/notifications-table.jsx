@@ -13,7 +13,7 @@ export default function NotificationsTable(props) {
         <span className='body-md'>Created At</span>
         <span className='body-md'>Message</span>
       </div>
-      {sortedNotifications.map((notification, index) => (
+      {sortedNotifications.map((notification) => (
         <div key={notification.id} className={styles.notificationsTableRow}>
           <span>
             <Icon name='Calendar' size='sm' />
