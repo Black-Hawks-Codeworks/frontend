@@ -12,6 +12,7 @@ import ManagerPage from '../modules/manager-dashboard/manager-page';
 import ReturnFormPage from '@/modules/return-form/return-page';
 import RepairFormPage from '../modules/repair-form/repair-page';
 import AboutPage from '@/modules/about/about-page';
+import ForgotPassword from '../modules/landing/components/forgot-password';
 
 import ProcessModal from '@/shared/process-modal/process-modal';
 
@@ -27,6 +28,14 @@ export const createRouter = () => {
           element: (
             <ProtectedRouteLogin requireLogin={false}>
               <LandingPage />
+            </ProtectedRouteLogin>
+          ),
+        },
+        {
+          path: '/forgot-password',
+          element: (
+            <ProtectedRouteLogin requireLogin={false}>
+              <ForgotPassword />
             </ProtectedRouteLogin>
           ),
         },
