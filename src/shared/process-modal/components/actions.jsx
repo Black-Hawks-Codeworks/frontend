@@ -40,20 +40,9 @@ function ActionConfirmReplacement() {
 
 function ActionChangeProcessStatus(props) {
   //ena state gia to accept btn pou erhete apo pano(props)
-  const { status, handleStatusAccept, handleActionRequiredChange } = props;
+  const { selectedStatus,handleSelectChange,handleAccept } = props;
   //ena local state gia na fainetai to change tis listas
-  const [selectedStatus, setSelectedStatus] = useState(status || '');
 
-  const handleSelectChange = (e) => {
-    setSelectedStatus(e.target.value);
-  };
-
-  const handleAccept = () => {
-    if (selectedStatus && selectedStatus !== '') {
-      handleStatusAccept(selectedStatus);
-    }
-    handleActionRequiredChange('noActionRequired');
-  };
 
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>

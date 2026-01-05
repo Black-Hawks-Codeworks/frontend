@@ -26,6 +26,14 @@ export default function ProcessModal() {
     getProcess();
   }, [processId]);
 
+  async function refetch() {
+    const response = await fetch(`/api/process/${processId}`);
+    const data = await response.json();
+    console.log('data', data);
+    setProcess(data);
+    setIsLoading(false);
+  }
+
   // Αφαιρέθηκε το if (isLoading) από εδώ
 
   console.log('process', process);
@@ -42,9 +50,14 @@ export default function ProcessModal() {
   // const [status, setStatus] = useState(process.status);
   const status = process ? process.status : null; // Προσθήκη check
 
-  async function setStatus(s) {
+  const [selectedStatus, setSelectedStatus] = useState(status || '');
+
+  const handleSelectChange = (e) => {
+    setSelectedStatus(e.target.value);
+  };
+
+  async function handleAccept() {
     const previousStatus = process.status;
-    setProcess({ ...process, status: s });
 
     try {
       const response = await fetch(`/api/process/${processId}`, {
@@ -52,21 +65,18 @@ export default function ProcessModal() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...process, status: s }),
+        body: JSON.stringify({ newRequiredAction: 'changeProcessStatus' }),
       });
 
       if (!response.ok) {
         throw new Error('Failed to update status');
       }
+      await refetch();
     } catch (error) {
       console.error('Error updating status:', error);
       setProcess({ ...process, status: previousStatus });
     }
   }
-
-  const handleStatusAccept = (selectedStatus) => {
-    setStatus(selectedStatus);
-  };
 
   const handleActionRequiredChange = (action) => {
     setActionRequired(action);
@@ -93,9 +103,10 @@ export default function ProcessModal() {
             {/* <div className={styles.actionsComp}> */}
             {ActionComponent && (
               <ActionComponent
+                handleAccept={handleAccept}
+                handleSelectChange={handleSelectChange}
                 expectedCost={process.expectedCost}
                 status={status}
-                handleStatusAccept={handleStatusAccept}
                 handleActionRequiredChange={handleActionRequiredChange}
               />
             )}
