@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './process-cards.module.css';
 
 function ProcessCards({ data }) {
+  const navigate = useNavigate();
   return (
     <div className={styles.grid}>
       {data.map((row) => (
@@ -22,9 +24,7 @@ function ProcessCards({ data }) {
 
             <div>
               <div className={styles.label}>Device</div>
-              <div className={styles.value}>
-               {row.device.name}
-              </div>
+              <div className={styles.value}>{row.device.name}</div>
             </div>
 
             <div>
@@ -45,7 +45,7 @@ function ProcessCards({ data }) {
           </div>
 
           <div className={styles.actions}>
-            <button type='button' className={styles.actionBtn}>
+            <button type='button' className={styles.actionBtn} onClick={() => navigate(`${row.processId}`)}>
               Details
             </button>
           </div>

@@ -1,19 +1,16 @@
 import styles from './process-details.module.css';
 
 export default function ProcessDetails({ process }) {
-  const images = process?.device?.image; // <-- σωστό πεδίο
+  const imageUrl = `/api${process?.device?.image.url}`;
+  console.log('imageUrl', imageUrl);
+  console.log('process', process.device.image);
 
   return (
     <div className={`${styles.processDetails} card-elevation-5`}>
       <p className={`${styles.header} header-md`}>Details</p>
 
       <div className={styles.photoContainer}>
-        {Array.isArray(images) &&
-          images
-            .slice(0, 3)
-            .map((imgUrl) => (
-              <img key={`${process?.device?.id ?? 'device'}-${imgUrl}`} src={imgUrl} alt='product-preview' />
-            ))}
+        <img src={imageUrl} alt='product-preview' />
       </div>
 
       <div className={styles.infoContainer}>

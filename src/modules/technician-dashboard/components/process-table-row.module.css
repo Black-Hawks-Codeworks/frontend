@@ -59,6 +59,9 @@
 .pending {
   color: var(--color-info);
 }
+.confirmed{
+  color:var(--color-secondary);
+}
 .completed{
   color: var(--color-success);
 }

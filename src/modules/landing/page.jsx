@@ -1,7 +1,7 @@
 import styles from './page.module.css';
 import Login from '@/modules/landing/components/login';
 import Icon from '@/shared/icon';
-import useLanding from '@/modules/landing/hooks/use-landing';
+import useLanding from '@/shared/hooks/use-landing';
 import { getStore } from '@/config/store';
 import { Navigate } from 'react-router-dom';
 

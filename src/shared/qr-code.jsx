@@ -1,24 +1,15 @@
 import { QRCodeSVG } from 'qrcode.react';
 import styles from './qr-code.module.css';
-import { useState, useEffect } from 'react';
-import { useMatch } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function QrCode() {
   const [isOpen, setIsOpen] = useState(false);
-  const matchRoot = useMatch('/');
+
   const isVercelHost = window.location.hostname.includes('vercel');
   const urlCamunda = 'https://dev.ohi-stin-camunda-nai-ston-erota.site/';
   const urlVercel = 'https://frontend-eight-mu-43.vercel.app/';
   const url = isVercelHost ? urlVercel : urlCamunda;
-  // to match einai to path tou "/" route h null an den eimaste sto root("/")
-  // otan allaze to match apo null se object, tote to setIsOpen(true)
-  useEffect(() => {
-    if (matchRoot) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
-  }, [matchRoot]);
+
   return (
     <div className={isOpen ? styles.containerOpen : styles.containerClosed}>
       <button className={styles.closeButton} onClick={() => setIsOpen(!isOpen)}>
