@@ -11,17 +11,20 @@ export default function useLanding() {
   const [error, setError] = useState('');
   const [errorType, setErrorType] = useState(null);
 
-  async function authUser(username, password) {
-    // Έλεγχος για κενά πεδία
+  async function authUser(username, password, rememberMe) {
     if (!username.trim() || !password.trim()) {
       setError('Username and password are required');
       setErrorType('required');
       setIsLoading(false);
       return;
     }
+
     setIsLoading(true);
     setError(null);
+
+    // Artificial delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
+
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -34,6 +37,14 @@ export default function useLanding() {
       const data = await response.json();
 
       if (response.ok) {
+        if (rememberMe) {
+          localStorage.setItem('rememberedUser', username);
+          localStorage.setItem('rememberedPass', password);
+        } else {
+          localStorage.removeItem('rememberedUser');
+          localStorage.removeItem('rememberedPass');
+        }
+
         dispatch(setUser(data));
         const userRole = data.role;
         navigate(`/${userRole}-dashboard`);

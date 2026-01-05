@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './login.module.css';
 import Icon from '@/shared/icon';
 
@@ -7,18 +8,36 @@ export default function Login({ onSubmit, isLoading, error, errorType }) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [password, setPassword] = useState('');
 
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('rememberedUser');
+    const savedPass = localStorage.getItem('rememberedPass');
+
+    if (savedUser) {
+      setUser(savedUser);
+      setRememberMe(true);
+      if (savedPass) setPassword(savedPass);
+    }
+  }, []);
+
   return (
     <form
       className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
+
         if (!isLoading) {
-          onSubmit(user, password);
+          onSubmit(user, password, rememberMe);
         }
       }}>
       <div className={styles.field}>
         <input
           id='username'
+          name='username'
+          autoComplete='username'
           className={`${styles['form-input']} ${styles['form-input--user']}`}
           placeholder=' '
           value={user}
@@ -34,6 +53,7 @@ export default function Login({ onSubmit, isLoading, error, errorType }) {
         <input
           id='password'
           name='password'
+          autoComplete='current-password'
           type={isPasswordVisible ? 'text' : 'password'}
           className={`${styles['form-input']} ${styles['form-input--password']}`}
           placeholder=' '
@@ -58,20 +78,30 @@ export default function Login({ onSubmit, isLoading, error, errorType }) {
 
       <div className={styles.actionsRow}>
         <label className={styles.toggle}>
-          <input type='checkbox' disabled={isLoading} />
+          <input
+            type='checkbox'
+            disabled={isLoading}
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
           <span className={styles.track} aria-hidden='true' />
           <span className={styles.toggleLabel}>Remember me</span>
         </label>
 
-        <button type='button' className={styles.linkBtn} disabled={isLoading}>
+        <button
+          type='button'
+          className={styles.linkBtn}
+          disabled={isLoading}
+          onClick={() => navigate('/forgot-password')}>
           Forgot password?
         </button>
       </div>
 
+      {error && <div className={styles.errorMessage}>{error}</div>}
+
       <button className={`${styles.btnLogin} btn-contained`} type='submit' disabled={isLoading}>
         {isLoading ? <div className={styles.spinner}></div> : 'Login'}
       </button>
-
       <div
         className={
           styles.errorMessage +
