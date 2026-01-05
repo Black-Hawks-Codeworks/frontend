@@ -8,7 +8,7 @@ import Actions from './components/actions';
 import ProcessDetails from './components/process-details';
 import StatusIndicator from './components/status-indicator';
 import Loading from '../loading-screen/loading';
-
+import { useSelector } from 'react-redux';
 export default function ProcessModal() {
   const navigate = useNavigate();
   const { processId } = useParams();
@@ -44,8 +44,8 @@ export default function ProcessModal() {
   function setActionRequired(action) {
     setProcess({ ...process, requiredAction: action });
   }
-
-  const ActionComponent = actionRequired ? Actions[actionRequired] : Actions.noActionRequired;
+  const user = useSelector((state) => state.user);
+  const ActionComponent = actionRequired ? Actions[actionRequired[user.type]] : Actions.noActionRequired;
 
   // const [status, setStatus] = useState(process.status);
   const status = process ? process.status : null; // Προσθήκη check

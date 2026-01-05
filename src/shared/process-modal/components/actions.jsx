@@ -40,9 +40,8 @@ function ActionConfirmReplacement() {
 
 function ActionChangeProcessStatus(props) {
   //ena state gia to accept btn pou erhete apo pano(props)
-  const { selectedStatus,handleSelectChange,handleAccept } = props;
+  const { selectedStatus, handleSelectChange, handleAccept } = props;
   //ena local state gia na fainetai to change tis listas
-
 
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
