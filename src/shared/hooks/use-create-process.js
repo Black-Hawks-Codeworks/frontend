@@ -63,7 +63,6 @@ export function useCreateProcess() {
       process: {
         type: processType,
         issue: formValues.problemDescription || 'Issue not described',
-        status: 'pending',
       },
       device: {
         category: formValues.productType || 'Device',
