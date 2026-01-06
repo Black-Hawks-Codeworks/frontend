@@ -5,15 +5,16 @@ export default function ProcessDetails({ process }) {
   console.log('imageUrl', imageUrl);
   console.log('process', process.device.image);
 
-  function getWarrantyStatus(process) {
-    const device = process.device;
-    if (!device || !device.warrantyExpires) return 'Unknown';
+  function getWarrantyStatus(p) {
+    const device = p.device;
 
-    const expires = new Date(device.warrantyExpires);
+    if (device.warranty.type === 'none') return 'This device has no warranty.';
+    const expires = new Date(device.warranty.expiresAt);
     const now = new Date();
 
     return expires >= now ? 'In warranty' : 'Out of warranty';
   }
+  console.log(process.device.warranty.expiresAt);
 
   return (
     <div className={`${styles.processDetails} card-elevation-5`}>
@@ -56,7 +57,14 @@ export default function ProcessDetails({ process }) {
         {process.type === 'return' && (
           <div className={styles.row}>
             <span className={styles.label}>Warranty</span>
-            <span className={styles.value}>{getWarrantyStatus(process)}</span>
+            {process.device.warranty.type === 'none' ? (
+              <span className={styles.value}>This device has no warranty.</span>
+            ) : (
+              <span className={styles.value}>{`This device has ${process.device.warranty.type} warranty.`}</span>
+            )}
+            {process.device.warranty.type !== 'none' && (
+              <span className={styles.value}>{getWarrantyStatus(process)}</span>
+            )}
           </div>
         )}
       </div>
