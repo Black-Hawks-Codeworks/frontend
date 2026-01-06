@@ -12,6 +12,7 @@
   align-self: center;
   margin-left: auto;
   margin-right: auto;
+  flex: 1;
 }
 
 .process-table-header {
@@ -65,7 +66,7 @@
 .process-table-header {
   /*Adjust According to each table */
   grid-template-columns:
-   minmax(60px, 0.6fr)
+    minmax(60px, 0.6fr)
     minmax(80px, 0.8fr)
     minmax(80px, 0.8fr)
     minmax(100px, 1fr)
@@ -75,7 +76,6 @@
     minmax(90px, 0.9fr)
     minmax(60px, 0.6fr)
     minmax(90px, 0.9fr);
-    ;
 }
 
 /* center-alignment for specif fields. Adjust According to each table */

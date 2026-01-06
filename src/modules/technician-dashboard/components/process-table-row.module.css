@@ -3,19 +3,18 @@
   align-items: center;
   padding: 16px 0px;
   border-bottom: 1px solid var(--neutral-grey-blue);
+  flex: 1;
 }
 
 .container {
   grid-template-columns:
-   minmax(60px, 0.6fr)
+    minmax(60px, 0.6fr)
     minmax(80px, 0.8fr)
     minmax(80px, 0.8fr)
     minmax(120px, 1.2fr)
     minmax(80px, 0.8fr)
     minmax(80px, 0.8fr)
     minmax(80px, 0.8fr);
-
-
 }
 
 .container:last-child {
@@ -51,7 +50,6 @@
   border-right: none;
 }
 
-
 /* Status colors */
 .started {
   color: var(--color-warning);
@@ -59,10 +57,10 @@
 .repaired {
   color: var(--color-primary-tint-1);
 }
-.confirmed{
-   color: var(--color-info);
+.confirmed {
+  color: var(--color-info);
 }
-.completed{
+.completed {
   color: var(--color-primary);
 }
 

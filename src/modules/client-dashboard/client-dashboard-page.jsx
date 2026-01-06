@@ -24,18 +24,20 @@ function ClientDashboardPage() {
     <div className={styles.pageContainer}>
       <ClientDashboardControls viewMode={viewMode} setViewMode={setViewMode} />
 
-      {!user && <div>Please login.</div>}
+      {loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
 
-      {user && loading && <div><Loading/></div>}
-
-      {user && !loading && error && (
+      {!loading && error && (
         <div>
           <div>Error: {error}</div>
           <button onClick={refetch}>Retry</button>
         </div>
       )}
 
-      {user && !loading && !error && (
+      {!loading && !error && (
         <>{viewMode === 'table' ? <ProcessTable data={processes || []} /> : <ProcessCards data={processes || []} />}</>
       )}
 
