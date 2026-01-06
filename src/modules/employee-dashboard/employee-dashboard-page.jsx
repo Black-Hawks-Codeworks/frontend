@@ -20,22 +20,22 @@ function EmployeeDashboardPage() {
     <div>
       <EmployeeDashboardControls view={view} setView={setView} />
 
-      {!user && <div>Please login.</div>}
+      
 
-      {user && loading && (
+      { loading && (
         <div>
           <Loading />
         </div>
       )}
 
-      {user && !loading && error && (
+      {!loading && error && (
         <div>
           <div>Error: {error}</div>
           <button onClick={refetch}>Retry</button>
         </div>
       )}
 
-      {user && !loading && !error && (
+      {loading && !error && (
         <>{view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}</>
       )}
 
