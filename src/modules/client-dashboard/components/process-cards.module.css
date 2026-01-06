@@ -63,7 +63,7 @@
   color: #b45309 !important;
   border-color: #fde68a !important;
 }
-.repaired {
+.processing {
   background: #f0fdf4 !important;
   color: #15803d !important;
   border-color: #bbf7d0 !important;
@@ -78,6 +78,10 @@
   color: #15803d !important;
   border-color: #bbf7d0 !important;
 }
+.cost_added {
+  color: var(--color-warning);
+}
+
 
 .body {
   display: flex;

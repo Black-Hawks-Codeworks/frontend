@@ -37,14 +37,17 @@
 .started {
   color: var(--color-warning);
 }
-.repaired {
+.processing {
   color: var(--color-primary-tint-1);
 }
-.confirmed{
-   color: var(--color-info);
+.confirmed {
+  color: var(--color-info);
 }
-.completed{
+.completed {
   color: var(--color-primary);
+}
+.cost_added {
+  color: var(--color-error);
 }
 
 .cell.createdAt {

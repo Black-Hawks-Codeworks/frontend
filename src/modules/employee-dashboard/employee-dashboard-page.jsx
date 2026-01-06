@@ -20,22 +20,22 @@ function EmployeeDashboardPage() {
     <div>
       <EmployeeDashboardControls view={view} setView={setView} />
 
-      {!user && <div>Please login.</div>}
+      {loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
 
-      {user && loading && <div><Loading/></div>}
-
-      {user && !loading && error && (
+      {!loading && error && (
         <div>
           <div>Error: {error}</div>
           <button onClick={refetch}>Retry</button>
         </div>
       )}
 
-      {user && !loading && !error && (
-        <>{view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}</>
-      )}
+      {view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}
 
-      <Outlet />
+      <Outlet context={{ refetchProcesses: refetch }} />
     </div>
   );
 }

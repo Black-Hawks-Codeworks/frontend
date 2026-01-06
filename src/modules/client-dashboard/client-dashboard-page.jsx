@@ -41,7 +41,7 @@ function ClientDashboardPage() {
         <>{viewMode === 'table' ? <ProcessTable data={processes || []} /> : <ProcessCards data={processes || []} />}</>
       )}
 
-      <Outlet />
+      <Outlet context={{ refetchProcesses: refetch }} />
     </div>
   );
 }

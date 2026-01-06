@@ -21,20 +21,20 @@ function TechnicianDashboardPage() {
     <div>
       <TechnicianDashboardControls />
 
-      {!user && <div>Please login.</div>}
+      
 
-      {user && loading && <div><Loading/></div>}
+      {loading && <div><Loading/></div>}
 
-      {user && !loading && error && (
+      {!loading && error && (
         <div>
           <div>Error: {error}</div>
           <button onClick={refetch}>Retry</button>
         </div>
       )}
 
-      {user && !loading && !error && <ProcessTable data={repairData} />}
+      {!loading && !error && <ProcessTable data={repairData} />}
 
-      <Outlet />
+      <Outlet context={{refetchProcesses:refetch}}/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useOutletContext } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styles from './process-modal.module.css';
 import Icon from '../icon';
@@ -17,6 +17,7 @@ export default function ProcessModal() {
   const [isActionLoading, setIsActionLoading] = useState(false);
   console.log('processId', processId);
   const user = useSelector((state) => state.auth.user);
+  const { refetchProcesses } = useOutletContext() || {};
 
   useEffect(() => {
     async function getProcess() {
@@ -103,13 +104,21 @@ export default function ProcessModal() {
 
   const role = user?.role;
   const requiredActionKey = process?.requiredAction?.[role];
+  const isReturn = process?.type === 'return';
+
+  let actionKeyForUI = requiredActionKey;
+
+  //an einai return den thleoume cost / payment components
+  if (isReturn && (requiredActionKey === 'paymentRequired' || requiredActionKey === 'addCost')) {
+    actionKeyForUI = null;
+  }
 
   console.log('role used for action:', role);
   console.log('requiredAction object:', process?.requiredAction);
   console.log('requiredActionKey:', requiredActionKey);
-  console.log('Resolved ActionComponent:', requiredActionKey && Actions[requiredActionKey]);
+  console.log('Resolved ActionComponent:', actionKeyForUI && Actions[actionKeyForUI]);
 
-  const ActionComponent = (requiredActionKey && Actions[requiredActionKey]) || Actions.noActionRequired;
+  const ActionComponent = (actionKeyForUI && Actions[actionKeyForUI]) || Actions.noActionRequired;
   // const [status, setStatus] = useState(process.status);
   const status = process ? process.status : null; // Προσθήκη check
 
@@ -144,7 +153,14 @@ export default function ProcessModal() {
     <dialog open={Boolean(processId)} className={styles.processModal}>
       <div className={styles.modalContent}>
         {/* kane navigate piso gia na kleisei to modal */}
-        <button className={styles.closeBtn} onClick={() => navigate('../')}>
+        <button
+          className={styles.closeBtn}
+          onClick={() => {
+            if (refetchProcesses) {
+              refetchProcesses();
+            }
+            navigate('../');
+          }}>
           <Icon name='Close1' size='lg' />
         </button>
 
