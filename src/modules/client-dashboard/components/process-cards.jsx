@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './process-cards.module.css';
+import formatDate from '../../../shared/utils/date';
 
 function ProcessCards({ data }) {
   const navigate = useNavigate();
   return (
     <div className={styles.grid}>
-      {data.map((row,index) => (
-        <div className={styles.card} key={`${row.processId}-${index}`}>
+      {data.map((row) => (
+        <div className={styles.card} key={row.processId}>
           <div className={styles.topRow}>
             <div>
               <div className={styles.label}>Process ID</div>
@@ -35,11 +36,11 @@ function ProcessCards({ data }) {
             <div className={styles.dates}>
               <div>
                 <div className={styles.label}>Created At</div>
-                <div className={styles.value}>{row.createdAt}</div>
+                <div className={styles.value}>{formatDate(row.createdAt)}</div>
               </div>
               <div>
                 <div className={styles.label}>Updated At</div>
-                <div className={styles.value}>{row.updatedAt}</div>
+                <div className={styles.value}>{formatDate(row.updatedAt)}</div>
               </div>
             </div>
           </div>

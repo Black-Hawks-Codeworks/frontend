@@ -1,4 +1,5 @@
 import styles from './process-details.module.css';
+import formatDate from '../../utils/date';
 
 export default function ProcessDetails({ process }) {
   const imageUrl = `/api${process?.device?.image.url}`;
@@ -44,7 +45,7 @@ export default function ProcessDetails({ process }) {
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Created at</span>
-          <span className={styles.value}>{process?.createdAt}</span>
+          <span className={styles.value}>{formatDate(process?.createdAt)}</span>
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Issue</span>
