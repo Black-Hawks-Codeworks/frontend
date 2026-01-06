@@ -20,9 +20,7 @@ function EmployeeDashboardPage() {
     <div>
       <EmployeeDashboardControls view={view} setView={setView} />
 
-      
-
-      { loading && (
+      {loading && (
         <div>
           <Loading />
         </div>
@@ -35,9 +33,7 @@ function EmployeeDashboardPage() {
         </div>
       )}
 
-      {loading && !error && (
-        <>{view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}</>
-      )}
+      {loading && !error && <>{view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}</>}
 
       <Outlet context={{ refetchProcesses: refetch }} />
     </div>
