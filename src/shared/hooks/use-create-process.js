@@ -68,7 +68,7 @@ export function useCreateProcess() {
         category: formValues.productType || 'Device',
         name: formValues.name,
         description: formValues.problemDescription,
-        purchaseDate: formValues.purchaseDate,
+        purchaseDate: new Date(formValues.purchaseDate).toISOString(),
       },
       user: {
         id: user.id,

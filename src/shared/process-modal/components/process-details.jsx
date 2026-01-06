@@ -30,44 +30,37 @@ export default function ProcessDetails({ process }) {
           <span className={styles.title}>Customer</span>
           <span className={styles.value}>{process?.client?.name}</span>
         </div>
-
         <div className={styles.row}>
           <span className={styles.title}>Product Name</span>
           <span className={styles.value}>{process?.device?.name}</span>
         </div>
-
         <div className={styles.row}>
           <span className={styles.title}>Product ID</span>
           <span className={styles.value}>{process?.device?.id}</span>
         </div>
-
         <div className={styles.row}>
           <span className={styles.title}>Assigned to</span>
           <span className={styles.value}>{process?.technician?.id}</span>
         </div>
-
         <div className={styles.row}>
           <span className={styles.title}>Created at</span>
           <span className={styles.value}>{process?.createdAt}</span>
         </div>
-
         <div className={styles.row}>
           <span className={styles.title}>Issue</span>
           <span className={styles.value}>{process?.issue}</span>
         </div>
-        {process.type === 'return' && (
-          <div className={styles.row}>
-            <span className={styles.label}>Warranty</span>
-            {process.device.warranty.type === 'none' ? (
-              <span className={styles.value}>This device has no warranty.</span>
-            ) : (
-              <span className={styles.value}>{`This device has ${process.device.warranty.type} warranty.`}</span>
-            )}
-            {process.device.warranty.type !== 'none' && (
-              <span className={styles.value}>{getWarrantyStatus(warranty)}</span>
-            )}
-          </div>
-        )}
+        <div className={styles.row}>
+          <span className={styles.label}>Warranty</span>
+          {process.device.warranty.type === 'none' ? (
+            <span className={styles.value}>This device has no warranty.</span>
+          ) : (
+            <span className={styles.value}>{`This device has ${process.device.warranty.type} warranty.`}</span>
+          )}
+          {process.device.warranty.type !== 'none' && (
+            <span className={styles.value}>{getWarrantyStatus(warranty)}</span>
+          )}
+        </div>
       </div>
     </div>
   );
