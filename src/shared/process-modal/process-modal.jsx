@@ -8,23 +8,86 @@ import Actions from './components/actions';
 import ProcessDetails from './components/process-details';
 import StatusIndicator from './components/status-indicator';
 import Loading from '../loading-screen/loading';
-
+import { useSelector } from 'react-redux';
 export default function ProcessModal() {
   const navigate = useNavigate();
   const { processId } = useParams();
   const [process, setProcess] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isActionLoading, setIsActionLoading] = useState(false);
   console.log('processId', processId);
+  const user = useSelector((state) => state.auth.user);
+
   useEffect(() => {
     async function getProcess() {
-      const response = await fetch(`/api/process/${processId}`);
-      const data = await response.json();
-      console.log('data', data);
-      setProcess(data);
-      setIsLoading(false);
+      try {
+        const response = await fetch(`/api/process/${processId}`);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Backend response:', data);
+        console.log('Required action:', data.requiredAction);
+        console.log('User type:', user?.role); // ή user?.type
+
+        setProcess(data);
+      } catch (error) {
+        console.error('Error fetching process:', error);
+        alert('Failed to load process: ' + error.message);
+      } finally {
+        setIsLoading(false);
+      }
     }
+
     getProcess();
-  }, [processId]);
+  }, [processId, user]); // ✅ χωρίς eslint-disable
+
+  async function refetch() {
+    const response = await fetch(`/api/process/${processId}`);
+    const data = await response.json();
+    console.log('data', data);
+    setProcess(data);
+    setIsLoading(false);
+  }
+
+  async function handleCostSubmit(cost) {
+    setIsActionLoading(true);
+    try {
+      const response = await fetch(`/api/process/${processId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          newRequiredAction: 'addCost',
+          expectedCost: parseFloat(cost),
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to add cost');
+      await refetch();
+    } catch (error) {
+      console.error('Error adding cost:', error);
+      alert('Error During adding Cost.');
+    } finally {
+      setIsActionLoading(false);
+    }
+  }
+
+  async function handlePaymentAccept() {
+    try {
+      const response = await fetch(`/api/process/${processId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ newRequiredAction: 'paymentAccept' }),
+      });
+
+      if (!response.ok) throw new Error('Failed');
+      await refetch();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
 
   // Αφαιρέθηκε το if (isLoading) από εδώ
 
@@ -32,19 +95,29 @@ export default function ProcessModal() {
 
   //hrisimopoio ena state kai vazo mesa olo to process kai meta allazo mono ena apo ta keys tou process
   // const [actionRequired, setActionRequired] = useState(process.requiredAction);
-  const actionRequired = process ? process.requiredAction : null; // Προσθήκη check επειδή στην αρχή το process είναι null
-  function setActionRequired(action) {
-    setProcess({ ...process, requiredAction: action });
-  }
 
-  const ActionComponent = actionRequired ? Actions[actionRequired] : Actions.noActionRequired;
+  console.log('=== DEBUG USER ===');
+  console.log('state.auth.user:', user);
+  console.log('role:', user?.role);
+  console.log('==================');
 
+  const role = user?.role;
+  const requiredActionKey = process?.requiredAction?.[role];
+
+  console.log('role used for action:', role);
+  console.log('requiredAction object:', process?.requiredAction);
+  console.log('requiredActionKey:', requiredActionKey);
+  console.log('Resolved ActionComponent:', requiredActionKey && Actions[requiredActionKey]);
+
+  const ActionComponent = (requiredActionKey && Actions[requiredActionKey]) || Actions.noActionRequired;
   // const [status, setStatus] = useState(process.status);
   const status = process ? process.status : null; // Προσθήκη check
 
-  async function setStatus(s) {
+  const [selectedStatus, setSelectedStatus] = useState(status || '');
+
+  async function handleAccept() {
     const previousStatus = process.status;
-    setProcess({ ...process, status: s });
+    setIsActionLoading(true);
 
     try {
       const response = await fetch(`/api/process/${processId}`, {
@@ -52,26 +125,20 @@ export default function ProcessModal() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...process, status: s }),
+        body: JSON.stringify({ newRequiredAction: 'changeProcessStatus' }),
       });
 
       if (!response.ok) {
         throw new Error('Failed to update status');
       }
+      await refetch();
     } catch (error) {
       console.error('Error updating status:', error);
       setProcess({ ...process, status: previousStatus });
+    } finally {
+      setIsActionLoading(false);
     }
   }
-
-  const handleStatusAccept = (selectedStatus) => {
-    setStatus(selectedStatus);
-  };
-
-  const handleActionRequiredChange = (action) => {
-    setActionRequired(action);
-    //TODO: Na ginei ena fetch PUT(?) gia na allaksei to requiredAction sto backend
-  };
 
   return (
     <dialog open={Boolean(processId)} className={styles.processModal}>
@@ -93,10 +160,12 @@ export default function ProcessModal() {
             {/* <div className={styles.actionsComp}> */}
             {ActionComponent && (
               <ActionComponent
+                handleAccept={handleAccept}
+                handlePaymentAccept={handlePaymentAccept}
+                handleCostSubmit={handleCostSubmit}
                 expectedCost={process.expectedCost}
-                status={status}
-                handleStatusAccept={handleStatusAccept}
-                handleActionRequiredChange={handleActionRequiredChange}
+                status={status} // για να ξέρει ποιο είναι το τρέχον status
+                isActionLoading={isActionLoading} // loadining spinner
               />
             )}
             <NotificationsTable notifications={process.notifications} />

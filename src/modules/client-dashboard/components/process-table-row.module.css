@@ -15,7 +15,7 @@
     minmax(100px, 1fr)
     minmax(60px, 0.6fr)
     minmax(90px, 0.9fr)
-    
+
     ;
 }
 
@@ -37,11 +37,14 @@
 .started {
   color: var(--color-warning);
 }
-.pending {
-  color: var(--color-info);
+.repaired {
+  color: var(--color-primary-tint-1);
+}
+.confirmed{
+   color: var(--color-info);
 }
 .completed{
-  color: var(--color-success);
+  color: var(--color-primary);
 }
 
 .cell.createdAt {
