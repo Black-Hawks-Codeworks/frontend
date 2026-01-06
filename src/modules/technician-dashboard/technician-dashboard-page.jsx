@@ -34,7 +34,7 @@ function TechnicianDashboardPage() {
 
       {user && !loading && !error && <ProcessTable data={repairData} />}
 
-      <Outlet />
+      <Outlet context={{refetchProcesses:refetch}}/>
     </div>
   );
 }
