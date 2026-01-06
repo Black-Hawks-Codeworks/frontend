@@ -33,7 +33,7 @@ function EmployeeDashboardPage() {
         </div>
       )}
 
-      {loading && !error && <>{view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}</>}
+      {view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}
 
       <Outlet context={{ refetchProcesses: refetch }} />
     </div>
