@@ -22,7 +22,11 @@ function EmployeeDashboardPage() {
 
       {!user && <div>Please login.</div>}
 
-      {user && loading && <div><Loading/></div>}
+      {user && loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
 
       {user && !loading && error && (
         <div>
@@ -35,7 +39,7 @@ function EmployeeDashboardPage() {
         <>{view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}</>
       )}
 
-      <Outlet />
+      <Outlet context={{ refetchProcesses: refetch }} />
     </div>
   );
 }
