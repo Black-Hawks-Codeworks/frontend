@@ -52,16 +52,33 @@ export default function ProcessDetails({ process }) {
           <span className={styles.value}>{process?.issue}</span>
         </div>
         <div className={styles.row}>
-          <span className={styles.label}>Warranty</span>
+          <span className={styles.title}>Warranty</span>
           {process.device.warranty.type === 'none' ? (
-            <span className={styles.value}>This device has no warranty.</span>
+            <span className={styles.value}>
+              This device has <b>no</b> warranty.
+            </span>
           ) : (
-            <span className={styles.value}>{`This device has ${process.device.warranty.type} warranty.`}</span>
-          )}
-          {process.device.warranty.type !== 'none' && (
-            <span className={styles.value}>{getWarrantyStatus(warranty)}</span>
+            <span className={styles.value}>
+              This device has <b>{process.device.warranty.type}</b> warranty.
+            </span>
           )}
         </div>
+        {process.device.warranty.type !== 'none' && (
+          <div>
+            <div className={styles.row}>
+              <span className={styles.title}>Expires at</span>
+              <span className={styles.value}>{formatDate(process?.device.warranty.expiresAt)}</span>
+            </div>
+            <div className={styles.row}>
+              <span className={styles.title}></span>
+              <span
+                className={`${styles.value}
+                 ${getWarrantyStatus(warranty) === 'In warranty' ? styles.inWarranty : styles.outOfWarranty} `}>
+                {getWarrantyStatus(warranty)}
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
