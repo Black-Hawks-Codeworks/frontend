@@ -6,7 +6,7 @@ import { getStore } from '@/config/store';
 import { Navigate } from 'react-router-dom';
 
 export default function LandingPage() {
-  const { authUser } = useLanding();
+  const { authUser, isLoading, error, errorType } = useLanding();
   //edo an iparhei user feugoume apo to landing page se to dashboard pou antistoixei ston role tou user
   const currentUser = getStore().getState().auth.user;
   if (currentUser) {
@@ -18,7 +18,7 @@ export default function LandingPage() {
       <div className={styles.containertop}>
         <div className={styles.loginContainer}>
           <h2 className='header-md'>Login</h2>
-          <Login onSubmit={authUser} />
+          <Login onSubmit={authUser} isLoading={isLoading} error={error} errorType={errorType} />
         </div>
         <div className={`${styles.textContainer} ${styles.enter}`}>
           <h1 className='header-lg'>Welcome!</h1>

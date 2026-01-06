@@ -69,13 +69,13 @@ export default function ForgotPasswordPage() {
           <p className='header-md'>Security Steps</p>
           <ul className='body-xl'>
             <li>
-              <Icon name='Message' size='md' />
+              <Icon name='Mail' size='md' />
               <span>
                 <b>Enter</b> your registered email address.
               </span>
             </li>
             <li>
-              <Icon name='ShieldCheck' size='md' />
+              <Icon name='Check1' size='md' />
               <span>
                 <b>Check</b> your inbox for a secure reset link.
               </span>

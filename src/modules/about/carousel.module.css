@@ -2,7 +2,7 @@
 
 /* Your wrapper controls sizing INSIDE the grid cell */
 .root {
-  width: 80%;
+  width: 60%;
   max-width: 510px; /* optional */
   height: 320px; /* required so images with height:100% work */
   margin: 0 auto;

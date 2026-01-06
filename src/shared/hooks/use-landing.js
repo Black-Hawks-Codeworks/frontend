@@ -1,16 +1,21 @@
 import { setUser } from '@/config/reducers/auth.reducer';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/config/store';
-
+import { useState } from 'react';
 export default function useLanding() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  //to dispatch kai to useAppSelector einai oi sinartiseis pou allazoume kai pernoume to store
-  //to store einai to global state tou app, perissotera @/config/store.js
 
-  //pernoume ton user apo to backend me async function
-  //gia na doulepsei prepei na trehei to backend
-  async function authUser(username, password) {
+  const [error, setError] = useState('');
+  const [errorType, setErrorType] = useState(null);
+
+  async function authUser(username, password, rememberMe) {
+    if (!username.trim() || !password.trim()) {
+      setError('Username and password are required');
+      setErrorType('required');
+      return;
+    }
+    setError(null);
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -19,19 +24,34 @@ export default function useLanding() {
         },
         body: JSON.stringify({ username, password }),
       });
+
       const data = await response.json();
+
       if (response.ok) {
+        if (rememberMe) {
+          localStorage.setItem('rememberedUser', username);
+          localStorage.setItem('rememberedPass', password);
+        } else {
+          localStorage.removeItem('rememberedUser');
+          localStorage.removeItem('rememberedPass');
+        }
+
         dispatch(setUser(data));
         const userRole = data.role;
         navigate(`/${userRole}-dashboard`);
       } else {
         dispatch(setUser(null));
+
+        setError(data.message || 'Incorrect username or password');
+        setErrorType('login');
       }
-    } catch (error) {
+    } catch (err) {
       dispatch(setUser(null));
-      console.error('Error:', error);
+      console.error('Error:', err);
+
+      setError('Server connection failed. Please try again.');
+      setErrorType('server');
     }
   }
-
-  return { authUser };
+  return { authUser, error, errorType };
 }
