@@ -10,6 +10,7 @@ import styles from './client-dashboard-page.module.css';
 
 import { useAppSelector } from '@/config/store';
 import { useProcesses } from '../../shared/hooks/use-processes';
+import { useSortedProcesses } from '@/shared/hooks/use-sorted-processes';
 import Loading from '../../shared/loading-screen/loading';
 
 function ClientDashboardPage() {
@@ -19,6 +20,7 @@ function ClientDashboardPage() {
   const userId = user?.id || user?.userId;
 
   const { processes, loading, error, refetch } = useProcesses('client', userId);
+  const sortedProcesses = useSortedProcesses(processes || []);
 
   return (
     <div className={styles.pageContainer}>
@@ -38,7 +40,13 @@ function ClientDashboardPage() {
       )}
 
       {!loading && !error && (
-        <>{viewMode === 'table' ? <ProcessTable data={processes || []} /> : <ProcessCards data={processes || []} />}</>
+        <>
+          {viewMode === 'table' ? (
+            <ProcessTable data={sortedProcesses || []} />
+          ) : (
+            <ProcessCards data={sortedProcesses || []} />
+          )}
+        </>
       )}
 
       <Outlet context={{ refetchProcesses: refetch }} />

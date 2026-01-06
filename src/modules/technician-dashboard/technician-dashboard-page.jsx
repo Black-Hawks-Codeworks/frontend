@@ -5,6 +5,7 @@ import ProcessTable from './components/process-table';
 
 import { useAppSelector } from '@/config/store';
 import { useProcesses } from '../../shared/hooks/use-processes';
+import { useSortedProcesses } from '@/shared/hooks/use-sorted-processes';
 
 import Loading from '../../shared/loading-screen/loading';
 
@@ -16,14 +17,17 @@ function TechnicianDashboardPage() {
   const { processes, loading, error, refetch } = useProcesses('technician', userId);
 
   const repairData = (processes || []).filter((x) => x.type === 'repair');
+  const sortedProcesses = useSortedProcesses(repairData);
 
   return (
     <div>
       <TechnicianDashboardControls />
 
-      
-
-      {loading && <div><Loading/></div>}
+      {loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
 
       {!loading && error && (
         <div>
@@ -32,9 +36,9 @@ function TechnicianDashboardPage() {
         </div>
       )}
 
-      {!loading && !error && <ProcessTable data={repairData} />}
+      {!loading && !error && <ProcessTable data={sortedProcesses} />}
 
-      <Outlet context={{refetchProcesses:refetch}}/>
+      <Outlet context={{ refetchProcesses: refetch }} />
     </div>
   );
 }
