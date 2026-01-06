@@ -9,12 +9,16 @@ export default function ProcessDetails({ process }) {
     const device = p.device;
 
     if (device.warranty.type === 'none') return 'This device has no warranty.';
-    const expires = new Date(device.warranty.expiresAt);
-    const now = new Date();
 
-    return expires >= now ? 'In warranty' : 'Out of warranty';
+    if (device.warranty.expiresAt) {
+      const expires = new Date(device.warranty.expiresAt);
+
+      const now = new Date();
+
+      return expires >= now ? 'In warranty' : 'Out of warranty';
+    }
   }
-  console.log(process.device.warranty.expiresAt);
+  
 
   return (
     <div className={`${styles.processDetails} card-elevation-5`}>
