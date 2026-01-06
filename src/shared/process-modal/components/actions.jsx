@@ -52,8 +52,8 @@ function ActionConfirmReplacement() {
 function getTechnicianActionLabel(status) {
   switch (status) {
     case 'confirmed':
-      return 'Mark the device as repaired.';
-    case 'repaired':
+      return 'Mark the device as processed.';
+    case 'processing':
       return 'Mark the process as completed.';
     default:
       return 'Move the process to the next step.';

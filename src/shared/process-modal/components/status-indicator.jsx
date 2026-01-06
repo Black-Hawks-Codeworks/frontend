@@ -7,7 +7,7 @@ export default function StatusIndicator(props) {
   const statuses = [
     { status: 'started', icon: 'Download2', isSelected: false },
     { status: 'confirmed', icon: 'Check1', isSelected: false },
-    { status: 'repaired', icon: 'Settings', isSelected: false },
+    { status: 'processing', icon: 'Settings', isSelected: false },
     { status: 'completed', icon: 'Send', isSelected: false },
   ];
 
