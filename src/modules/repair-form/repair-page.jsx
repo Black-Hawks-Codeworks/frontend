@@ -13,7 +13,7 @@ export default function RepairFormPage() {
   const user = useAppSelector((state) => state.auth.user);
 
   // State για να κλειδώνει το κουμπί
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Upload Photo Function
   async function uploadDevicePhoto(deviceId, file) {
@@ -66,7 +66,7 @@ export default function RepairFormPage() {
     e.preventDefault();
 
     // Κλείδωμα κουμπιού
-    setIsSubmitting(true);
+    setIsLoading(true);
 
     const formData = new FormData(e.currentTarget);
     const formValues = Object.fromEntries(formData.entries());
@@ -108,7 +108,7 @@ export default function RepairFormPage() {
     } catch (error) {
       console.error('Submission failed:', error);
       alert('Failed to create repair request: ' + error.message);
-      setIsSubmitting(false);
+      setIsLoading(false);
     }
   }
 
@@ -119,7 +119,7 @@ export default function RepairFormPage() {
           title='Repair Form'
           onSubmit={handleCreateProcess}
           showProblemDescription={true}
-          isSubmitting={isSubmitting}
+          isLoading={isLoading}
         />
         <div className={styles.infoBox}>
           <p className='header-md'>Need help?</p>

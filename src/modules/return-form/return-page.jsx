@@ -3,28 +3,21 @@ import styles from './return-page.module.css';
 import CreateForm from '@/shared/forms/create-form';
 import Icon from '@/shared/icon';
 import { useNavigate } from 'react-router-dom';
-
-// 1. IMPORT ΤΟΥ SELECTOR ΑΠΟ ΤΟ STORE ΣΟΥ
 import { useAppSelector } from '@/config/store';
 
 export default function ReturnFormPage() {
   const navigate = useNavigate();
-
-  // 2. ΑΝΑΚΤΗΣΗ ΤΟΥ USER ΑΠΟ ΤΟ REDUX STORE
   const user = useAppSelector((state) => state.auth.user);
-
   // State για να κλειδώνει το κουμπί
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Upload Photo Function
   async function uploadDevicePhoto(deviceId, file) {
     if (!file) {
       throw new Error('No file provided');
     }
-
     const formData = new FormData();
     formData.append('photo', file);
-
     try {
       const response = await fetch(`/api/device/${deviceId}/photo`, {
         method: 'POST',
@@ -65,13 +58,10 @@ export default function ReturnFormPage() {
   // Main Handler
   async function handleCreateProcess(e) {
     e.preventDefault();
-
-    // Κλείδωμα κουμπιού
-    setIsSubmitting(true);
+    setIsLoading(true);
 
     const formData = new FormData(e.currentTarget);
     const formValues = Object.fromEntries(formData.entries());
-
     const fileInput = e.currentTarget.elements.uploadImages;
     const file = fileInput?.files?.[0];
 
@@ -94,23 +84,19 @@ export default function ReturnFormPage() {
 
     try {
       const createdProcess = await createProcess(sendData);
-
       const newDeviceId = createdProcess.device;
-
       if (file && newDeviceId) {
         console.log(`Step 2: Uploading photo for Device ID: ${newDeviceId}...`);
         await uploadDevicePhoto(newDeviceId, file);
       }
-
       alert('Process created successfully!');
       navigate('/client-dashboard/');
     } catch (error) {
       console.error('Submission failed:', error);
       alert('Failed to create process: ' + error.message);
-      setIsSubmitting(false);
+      setIsLoading(false);
     }
   }
-
   return (
     <div className={styles.page}>
       <div className={`${styles.container} card-elevation-5`}>
@@ -118,7 +104,7 @@ export default function ReturnFormPage() {
           title='Return Form'
           onSubmit={handleCreateProcess}
           showProblemDescription={true}
-          isSubmitting={isSubmitting}
+          isLoading={isLoading}
         />
         <div className={styles.infoBox}>
           <p className='header-md'>Need help?</p>

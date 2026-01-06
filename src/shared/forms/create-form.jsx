@@ -5,7 +5,7 @@ import { useState } from 'react';
 const minDate = '2007-01-01';
 const maxDate = new Date().toISOString().slice(0, 10);
 
-export default function CreateForm({ title, showProblemDescription = false, onSubmit, isSubmitting }) {
+export default function CreateForm({ title, showProblemDescription = false, onSubmit, isLoading }) {
   const [inputs, setInputs] = useState({
     productType: '',
     name: '',
@@ -118,12 +118,12 @@ export default function CreateForm({ title, showProblemDescription = false, onSu
           <button
             type='submit'
             className={`${styles.smallBtn} btn-contained`}
-            disabled={isSubmitting}
+            disabled={isLoading}
             style={{
-              opacity: isSubmitting ? 0.7 : 1,
-              cursor: isSubmitting ? 'not-allowed' : 'pointer',
+              opacity: isLoading ? 0.7 : 1,
+              cursor: isLoading ? 'not-allowed' : 'pointer',
             }}>
-            {isSubmitting ? 'SENDING...' : 'SUBMIT'}
+            {isLoading ? 'SENDING...' : 'SUBMIT'}
           </button>
         </div>
       </form>
