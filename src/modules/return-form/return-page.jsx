@@ -66,13 +66,6 @@ export default function ReturnFormPage() {
   async function handleCreateProcess(e) {
     e.preventDefault();
 
-    // Έλεγχος αν υπάρχει χρήστης συνδεδεμένος
-    if (!user || !user.id) {
-      alert('Σφάλμα: Δεν βρέθηκε συνδεδεμένος χρήστης. Παρακαλώ κάντε login ξανά.');
-      navigate('/login'); // Ή όπου είναι η σελίδα login
-      return;
-    }
-
     // Κλείδωμα κουμπιού
     setIsSubmitting(true);
 
@@ -100,9 +93,7 @@ export default function ReturnFormPage() {
     };
 
     try {
-      console.log('Step 1: Creating Process...');
       const createdProcess = await createProcess(sendData);
-      console.log('Process created:', createdProcess);
 
       const newDeviceId = createdProcess.device;
 
