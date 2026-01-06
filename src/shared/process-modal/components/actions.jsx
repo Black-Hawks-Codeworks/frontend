@@ -52,7 +52,7 @@ function ActionConfirmReplacement() {
 function getTechnicianActionLabel(status) {
   switch (status) {
     case 'confirmed':
-      return 'Mark the device as processed.';
+      return 'Mark the device as in process.';
     case 'processing':
       return 'Mark the process as completed.';
     default:
@@ -67,7 +67,6 @@ function ActionChangeProcessStatus(props) {
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Actions</p>
       <div className={`${styles.actionrow} body-lg`}>
-
         <p>{getTechnicianActionLabel(status)}</p>
       </div>
       <div className={styles.buttons}>

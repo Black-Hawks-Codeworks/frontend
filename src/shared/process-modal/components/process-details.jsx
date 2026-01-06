@@ -5,6 +5,16 @@ export default function ProcessDetails({ process }) {
   console.log('imageUrl', imageUrl);
   console.log('process', process.device.image);
 
+  function getWarrantyStatus(process) {
+    const device = process.device;
+    if (!device || !device.warrantyExpires) return 'Unknown';
+
+    const expires = new Date(device.warrantyExpires);
+    const now = new Date();
+
+    return expires >= now ? 'In warranty' : 'Out of warranty';
+  }
+
   return (
     <div className={`${styles.processDetails} card-elevation-5`}>
       <p className={`${styles.header} header-md`}>Details</p>
@@ -43,6 +53,12 @@ export default function ProcessDetails({ process }) {
           <span className={styles.title}>Issue</span>
           <span className={styles.value}>{process?.issue}</span>
         </div>
+        {process.type === 'return' && (
+          <div className={styles.row}>
+            <span className={styles.label}>Warranty</span>
+            <span className={styles.value}>{getWarrantyStatus(process)}</span>
+          </div>
+        )}
       </div>
     </div>
   );
