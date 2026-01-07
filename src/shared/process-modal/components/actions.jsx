@@ -4,7 +4,7 @@ import styles from './actions.module.css';
 import Loading from '../../loading-screen/loading';
 
 function ActionPaymentRequired(props) {
-  const { expectedCost, handlePaymentAccept, isActionLoading } = props;
+  const { expectedCost, handleUpadateProcess, isActionLoading } = props;
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Actions</p>
@@ -22,7 +22,9 @@ function ActionPaymentRequired(props) {
           </span>
         ) : (
           <>
-            <button onClick={handlePaymentAccept} className='btn-contained'>
+            <button
+              onClick={() => handleUpadateProcess({ clientAction: 'hasAcceptedPayment', expectedCost })}
+              className='btn-contained'>
               Accept
             </button>
             <button className='btn-outlined'>Decline</button>
@@ -49,19 +51,19 @@ function ActionConfirmReplacement() {
   );
 }
 
-function getTechnicianActionLabel(status) {
-  switch (status) {
-    case 'confirmed':
-      return 'Mark the device as in process.';
-    case 'processing':
-      return 'Mark the process as completed.';
-    default:
-      return 'Move the process to the next step.';
-  }
-}
-
 function ActionChangeProcessStatus(props) {
-  const { handleAccept, status, isActionLoading, userRole, processType } = props;
+  const { handleUpadateProcess, status, isActionLoading, userRole, processType } = props;
+
+  function getTechnicianActionLabel(s) {
+    switch (s) {
+      case 'confirmed':
+        return 'Mark the device as in process.';
+      case 'processing':
+        return 'Mark the process as completed.';
+      default:
+        return 'Move the process to the next step.';
+    }
+  }
 
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
@@ -76,11 +78,17 @@ function ActionChangeProcessStatus(props) {
           </span>
         ) : (
           <>
-            <button onClick={handleAccept} className='btn-contained'>
+            <button
+              onClick={() => handleUpadateProcess({ clientAction: 'hasChangedProcessStatus' })}
+              className='btn-contained'>
               Move to Next Step
             </button>
             {userRole === 'technician' && processType === 'repair' && (
-              <button className='btn-contained'>Request Payment</button>
+              <button
+                onClick={() => handleUpadateProcess({ clientAction: 'request payment' })}
+                className='btn-contained'>
+                Request Payment
+              </button>
             )}
           </>
         )}

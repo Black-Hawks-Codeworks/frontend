@@ -45,44 +45,6 @@ export default function ProcessModal() {
     const data = await response.json();
     console.log('data', data);
     setProcess(data);
-    setIsLoading(false);
-  }
-
-  async function handleCostSubmit(cost) {
-    setIsActionLoading(true);
-    try {
-      const response = await fetch(`/api/process/${processId}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          newRequiredAction: 'addCost',
-          expectedCost: parseFloat(cost),
-        }),
-      });
-
-      if (!response.ok) throw new Error('Failed to add cost');
-      await refetch();
-    } catch (error) {
-      console.error('Error adding cost:', error);
-      alert('Error During adding Cost.');
-    } finally {
-      setIsActionLoading(false);
-    }
-  }
-
-  async function handlePaymentAccept() {
-    try {
-      const response = await fetch(`/api/process/${processId}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ newRequiredAction: 'paymentAccept' }),
-      });
-
-      if (!response.ok) throw new Error('Failed');
-      await refetch();
-    } catch (error) {
-      console.error('Error:', error);
-    }
   }
 
   const role = user?.role;
@@ -90,16 +52,25 @@ export default function ProcessModal() {
 
   const ActionComponent = Actions[requiredActionKey] || Actions.noActionRequired;
 
-  async function handleAccept() {
-    const previousStatus = process.status;
+  async function handleUpadateProcess(processData) {
+    const { clientAction, technicianAction, employeeAction, expectedCost } = processData;
     setIsActionLoading(true);
+    const previousStatus = process.status;
+    const newRequiredAction = {
+      clientAction,
+      technicianAction,
+      employeeAction,
+      expectedCost: expectedCost ? parseFloat(expectedCost) : null,
+    };
     try {
       const response = await fetch(`/api/process/${processId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ newRequiredAction: 'changeProcessStatus' }),
+        body: JSON.stringify({
+          newRequiredAction,
+        }),
       });
 
       if (!response.ok) {
@@ -140,11 +111,9 @@ export default function ProcessModal() {
             {/* ean iparhei to ActionComponent tote kanei render to component */}
             {ActionComponent && (
               <ActionComponent
-                handleAccept={handleAccept}
-                handlePaymentAccept={handlePaymentAccept}
-                handleCostSubmit={handleCostSubmit}
+                handleUpadateProcess={handleUpadateProcess}
                 expectedCost={process.expectedCost}
-                status={status} // για να ξέρει ποιο είναι το τρέχον status
+                status // για να ξέρει ποιο είναι το τρέχον status
                 userRole={user?.role}
                 processType={process?.type}
                 isActionLoading={isActionLoading} // loadining spinner
