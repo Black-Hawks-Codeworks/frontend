@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './process-cards.module.css';
+import warrantyStyle from '@/shared/warranty.module.css';
 import formatDate from '../../../shared/utils/date';
+import { getWarrantyStatus } from '../../../shared/utils/warrantystatus';
 
 function ProcessCards({ data }) {
   const navigate = useNavigate();
+
   return (
     <div className={styles.grid}>
       {data.map((row) => (
@@ -26,6 +29,21 @@ function ProcessCards({ data }) {
             <div>
               <div className={styles.label}>Device</div>
               <div className={styles.value}>{row.device.name}</div>
+            </div>
+
+            <div>
+              <div className={styles.label}>Warranty</div>
+              <div
+                className={`${styles.value}
+                           ${
+                             getWarrantyStatus(row.device.warranty) === 'In warranty'
+                               ? warrantyStyle.inWarranty
+                               : getWarrantyStatus(row.device.warranty) === 'Out of warranty'
+                                 ? warrantyStyle.outOfWarranty
+                                 : warrantyStyle.noWarranty
+                           }`}>
+                {getWarrantyStatus(row.device.warranty)}
+              </div>
             </div>
 
             <div>
