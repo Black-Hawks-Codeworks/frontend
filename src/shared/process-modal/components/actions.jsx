@@ -4,7 +4,8 @@ import styles from './actions.module.css';
 import Loading from '../../loading-screen/loading';
 
 function ActionPaymentRequired(props) {
-  const { expectedCost, handleUpadateProcess, isActionLoading } = props;
+  const { process, handleUpadateProcess, isActionLoading } = props;
+  const expectedCost = process?.expectedCost;
   return (
     <>
       {isActionLoading ? (
@@ -118,7 +119,7 @@ function ActionChangeProcessStatus(props) {
             {userRole === 'technician' &&
               processType === 'repair' &&
               status === 'started' &&
-              process?.expectedCost < 0 && (
+              !process?.expectedCost && (
                 <button
                   onClick={() =>
                     setProcess({

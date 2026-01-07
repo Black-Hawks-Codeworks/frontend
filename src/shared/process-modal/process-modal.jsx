@@ -71,6 +71,7 @@ export default function ProcessModal() {
         throw new Error('Failed to update status');
       }
       await refetch();
+      setIsActionLoading(false);
     } catch (error) {
       console.error('Error updating status:', error);
       setProcess({ ...process, status: previousStatus });
