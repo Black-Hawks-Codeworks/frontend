@@ -1,4 +1,4 @@
-import { useParams, useNavigate, useOutletContext } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styles from './process-modal.module.css';
 import Icon from '../icon';
@@ -9,6 +9,7 @@ import ProcessDetails from './components/process-details';
 import StatusIndicator from './components/status-indicator';
 import Loading from '../loading-screen/loading';
 import { useSelector } from 'react-redux';
+
 export default function ProcessModal() {
   const navigate = useNavigate();
   const { processId } = useParams();
@@ -16,7 +17,6 @@ export default function ProcessModal() {
   const [isLoading, setIsLoading] = useState(true);
   const [isActionLoading, setIsActionLoading] = useState(false);
   const user = useSelector((state) => state.auth.user);
-  const { refetchProcesses } = useOutletContext() || {};
 
   useEffect(() => {
     async function getProcess() {
@@ -90,14 +90,7 @@ export default function ProcessModal() {
     <dialog open={Boolean(processId)} className={styles.processModal}>
       <div className={styles.modalContent}>
         {/* kane navigate piso gia na kleisei to modal */}
-        <button
-          className={styles.closeBtn}
-          onClick={() => {
-            if (refetchProcesses) {
-              refetchProcesses();
-            }
-            navigate('../');
-          }}>
+        <button className={styles.closeBtn} onClick={() => navigate('../')}>
           <Icon name='Close' size='lg' />
         </button>
 
@@ -106,17 +99,16 @@ export default function ProcessModal() {
         ) : (
           <div className={styles.gridContainer}>
             {/* otan teliopoiithei to parakato tha metaferoume sto diko tou file */}
-            <StatusIndicator selectedStatus={status} />
+            <StatusIndicator selectedStatus={process?.status} />
             <ProcessDetails process={process} />
             {/* ean iparhei to ActionComponent tote kanei render to component */}
             {ActionComponent && (
               <ActionComponent
                 handleUpadateProcess={handleUpadateProcess}
-                expectedCost={process.expectedCost}
-                status // για να ξέρει ποιο είναι το τρέχον status
                 userRole={user?.role}
-                processType={process?.type}
-                isActionLoading={isActionLoading} // loadining spinner
+                setProcess={setProcess}
+                process={process}
+                isActionLoading={isActionLoading}
               />
             )}
             <NotificationsTable notifications={process.notifications} />
