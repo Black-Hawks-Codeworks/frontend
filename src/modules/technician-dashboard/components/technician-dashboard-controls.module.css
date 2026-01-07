@@ -8,56 +8,63 @@
   margin-bottom: 10px;
 }
 
-.secondContainer {
-  display: grid;
-  align-items: center;
-  width: auto;
-  gap: 15px;
+.searchWrapper {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 400px;
 }
-
-.containerbottom {
-  display: grid;
-  grid-template-columns:
-    minmax(100px, 1fr)
-    minmax(100px, 1fr)
-    minmax(100px, 1fr);
-  column-gap: 30px;
-  padding: 12px 10px 1px 10px;
-  background-color: var(--neutral-white);
-  min-height: 5vh;
-  margin-bottom: 0px;
-  align-items: normal;
-}
-
-.text2Container {
-  display: grid;
-  flex-direction: column;
-  border-radius: 6px;
-  box-shadow: var(--shadow-16);
-  padding: 10px;
-  align-items: center;
-  background-color: var(--neutral-silver);
-}
-
-.containerbottom > div {
-  border-radius: 10px;
-  box-shadow: var(--shadow-16);
-  padding: 10px;
+.inputContainer {
+  position: relative;
   display: flex;
-  flex-direction: column;
-}
-.containerbottom h2 {
-  /* remove top margin so titles align */
-  color: var(--color-primary-shade-3);
-  margin-top: 10px;
-  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
-.containerbottom p {
-  margin-top: 0px;
-  line-height: 0.1;
-  text-align: center;
-  margin-bottom: 10px;
+.inputContainer:focus-within {
+  border-color: var(--color-primary-shade-2);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* 40px αριστερά για τον φακό */
+  font-size: 14px;
+  color: #1e293b;
+  height: 100%;
+  /* Αφαιρούμε τα περιγράμματα από το ίδιο το input */
+  border: none;
+  background: transparent;
+  outline: none;
+}
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  display: flex;
+}
+
+.clearBtn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0; /* Αφαιρούμε το εσωτερικό padding */
+  margin: 0;
+  width: auto; /* Το κουμπί θα πάρει το πλάτος του Icon */
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5; /* Για να είναι πάντα πάνω από το input */
 }
 
 .header-xl {
