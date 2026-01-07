@@ -6,22 +6,22 @@ import Loading from '../../loading-screen/loading';
 function ActionPaymentRequired(props) {
   const { expectedCost, handleUpadateProcess, isActionLoading } = props;
   return (
-    <div className={`${styles.actionsComp} card-elevation-3`}>
-      <p className={`${styles.header} header-md`}>Actions</p>
-      <div className={`${styles.actionrow} body-lg`}>
-        <Icon name='Danger1' size='md' className={styles.icon} />
-        <p>
-          {`To finish your repair, there is an additional cost of ${expectedCost ? expectedCost : 0}€.
+    <>
+      {isActionLoading ? (
+        <span>
+          <Loading />
+        </span>
+      ) : (
+        <div className={`${styles.actionsComp} card-elevation-3`}>
+          <p className={`${styles.header} header-md`}>Actions</p>
+          <div className={`${styles.actionrow} body-lg`}>
+            <Icon name='Danger1' size='md' className={styles.icon} />
+            <p>
+              {`To finish your repair, there is an additional cost of ${expectedCost ? expectedCost : 0}€.
           Would you like to proceed?`}
-        </p>
-      </div>
-      <div className={styles.buttons}>
-        {isActionLoading ? (
-          <span>
-            <Loading />
-          </span>
-        ) : (
-          <>
+            </p>
+          </div>
+          <div className={styles.buttons}>
             <button
               onClick={() => handleUpadateProcess({ newRequiredAction: 'hasAcceptedPayment', expectedCost })}
               className='btn-contained'>
@@ -32,26 +32,43 @@ function ActionPaymentRequired(props) {
               onClick={() => handleUpadateProcess({ newRequiredAction: 'hasDeclinedPayment' })}>
               Decline
             </button>
-          </>
-        )}
-      </div>
-    </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
-function ActionConfirmReplacement() {
+function ActionConfirmReplacement(props) {
+  const { handleUpadateProcess, isActionLoading } = props;
   return (
-    <div className={`${styles.actionsComp} card-elevation-3`}>
-      <p className={`${styles.header} header-md`}>Actions</p>
-      <div className={`${styles.actionrow} body-lg`}>
-        <Icon name='Swap2' size='md' />
-        <p>Your device is gonnna replaced with a new one. Would you like to proceed?</p>
-      </div>
-      <div className={styles.buttons}>
-        <button className='btn-contained'>Accept</button>
-        <button className='btn-outlined'>Decline</button>
-      </div>
-    </div>
+    <>
+      {isActionLoading ? (
+        <span>
+          <Loading />
+        </span>
+      ) : (
+        <div className={`${styles.actionsComp} card-elevation-3`}>
+          <p className={`${styles.header} header-md`}>Actions</p>
+          <div className={`${styles.actionrow} body-lg`}>
+            <Icon name='Swap2' size='md' />
+            <p>Your device is gonnna replaced with a new one. Would you like to proceed?</p>
+          </div>
+          <div className={styles.buttons}>
+            <button
+              className='btn-contained'
+              onClick={() => handleUpadateProcess({ newRequiredAction: 'hasAcceptedReplacement' })}>
+              Accept
+            </button>
+            <button
+              className='btn-outlined'
+              onClick={() => handleUpadateProcess({ newRequiredAction: 'hasDeclinedReplacement' })}>
+              Decline
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -72,18 +89,18 @@ function ActionChangeProcessStatus(props) {
   }
 
   return (
-    <div className={`${styles.actionsComp} card-elevation-3`}>
-      <p className={`${styles.header} header-md`}>Actions</p>
-      <div className={`${styles.actionrow} body-lg`}>
-        <p>{getTechnicianActionLabel(status)}</p>
-      </div>
-      <div className={styles.buttons}>
-        {isActionLoading ? (
-          <span>
-            <Loading />
-          </span>
-        ) : (
-          <>
+    <>
+      {isActionLoading ? (
+        <span>
+          <Loading />
+        </span>
+      ) : (
+        <div className={`${styles.actionsComp} card-elevation-3`}>
+          <p className={`${styles.header} header-md`}>Actions</p>
+          <div className={`${styles.actionrow} body-lg`}>
+            <p>{getTechnicianActionLabel(status)}</p>
+          </div>
+          <div className={styles.buttons}>
             <button
               onClick={() => handleUpadateProcess({ newRequiredAction: 'hasChangedProcessStatus' })}
               className='btn-contained'>
@@ -107,10 +124,10 @@ function ActionChangeProcessStatus(props) {
                   Request Payment
                 </button>
               )}
-          </>
-        )}
-      </div>
-    </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 function ActionNoActionRequired() {
@@ -131,31 +148,31 @@ function ActionAddCost(props) {
   const [cost, setCost] = useState();
   const isButtonDisabled = !cost || parseFloat(cost) <= 0;
   return (
-    <div className={`${styles.actionsComp} card-elevation-3`}>
-      <p className={`${styles.header} header-md`}>Actions</p>
-      <div className={`${styles.actionrow} body-lg`}>
-        <Icon name='Danger1' size='md' className={styles.icon} />
-        <div>
-          <p>Add the Repair Cost:</p>
-          <input
-            type='number'
-            min='0'
-            step='0.50'
-            value={cost}
-            onChange={(e) => setCost(e.target.value)}
-            placeholder='e.g. 50.00'
-            style={{ padding: '8px', marginTop: '8px', width: '100%' }}
-            disabled={isActionLoading}
-          />
-        </div>
-      </div>
-      <div className={styles.buttons}>
-        {isActionLoading ? (
-          <span>
-            <Loading />
-          </span>
-        ) : (
-          <>
+    <>
+      {isActionLoading ? (
+        <span>
+          <Loading />
+        </span>
+      ) : (
+        <div className={`${styles.actionsComp} card-elevation-3`}>
+          <p className={`${styles.header} header-md`}>Actions</p>
+          <div className={`${styles.actionrow} body-lg`}>
+            <Icon name='Danger1' size='md' className={styles.icon} />
+            <div>
+              <p>Add the Repair Cost:</p>
+              <input
+                type='number'
+                min='0'
+                step='0.50'
+                value={cost}
+                onChange={(e) => setCost(e.target.value)}
+                placeholder='e.g. 50.00'
+                style={{ padding: '8px', marginTop: '8px', width: '100%' }}
+                disabled={isActionLoading}
+              />
+            </div>
+          </div>
+          <div className={styles.buttons}>
             <button
               disabled={isButtonDisabled}
               onClick={() =>
@@ -177,12 +194,13 @@ function ActionAddCost(props) {
               className='btn-outlined'>
               Cancel
             </button>
-          </>
-        )}
-      </div>
-    </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
+
 const Actions = {
   paymentRequired: ActionPaymentRequired,
   confirmReplacement: ActionConfirmReplacement,
