@@ -13,12 +13,12 @@ function ProcessTable(props) {
           <span>Warranty</span>
           <span>Device</span>
           <span>Issue</span>
-          <span>Created At</span>
+          <span>Updated At</span>
           <span>Status</span>
           <span> Actions</span>
         </div>
         {data.map((process) => (
-          <ProcessTableRow key={process.id} process={process} />
+          <ProcessTableRow key={process.processId} process={process} />
         ))}
       </div>
     </div>
