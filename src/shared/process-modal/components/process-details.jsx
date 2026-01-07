@@ -31,7 +31,9 @@ export default function ProcessDetails({ process }) {
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Assigned to</span>
-          <span className={styles.value}>{process?.technician?.id}</span>
+          <span className={styles.value}>
+            {process?.type === 'repair' ? process?.technician?.name : process?.employee?.name}
+          </span>
         </div>
         <div className={styles.row}>
           <span className={styles.title}>Created at</span>
