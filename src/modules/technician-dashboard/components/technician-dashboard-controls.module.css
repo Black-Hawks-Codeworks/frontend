@@ -23,7 +23,7 @@
     minmax(100px, 1fr);
   column-gap: 30px;
   padding: 12px 10px 1px 10px;
-  background-color: var(--neutral-white);
+  background-color: transparent;
   min-height: 5vh;
   margin-bottom: 0px;
   align-items: normal;
