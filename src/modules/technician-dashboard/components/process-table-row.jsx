@@ -4,23 +4,20 @@ import warrantyStyle from '@/shared/warranty.module.css';
 import formatDate from '../../../shared/utils/date';
 import TableRowActions from '@/shared/table-row-actions';
 import { getWarrantyStatus } from '@/shared/utils/warrantystatus';
-// function convertBoolean(v) {
-//   return v === 'True' || v === true;
-// }
 
 export default function ProcessTableRow(props) {
   const { process } = props;
   const w = getWarrantyStatus(process.device.warranty);
   // gia na mhn crasharei h selida an !device
-  const deviceId = process.device?.id || 'N/A';
-  const deviceName = process.device?.name || 'Unknown Device';
+  // const deviceId = process.device?.id || 'N/A';
 
+  const deviceName = process.device?.name || 'Unknown Device';
   const statusClass = process.status?.trim().toLowerCase().replace(/\s+/g, '') || '';
 
   return (
     <div className={styles.container}>
       <span className={styles.cell}>{process.processId}</span>
-      <span className={styles.cell}>{deviceId}</span>
+      <span className={styles.cell}>{process.client?.name}</span>
       <span className={styles.cell}>{deviceName}</span>
       <span
         className={`${styles.cell}

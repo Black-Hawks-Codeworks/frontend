@@ -10,7 +10,7 @@ export default function ProcessTable(props) {
       <div className={styles.processTable}>
         <div className={styles.processTableHeader}>
           <span>Process ID</span>
-          <span>Device ID</span>
+          <span>Client</span>
           <span>Device Name</span>
           <span>Warranty</span>
           <span>Issue</span>

@@ -16,7 +16,6 @@ function TechnicianDashboardPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const { processes, loading, error, refetch } = useProcesses('technician', userId);
 
-  // const repairData = (processes || []).filter((x) => x.type === 'repair');
   const filteredData = (processes || []).filter((x) => {
     const isRepair = x.type === 'repair';
 
@@ -27,15 +26,14 @@ function TechnicianDashboardPage() {
     const matchesSearch =
       x.processId?.toString().includes(search) ||
       (x.device?.name || '').toLowerCase().includes(search) ||
-      (x.client?.username || '').toLowerCase().includes(search);
+      (x.client?.name || '').toLowerCase().includes(search) ||
+      (x.status || '').toLowerCase().includes(search);
 
     return isRepair && matchesSearch;
   });
 
-  // Sorting gia to hook sto merge
-  // const sortedProcesses = useSortedProcesses(filteredData);
-  const repairData = (processes || []).filter((x) => x.type === 'repair');
-  const sortedProcesses = useSortedProcesses(repairData);
+  // Sorting
+  const sortedProcesses = useSortedProcesses(filteredData);
 
   return (
     <div>
@@ -53,9 +51,7 @@ function TechnicianDashboardPage() {
           <button onClick={refetch}>Retry</button>
         </div>
       )}
-      {/* sto merge exoume ta sortedProcesses */}
-      {/* {!loading && !error && <ProcessTable data={repairData} />} */}
-      {!loading && !error && <ProcessTable data={filteredData} />}
+
       {!loading && !error && <ProcessTable data={sortedProcesses} />}
 
       <Outlet context={{ refetchProcesses: refetch }} />

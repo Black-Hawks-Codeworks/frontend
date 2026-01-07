@@ -33,11 +33,10 @@
 
 .searchInput {
   width: 100%;
-  padding: 10px 10px 10px 40px; /* 40px αριστερά για τον φακό */
+  padding: 10px 10px 10px 40px; /* 40px gia tn fako */
   font-size: 14px;
   color: #1e293b;
   height: 100%;
-  /* Αφαιρούμε τα περιγράμματα από το ίδιο το input */
   border: none;
   background: transparent;
   outline: none;
@@ -57,14 +56,14 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0; /* Αφαιρούμε το εσωτερικό padding */
+  padding: 0;
   margin: 0;
-  width: auto; /* Το κουμπί θα πάρει το πλάτος του Icon */
+  width: auto; /* button width iso me icon */
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5; /* Για να είναι πάντα πάνω από το input */
+  z-index: 5;
 }
 
 .header-xl {
