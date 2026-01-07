@@ -5,11 +5,8 @@ import { getWarrantyStatus } from '@/shared/utils/warrantystatus';
 
 export default function ProcessDetails({ process }) {
   const imageUrl = `/api${process?.device?.image.url}`;
-  console.log('imageUrl', imageUrl);
-  console.log('process', process.device.image);
 
   const warranty = process.device.warranty;
-  console.log('warranty', warranty);
 
   return (
     <div className={`${styles.processDetails} card-elevation-5`}>

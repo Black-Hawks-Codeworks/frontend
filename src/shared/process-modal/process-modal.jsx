@@ -15,7 +15,6 @@ export default function ProcessModal() {
   const [process, setProcess] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isActionLoading, setIsActionLoading] = useState(false);
-  console.log('processId', processId);
   const user = useSelector((state) => state.auth.user);
   const { refetchProcesses } = useOutletContext() || {};
 
@@ -29,10 +28,6 @@ export default function ProcessModal() {
         }
 
         const data = await response.json();
-        console.log('Backend response:', data);
-        console.log('Required action:', data.requiredAction);
-        console.log('User type:', user?.role); // ή user?.type
-
         setProcess(data);
       } catch (error) {
         console.error('Error fetching process:', error);
@@ -43,7 +38,7 @@ export default function ProcessModal() {
     }
 
     getProcess();
-  }, [processId, user]); // ✅ χωρίς eslint-disable
+  }, [processId, user]);
 
   async function refetch() {
     const response = await fetch(`/api/process/${processId}`);
@@ -90,44 +85,14 @@ export default function ProcessModal() {
     }
   }
 
-  // Αφαιρέθηκε το if (isLoading) από εδώ
-
-  console.log('process', process);
-
-  //hrisimopoio ena state kai vazo mesa olo to process kai meta allazo mono ena apo ta keys tou process
-  // const [actionRequired, setActionRequired] = useState(process.requiredAction);
-
-  console.log('=== DEBUG USER ===');
-  console.log('state.auth.user:', user);
-  console.log('role:', user?.role);
-  console.log('==================');
-
   const role = user?.role;
   const requiredActionKey = process?.requiredAction?.[role];
-  const isReturn = process?.type === 'return';
 
-  let actionKeyForUI = requiredActionKey;
-
-  //an einai return den thleoume cost / payment components
-  if (isReturn && (requiredActionKey === 'paymentRequired' || requiredActionKey === 'addCost')) {
-    actionKeyForUI = null;
-  }
-
-  console.log('role used for action:', role);
-  console.log('requiredAction object:', process?.requiredAction);
-  console.log('requiredActionKey:', requiredActionKey);
-  console.log('Resolved ActionComponent:', actionKeyForUI && Actions[actionKeyForUI]);
-
-  const ActionComponent = (actionKeyForUI && Actions[actionKeyForUI]) || Actions.noActionRequired;
-  // const [status, setStatus] = useState(process.status);
-  const status = process ? process.status : null; // Προσθήκη check
-
-  const [selectedStatus, setSelectedStatus] = useState(status || '');
+  const ActionComponent = Actions[requiredActionKey] || Actions.noActionRequired;
 
   async function handleAccept() {
     const previousStatus = process.status;
     setIsActionLoading(true);
-
     try {
       const response = await fetch(`/api/process/${processId}`, {
         method: 'PUT',
@@ -149,6 +114,7 @@ export default function ProcessModal() {
     }
   }
 
+  console.log('process', process);
   return (
     <dialog open={Boolean(processId)} className={styles.processModal}>
       <div className={styles.modalContent}>
@@ -161,7 +127,7 @@ export default function ProcessModal() {
             }
             navigate('../');
           }}>
-          <Icon name='Close1' size='lg' />
+          <Icon name='Close' size='lg' />
         </button>
 
         {isLoading ? (
@@ -170,10 +136,8 @@ export default function ProcessModal() {
           <div className={styles.gridContainer}>
             {/* otan teliopoiithei to parakato tha metaferoume sto diko tou file */}
             <StatusIndicator selectedStatus={status} />
-            {/* <div className={styles.processDetails}> */}
             <ProcessDetails process={process} />
             {/* ean iparhei to ActionComponent tote kanei render to component */}
-            {/* <div className={styles.actionsComp}> */}
             {ActionComponent && (
               <ActionComponent
                 handleAccept={handleAccept}
@@ -181,6 +145,8 @@ export default function ProcessModal() {
                 handleCostSubmit={handleCostSubmit}
                 expectedCost={process.expectedCost}
                 status={status} // για να ξέρει ποιο είναι το τρέχον status
+                userRole={user?.role}
+                processType={process?.type}
                 isActionLoading={isActionLoading} // loadining spinner
               />
             )}

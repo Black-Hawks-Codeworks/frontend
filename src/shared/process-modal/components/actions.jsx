@@ -61,7 +61,7 @@ function getTechnicianActionLabel(status) {
 }
 
 function ActionChangeProcessStatus(props) {
-  const { handleAccept, status, isActionLoading } = props;
+  const { handleAccept, status, isActionLoading, userRole, processType } = props;
 
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
@@ -77,9 +77,11 @@ function ActionChangeProcessStatus(props) {
         ) : (
           <>
             <button onClick={handleAccept} className='btn-contained'>
-              Next
+              Move to Next Step
             </button>
-            <button className='btn-outlined'>Cancel</button>
+            {userRole === 'technician' && processType === 'repair' && (
+              <button className='btn-contained'>Request Payment</button>
+            )}
           </>
         )}
       </div>
