@@ -88,6 +88,20 @@ function ActionChangeProcessStatus(props) {
     }
   }
 
+  let inWarranty = false;
+  if (userRole === 'employee' && processType === 'return' && status === 'started') {
+    function calculateInWarranty(warranty) {
+      if (!warranty || !warranty.expiresAt || !warranty.type === 'none') {
+        return false;
+      }
+      const now = new Date();
+      const expiresAt = new Date(warranty.expiresAt);
+      return expiresAt > now;
+    }
+    const warranty = process?.warranty;
+    inWarranty = calculateInWarranty(warranty);
+  }
+
   return (
     <>
       {isActionLoading ? (
@@ -99,6 +113,7 @@ function ActionChangeProcessStatus(props) {
           <p className={`${styles.header} header-md`}>Actions</p>
           <div className={`${styles.actionrow} body-lg`}>
             <p>{getTechnicianActionLabel(status)}</p>
+            {inWarranty && <p>This device is in warranty. You can mark the device as in process.</p>}
           </div>
           <div className={styles.buttons}>
             <button
