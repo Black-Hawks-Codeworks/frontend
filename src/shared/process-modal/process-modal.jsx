@@ -122,8 +122,6 @@ export default function ProcessModal() {
   // const [status, setStatus] = useState(process.status);
   const status = process ? process.status : null; // Προσθήκη check
 
-  const [selectedStatus, setSelectedStatus] = useState(status || '');
-
   async function handleAccept() {
     const previousStatus = process.status;
     setIsActionLoading(true);
