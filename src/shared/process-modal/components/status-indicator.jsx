@@ -3,7 +3,7 @@ import Icon from '@/shared/icon';
 import styles from './status-indicator.module.css';
 
 export default function StatusIndicator(props) {
-  const { selectedStatus } = props;
+  const { selectedStatus, processType } = props;
   const statuses = [
     { status: 'started', icon: 'Download2', isSelected: false },
     { status: 'confirmed', icon: 'Check1', isSelected: false },
@@ -39,7 +39,9 @@ export default function StatusIndicator(props) {
             <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />
           </div>
 
-          <p className={styles.label}>{status.status}</p>
+          <p className={styles.label}>
+            {processType === 'repair' && status.status === 'processing' ? 'repairing' : status.status}
+          </p>
         </div>
       ))}
     </div>

@@ -1,12 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './process-cards.module.css';
+import warrantyStyle from '@/shared/warranty.module.css';
+import formatDate from '../../../shared/utils/date';
+import { getWarrantyStatus } from '../../../shared/utils/warrantystatus';
 
 function ProcessCards({ data }) {
   const navigate = useNavigate();
+
   return (
     <div className={styles.grid}>
-      {data.map((row,index) => (
-        <div className={styles.card} key={`${row.processId}-${index}`}>
+      {data.map((row) => (
+        <div className={styles.card} key={row.processId}>
           <div className={styles.topRow}>
             <div>
               <div className={styles.label}>Process ID</div>
@@ -28,6 +32,21 @@ function ProcessCards({ data }) {
             </div>
 
             <div>
+              <div className={styles.label}>Warranty</div>
+              <div
+                className={`${styles.value}
+                           ${
+                             getWarrantyStatus(row.device.warranty) === 'In warranty'
+                               ? warrantyStyle.inWarranty
+                               : getWarrantyStatus(row.device.warranty) === 'Out of warranty'
+                                 ? warrantyStyle.outOfWarranty
+                                 : warrantyStyle.noWarranty
+                           }`}>
+                {getWarrantyStatus(row.device.warranty)}
+              </div>
+            </div>
+
+            <div>
               <div className={styles.label}>Description</div>
               <div className={styles.value}>{row.issue}</div>
             </div>
@@ -35,11 +54,11 @@ function ProcessCards({ data }) {
             <div className={styles.dates}>
               <div>
                 <div className={styles.label}>Created At</div>
-                <div className={styles.value}>{row.createdAt}</div>
+                <div className={styles.value}>{formatDate(row.createdAt)}</div>
               </div>
               <div>
                 <div className={styles.label}>Updated At</div>
-                <div className={styles.value}>{row.updatedAt}</div>
+                <div className={styles.value}>{formatDate(row.updatedAt)}</div>
               </div>
             </div>
           </div>

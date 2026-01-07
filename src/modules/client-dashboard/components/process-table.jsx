@@ -10,6 +10,7 @@ function ProcessTable(props) {
         <div className={styles.processTableHeader}>
           <span>Process ID</span>
           <span>Request Type</span>
+          <span>Warranty</span>
           <span>Device</span>
           <span>Issue</span>
           <span>Created At</span>

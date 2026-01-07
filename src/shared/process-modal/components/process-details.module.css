@@ -47,3 +47,18 @@
   margin-left: auto;
   text-align: right;
 }
+/* .inWarranty {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.outOfWarranty {
+  color: #dc3545;
+  font-weight: 600;
+} */
+.basic {
+  color: #272eb0;
+}
+.premium {
+  color: rgb(220, 220, 55);
+}

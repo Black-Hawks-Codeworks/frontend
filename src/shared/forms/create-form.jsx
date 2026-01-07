@@ -55,7 +55,6 @@ export default function CreateForm({ title, showProblemDescription = false, onSu
       return;
     }
 
-    // ✅ Κράτα το signature όπως το έχεις στο ReturnFormPage
     onSubmit?.(e);
   };
 
@@ -93,7 +92,7 @@ export default function CreateForm({ title, showProblemDescription = false, onSu
             required={true}
             error={errors.purchaseDate}
             max={maxDate}
-            min={minDate} // Περιορίζει το UI του ημερολογίου
+            min={minDate}
           />
           {showProblemDescription && (
             <FormField
