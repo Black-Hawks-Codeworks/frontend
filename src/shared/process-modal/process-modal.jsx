@@ -53,24 +53,18 @@ export default function ProcessModal() {
   const ActionComponent = Actions[requiredActionKey] || Actions.noActionRequired;
 
   async function handleUpadateProcess(processData) {
-    const { clientAction, technicianAction, employeeAction, expectedCost } = processData;
+    const { newRequiredAction, expectedCost } = processData;
     setIsActionLoading(true);
     const previousStatus = process.status;
-    const newRequiredAction = {
-      clientAction,
-      technicianAction,
-      employeeAction,
-      expectedCost: expectedCost ? parseFloat(expectedCost) : null,
+    const requiredAction = {
+      newRequiredAction,
+      expectedCost,
     };
     try {
       const response = await fetch(`/api/process/${processId}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          newRequiredAction,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requiredAction),
       });
 
       if (!response.ok) {
@@ -99,7 +93,7 @@ export default function ProcessModal() {
         ) : (
           <div className={styles.gridContainer}>
             {/* otan teliopoiithei to parakato tha metaferoume sto diko tou file */}
-            <StatusIndicator selectedStatus={process?.status} />
+            <StatusIndicator selectedStatus={process?.status} processType={process?.type} />
             <ProcessDetails process={process} />
             {/* ean iparhei to ActionComponent tote kanei render to component */}
             {ActionComponent && (

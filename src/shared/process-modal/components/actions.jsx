@@ -85,25 +85,28 @@ function ActionChangeProcessStatus(props) {
         ) : (
           <>
             <button
-              onClick={() => handleUpadateProcess({ clientAction: 'hasChangedProcessStatus' })}
+              onClick={() => handleUpadateProcess({ newRequiredAction: 'hasChangedProcessStatus' })}
               className='btn-contained'>
               Move to Next Step
             </button>
-            {userRole === 'technician' && processType === 'repair' && (
-              <button
-                onClick={() =>
-                  setProcess({
-                    ...process,
-                    requiredAction: {
-                      ...process.requiredAction,
-                      technician: 'addCost',
-                    },
-                  })
-                }
-                className='btn-contained'>
-                Request Payment
-              </button>
-            )}
+            {userRole === 'technician' &&
+              processType === 'repair' &&
+              status === 'started' &&
+              !process?.expectedCost && (
+                <button
+                  onClick={() =>
+                    setProcess({
+                      ...process,
+                      requiredAction: {
+                        ...process.requiredAction,
+                        technician: 'addCost',
+                      },
+                    })
+                  }
+                  className='btn-contained'>
+                  Request Payment
+                </button>
+              )}
           </>
         )}
       </div>
@@ -125,8 +128,8 @@ function ActionNoActionRequired() {
 
 function ActionAddCost(props) {
   const { handleUpadateProcess, isActionLoading, setProcess, process } = props;
-  const [cost, setCost] = useState(process?.expectedCost);
-
+  const [cost, setCost] = useState();
+  const isButtonDisabled = !cost || parseFloat(cost) <= 0;
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Actions</p>
@@ -137,7 +140,7 @@ function ActionAddCost(props) {
           <input
             type='number'
             min='0'
-            step='0.01'
+            step='0.50'
             value={cost}
             onChange={(e) => setCost(e.target.value)}
             placeholder='e.g. 50.00'
@@ -154,9 +157,10 @@ function ActionAddCost(props) {
         ) : (
           <>
             <button
+              disabled={isButtonDisabled}
               onClick={() =>
                 handleUpadateProcess({
-                  technicianAction: 'hasAddedCost',
+                  newRequiredAction: 'hasAddedCost',
                   expectedCost: cost,
                 })
               }
