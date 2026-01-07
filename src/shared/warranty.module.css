@@ -1,0 +1,13 @@
+.inWarranty {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.outOfWarranty {
+  color: #dc3545;
+  font-weight: 600;
+}
+.noWarranty {
+  color: black;
+  font-weight: 600;
+}
