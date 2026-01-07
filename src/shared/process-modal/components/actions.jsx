@@ -4,7 +4,7 @@ import styles from './actions.module.css';
 import Loading from '../../loading-screen/loading';
 
 function ActionPaymentRequired(props) {
-  const { expectedCost, handlePaymentAccept, isActionLoading } = props;
+  const { expectedCost, handleUpadateProcess, isActionLoading } = props;
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Actions</p>
@@ -22,10 +22,16 @@ function ActionPaymentRequired(props) {
           </span>
         ) : (
           <>
-            <button onClick={handlePaymentAccept} className='btn-contained'>
+            <button
+              onClick={() => handleUpadateProcess({ newRequiredAction: 'hasAcceptedPayment', expectedCost })}
+              className='btn-contained'>
               Accept
             </button>
-            <button className='btn-outlined'>Decline</button>
+            <button
+              className='btn-outlined'
+              onClick={() => handleUpadateProcess({ newRequiredAction: 'hasDeclinedPayment' })}>
+              Decline
+            </button>
           </>
         )}
       </div>
@@ -49,19 +55,21 @@ function ActionConfirmReplacement() {
   );
 }
 
-function getTechnicianActionLabel(status) {
-  switch (status) {
-    case 'confirmed':
-      return 'Mark the device as in process.';
-    case 'processing':
-      return 'Mark the process as completed.';
-    default:
-      return 'Move the process to the next step.';
-  }
-}
-
 function ActionChangeProcessStatus(props) {
-  const { handleAccept, status, isActionLoading } = props;
+  const { handleUpadateProcess, process, isActionLoading, userRole, setProcess } = props;
+  const processType = process?.type;
+  const status = process?.status;
+
+  function getTechnicianActionLabel(s) {
+    switch (s) {
+      case 'confirmed':
+        return 'Mark the device as in process.';
+      case 'processing':
+        return 'Mark the process as completed.';
+      default:
+        return 'Move the process to the next step.';
+    }
+  }
 
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
@@ -76,10 +84,29 @@ function ActionChangeProcessStatus(props) {
           </span>
         ) : (
           <>
-            <button onClick={handleAccept} className='btn-contained'>
-              Next
+            <button
+              onClick={() => handleUpadateProcess({ newRequiredAction: 'hasChangedProcessStatus' })}
+              className='btn-contained'>
+              Move to Next Step
             </button>
-            <button className='btn-outlined'>Cancel</button>
+            {userRole === 'technician' &&
+              processType === 'repair' &&
+              status === 'started' &&
+              !process?.expectedCost && (
+                <button
+                  onClick={() =>
+                    setProcess({
+                      ...process,
+                      requiredAction: {
+                        ...process.requiredAction,
+                        technician: 'addCost',
+                      },
+                    })
+                  }
+                  className='btn-contained'>
+                  Request Payment
+                </button>
+              )}
           </>
         )}
       </div>
@@ -100,17 +127,9 @@ function ActionNoActionRequired() {
 }
 
 function ActionAddCost(props) {
-  const { handleCostSubmit, isActionLoading } = props;
-  const [cost, setCost] = useState('');
-
-  const onSubmit = () => {
-    if (!cost || parseFloat(cost) <= 0) {
-      alert('Give a valid Cost.');
-      return;
-    }
-    handleCostSubmit(cost);
-  };
-
+  const { handleUpadateProcess, isActionLoading, setProcess, process } = props;
+  const [cost, setCost] = useState();
+  const isButtonDisabled = !cost || parseFloat(cost) <= 0;
   return (
     <div className={`${styles.actionsComp} card-elevation-3`}>
       <p className={`${styles.header} header-md`}>Actions</p>
@@ -121,7 +140,7 @@ function ActionAddCost(props) {
           <input
             type='number'
             min='0'
-            step='0.01'
+            step='0.50'
             value={cost}
             onChange={(e) => setCost(e.target.value)}
             placeholder='e.g. 50.00'
@@ -136,9 +155,29 @@ function ActionAddCost(props) {
             <Loading />
           </span>
         ) : (
-          <button onClick={onSubmit} className='btn-contained'>
-            Submit Cost
-          </button>
+          <>
+            <button
+              disabled={isButtonDisabled}
+              onClick={() =>
+                handleUpadateProcess({
+                  newRequiredAction: 'hasAddedCost',
+                  expectedCost: cost,
+                })
+              }
+              className='btn-contained'>
+              Submit Cost
+            </button>
+            <button
+              onClick={() =>
+                setProcess({
+                  ...process,
+                  requiredAction: { ...process.requiredAction, technician: 'changeProcessStatus' },
+                })
+              }
+              className='btn-outlined'>
+              Cancel
+            </button>
+          </>
         )}
       </div>
     </div>

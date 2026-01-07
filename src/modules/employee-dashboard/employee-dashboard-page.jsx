@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import EmployeeDashboardControls from './components/employee-dashboard-control';
 import ProcessTable from './components/process-table';
-
+import { useSortedProcesses } from '@/shared/hooks/use-sorted-processes';
 import { useAppSelector } from '@/config/store';
 import { useProcesses } from '../../shared/hooks/use-processes';
 import Loading from '../../shared/loading-screen/loading';
@@ -15,6 +15,7 @@ function EmployeeDashboardPage() {
   const userId = user?.id || user?.userId;
 
   const { processes, loading, error, refetch } = useProcesses('employee', userId);
+  const sortedProcesses = useSortedProcesses(processes || []);
 
   return (
     <div>
@@ -33,7 +34,7 @@ function EmployeeDashboardPage() {
         </div>
       )}
 
-      {view === 'table' ? <ProcessTable data={processes || []} /> : <div>No data</div>}
+      {view === 'table' ? <ProcessTable data={sortedProcesses || []} /> : <div>No data</div>}
 
       <Outlet context={{ refetchProcesses: refetch }} />
     </div>
