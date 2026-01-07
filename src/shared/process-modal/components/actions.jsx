@@ -4,7 +4,7 @@ import styles from './actions.module.css';
 import Loading from '../../loading-screen/loading';
 
 function ActionPaymentRequired(props) {
-  const { process, handleUpadateProcess, isActionLoading } = props;
+  const { handleUpadateProcess, isActionLoading, process } = props;
   const expectedCost = process?.expectedCost;
   return (
     <>
