@@ -118,7 +118,7 @@ function ActionChangeProcessStatus(props) {
             {userRole === 'technician' &&
               processType === 'repair' &&
               status === 'started' &&
-              !process?.expectedCost && (
+              process?.expectedCost < 0 && (
                 <button
                   onClick={() =>
                     setProcess({
