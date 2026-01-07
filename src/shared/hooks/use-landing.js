@@ -2,6 +2,7 @@ import { setUser } from '@/config/reducers/auth.reducer';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/config/store';
 import { useState } from 'react';
+
 export default function useLanding() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -10,7 +11,12 @@ export default function useLanding() {
   const [errorType, setErrorType] = useState(null);
 
   async function authUser(username, password, rememberMe) {
-    if (!username.trim() || !password.trim()) {
+    // 1. Trim whitespace from username and password for robust login
+    const trimmedUsername = username.trim();
+    const trimmedPassword = password.trim();
+
+    // 2. Use trimmed values for validation
+    if (!trimmedUsername || !trimmedPassword) {
       setError('Username and password are required');
       setErrorType('required');
       return;
@@ -22,15 +28,17 @@ export default function useLanding() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        // 3. Use trimmed values when sending to the API
+        body: JSON.stringify({ username: trimmedUsername, password: trimmedPassword }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         if (rememberMe) {
-          localStorage.setItem('rememberedUser', username);
-          localStorage.setItem('rememberedPass', password);
+          // 4. Store the TRIMMED values in localStorage for consistency
+          localStorage.setItem('rememberedUser', trimmedUsername);
+          localStorage.setItem('rememberedPass', trimmedPassword);
         } else {
           localStorage.removeItem('rememberedUser');
           localStorage.removeItem('rememberedPass');
