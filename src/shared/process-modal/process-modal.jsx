@@ -53,8 +53,8 @@ export default function ProcessModal() {
   const ActionComponent = Actions[requiredActionKey] || Actions.noActionRequired;
 
   async function handleUpadateProcess(processData) {
-    const { newRequiredAction, expectedCost } = processData;
     setIsActionLoading(true);
+    const { newRequiredAction, expectedCost } = processData;
     const previousStatus = process.status;
     const requiredAction = {
       newRequiredAction,
@@ -71,6 +71,7 @@ export default function ProcessModal() {
         throw new Error('Failed to update status');
       }
       await refetch();
+      setIsActionLoading(false);
     } catch (error) {
       console.error('Error updating status:', error);
       setProcess({ ...process, status: previousStatus });

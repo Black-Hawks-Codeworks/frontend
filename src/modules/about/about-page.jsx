@@ -61,13 +61,13 @@ export default function AboutPage() {
           </p>
           <div>
             <a href='https://github.com/Black-Hawks-Codeworks' target='_blank' rel='noopener noreferrer'>
-              <img className={styles.imagelinks} src='src/assets/Photos/github.jpeg' alt='Description of first' />
+              <img className={styles.imagelinks} src='src/assets/Photos/github.jpeg' alt='Link for Github' />
             </a>
             <a
               href='https://www.notion.so/CAPSTONE-PROJECT-BlackHawks-29957318d7e8804193bcda91e31ff7d4'
               target='_blank'
               rel='noopener noreferrer'>
-              <img className={styles.imagelinks} src='src/assets/Photos/notion.jpeg' alt='Description of first' />
+              <img className={styles.imagelinks} src='src/assets/Photos/notion.jpeg' alt='Link for Notion' />
             </a>
           </div>
         </div>

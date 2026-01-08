@@ -7,3 +7,11 @@
   width: 100%;
   padding: 24px 48px;
 }
+.loading{
+  .loadingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;     
+}
+}

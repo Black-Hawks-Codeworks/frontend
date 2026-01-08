@@ -4,13 +4,14 @@ import styles from './actions.module.css';
 import Loading from '../../loading-screen/loading';
 
 function ActionPaymentRequired(props) {
-  const { expectedCost, handleUpadateProcess, isActionLoading } = props;
+  const { handleUpadateProcess, isActionLoading, process } = props;
+  const expectedCost = process?.expectedCost;
   return (
     <>
       {isActionLoading ? (
-        <span>
+        <div className={styles.loading}>
           <Loading />
-        </span>
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>
@@ -44,9 +45,9 @@ function ActionConfirmReplacement(props) {
   return (
     <>
       {isActionLoading ? (
-        <span>
+        <div className={styles.loading}>
           <Loading />
-        </span>
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>
@@ -105,9 +106,9 @@ function ActionChangeProcessStatus(props) {
   return (
     <>
       {isActionLoading ? (
-        <span>
+        <div className={styles.loading}>
           <Loading />
-        </span>
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>
@@ -165,9 +166,9 @@ function ActionAddCost(props) {
   return (
     <>
       {isActionLoading ? (
-        <span>
+        <div className={styles.loading}>
           <Loading />
-        </span>
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>

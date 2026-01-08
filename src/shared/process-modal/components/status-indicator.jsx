@@ -1,5 +1,4 @@
 import Icon from '@/shared/icon';
-
 import styles from './status-indicator.module.css';
 
 export default function StatusIndicator(props) {
@@ -11,39 +10,32 @@ export default function StatusIndicator(props) {
     { status: 'completed', icon: 'Send', isSelected: false },
   ];
 
-  //perna olo to array ena ena
-  const mappedStatuses = statuses.map((s) => {
-    //an to status einai iso me to selectedStatus tote, spread to s kai to isSelected kanto true
-    if (s.status === selectedStatus) {
-      return {
-        ...s,
-        isSelected: true,
-      };
-    }
-    //an den einai iso me to selectedStatus tote, return to s opos einai (isSelected false)
-    return s;
-  });
+  const mappedStatuses = statuses.map((s) => (s.status === selectedStatus ? { ...s, isSelected: true } : s));
 
-  console.log('mappedStatuses', mappedStatuses);
-  console.log('selectedStatus', selectedStatus);
   return (
     <div className={`${styles.statusComp} card-elevation-5`}>
-      {mappedStatuses.map((status) => (
-        <div className={styles.item} key={status.status}>
-          <div
-            className={[
-              styles.iconCircle,
-              styles[`ring_${status.status}`],
-              status.isSelected ? styles.selected : '',
-            ].join(' ')}>
-            <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />
-          </div>
+      {mappedStatuses.map((status) => {
+        const isProcessingSelected = status.status === 'processing' && status.isSelected;
 
-          <p className={styles.label}>
-            {processType === 'repair' && status.status === 'processing' ? 'repairing' : status.status}
-          </p>
-        </div>
-      ))}
+        return (
+          <div className={styles.item} key={status.status}>
+            <div
+              className={[
+                styles.iconCircle,
+                styles[`ring_${status.status}`],
+                status.isSelected ? styles.selected : '',
+              ].join(' ')}>
+              <div className={isProcessingSelected ? styles.processingInner : ''}>
+                <Icon name={status.icon} size={status.isSelected ? 'xl' : 'lg'} />
+              </div>
+            </div>
+
+            <p className={styles.label}>
+              {processType === 'repair' && status.status === 'processing' ? 'repairing' : status.status}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }
