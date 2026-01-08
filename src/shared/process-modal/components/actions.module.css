@@ -9,6 +9,16 @@
   color: var(--neutral-grey-dark);
   margin-bottom: 10px;
 }
+
+.loading {
+  grid-area: actionsComp;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  min-height: 160px;
+}
+
 .actionrow {
   flex: 1;
   display: flex;

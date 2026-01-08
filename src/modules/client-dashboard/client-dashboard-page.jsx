@@ -27,7 +27,7 @@ function ClientDashboardPage() {
       <ClientDashboardControls viewMode={viewMode} setViewMode={setViewMode} />
 
       {loading && (
-        <div>
+        <div className={styles.loading}>
           <Loading />
         </div>
       )}

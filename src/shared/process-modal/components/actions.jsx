@@ -9,7 +9,9 @@ function ActionPaymentRequired(props) {
   return (
     <>
       {isActionLoading ? (
-        <Loading />
+        <div className={styles.loading}>
+          <Loading />
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>
@@ -43,7 +45,9 @@ function ActionConfirmReplacement(props) {
   return (
     <>
       {isActionLoading ? (
-        <Loading />
+        <div className={styles.loading}>
+          <Loading />
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>
@@ -102,7 +106,9 @@ function ActionChangeProcessStatus(props) {
   return (
     <>
       {isActionLoading ? (
-        <Loading />
+        <div className={styles.loading}>
+          <Loading />
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>
@@ -160,7 +166,9 @@ function ActionAddCost(props) {
   return (
     <>
       {isActionLoading ? (
-        <Loading />
+        <div className={styles.loading}>
+          <Loading />
+        </div>
       ) : (
         <div className={`${styles.actionsComp} card-elevation-3`}>
           <p className={`${styles.header} header-md`}>Actions</p>
