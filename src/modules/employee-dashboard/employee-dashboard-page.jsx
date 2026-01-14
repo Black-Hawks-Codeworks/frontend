@@ -36,7 +36,7 @@ function EmployeeDashboardPage() {
 
       {view === 'table' ? <ProcessTable data={sortedProcesses || []} /> : <div>No data</div>}
 
-      <Outlet context={{ refetchProcesses: refetch }} />
+      <Outlet />
     </div>
   );
 }
