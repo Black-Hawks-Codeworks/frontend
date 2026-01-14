@@ -1,7 +1,9 @@
 .mainHomeRightBar {
   flex: 4;
-  background-color: white;
+  background-color: #ffffff;
 }
+
+/* --------- UP 3 LINE CHARTS --------- */
 
 .ItemContainer {
   display: flex;
@@ -9,29 +11,30 @@
   justify-content: center;
   margin-bottom: 20px;
 }
-/* FIRST LINE OF LINE CHARTS */
 
 .ItemContainer1 {
-  background-color: white;
+  background-color: #ffffff;
   width: 390px;
-  height: 20vh;
+  height: 220px;
   margin-left: 10px;
   margin-top: 10px;
   border-radius: 10px;
   display: flex;
   padding: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
+  overflow: hidden;
 }
 
-/* first  line chart */
-
-.taskProgress {
+.taskProgress,
+.taskProgress2 {
   text-align: start;
   margin-left: 10px;
   margin-top: 20px;
   margin-right: 5px;
   margin-bottom: 15px;
 }
+
+/* counters */
 
 .taskCounter {
   text-align: start;
@@ -40,20 +43,6 @@
   font-weight: 700;
   margin-bottom: 15px;
   color: #66bb69;
-}
-
-.currentMonth1 {
-  text-align: start;
-  margin-left: 5px;
-}
-
-/* second  line chart */
-.taskProgress2 {
-  text-align: start;
-  margin-left: 10px;
-  margin-top: 20px;
-  margin-right: 5px;
-  margin-bottom: 15px;
 }
 
 .taskCounter2 {
@@ -65,12 +54,6 @@
   color: #2194f3;
 }
 
-.currentMonth2 {
-  text-align: start;
-  margin-left: 5px;
-}
-
-/* third  line chart */
 .taskCounter3 {
   text-align: start;
   font-size: 20px;
@@ -80,13 +63,19 @@
   color: #fbc02d;
 }
 
-/* middle chart  */
+.currentMonth1,
+.currentMonth2 {
+  text-align: start;
+  margin-left: 5px;
+}
+
+/* --------- mid  CHART --------- */
 
 .middleTaskChart {
   display: flex;
   flex-direction: column;
   width: 92%;
-  background-color: white;
+  background-color: #ffffff;
   margin: auto;
   justify-content: center;
   text-align: center;
@@ -94,10 +83,170 @@
   padding-left: 0;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
+  margin-bottom: 24px;
 }
 
 .chart {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+/* --------- bottom SECTION: PIE + SPARKLINES + BARS --------- */
+
+.bottomSection {
+  margin-top: 2rem;
+  margin-inline: auto;
+  width: 92%;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.6fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.bottomCard {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.bottomCardPie {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomCardKpis {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomCardBars {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomTitle {
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.bottomSubtitle {
+  font-size: 0.75rem;
+  color: #717171;
+  margin-bottom: 0.8rem;
+}
+
+/* --------- PIE CHART --------- */
+
+.pieRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.pieLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pieLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pieDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.pieLegendText {
+  display: flex;
+  flex-direction: column;
+}
+
+.pieLabel {
+  font-size: 0.75rem;
+  color: #4d4d4d;
+}
+
+.pieValue {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* --------- KPI SPARKLINES --------- */
+
+.kpiSparkGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.kpiSparkCard {
+  background: linear-gradient(135deg, rgba(200, 230, 201, 0.55), rgba(224, 242, 254, 0.8));
+  border-radius: 0.9rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #dde7f3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.kpiSparkHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kpiSparkLabel {
+  font-size: 0.75rem;
+  color: #4d4d4d;
+}
+
+.kpiSparkDelta {
+  font-size: 0.75rem;
+  color: #2e7d32;
+}
+
+.kpiSparkDeltaNegative {
+  font-size: 0.75rem;
+  color: #e53835;
+  font-weight: 600;
+}
+
+.kpiSparkValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #263238;
+}
+
+@media (max-width: 1200px) {
+  .ItemContainer {
+    flex-wrap: wrap;
+  }
+
+  .bottomSection {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .ItemContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ItemContainer1 {
+    width: 92%;
+    height: auto;
+  }
+
+  .bottomSection {
+    grid-template-columns: 1fr;
+  }
 }
