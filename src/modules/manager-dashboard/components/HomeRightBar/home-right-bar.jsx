@@ -78,8 +78,8 @@ export default function HomeRightBar() {
         {/* Active Tickets */}
         <div className={styles.ItemContainer1}>
           <div>
-            <p className={`${styles.taskProgress2} text-color-grey`}>Active Tickets</p>
-            <p className={`${styles.taskCounter2} text-color-primary-shade-4`}>4800</p>
+            <p className={`${styles.taskProgress2} text-color-grey`}>Monthly Tickets</p>
+            <p className={`${styles.taskCounter2} text-color-primary-shade-4`}>2610</p>
             <p className={`${styles.currentMonth2} text-color-grey header-sm`}>Dec</p>
           </div>
           <div>
@@ -164,7 +164,7 @@ export default function HomeRightBar() {
         {/* 1) Donut Pie: Workload Distribution */}
         <div className={`${styles.bottomCard} ${styles.bottomCardPie}`}>
           <p className={`${styles.bottomTitle} text-color-grey header-sm`}>Workload Distribution</p>
-          <p className={styles.bottomSubtitle}>Share of Returns, Repairs & Active Tickets</p>
+          <p className={styles.bottomSubtitle}>Share of Returns, Repairs </p>
 
           <div className={styles.pieRow}>
             <PieChart width={260} height={260}>
@@ -234,7 +234,7 @@ export default function HomeRightBar() {
                 <span className={styles.kpiSparkLabel}>Active Tickets</span>
                 <span className={styles.kpiSparkDeltaNegative}>-3%</span>
               </div>
-              <div className={styles.kpiSparkValue}>4,800</div>
+              <div className={styles.kpiSparkValue}>2610</div>
               <LineChart width={160} height={50} data={dataActiveTickets}>
                 <Line type='monotone' dataKey='rt' stroke='#2194f3' strokeWidth={2} dot={false} />
               </LineChart>

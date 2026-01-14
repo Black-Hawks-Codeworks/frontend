@@ -56,7 +56,7 @@ export const dataTotalRequests = [
 export const dataActiveTickets = [
   { name: 'Dec 1–10', rt: 3100, rp: 1850 },
   { name: 'Dec 11–20', rt: 2650, rp: 1600 },
-  { name: 'Dec 21–31', rt: 2040, rp: 1250 },
+  { name: 'Dec 21–31', rt: 2040, rp: 570 },
 ];
 
 // Total Resolved (monthly)
