@@ -28,8 +28,7 @@ export default function HomeRightBar() {
 
   const pieData = [
     { name: 'Returns', value: returnsKpi?.value ?? 0, color: '#f97316' },
-    { name: 'Repairs', value: repairsKpi?.value ?? 0, color: '#22c55e' },
-    { name: 'Active', value: activeKpi?.value ?? 0, color: '#2194f3' },
+    { name: 'Repairs', value: repairsKpi?.value ?? 0, color: '#2194f3' },
   ];
 
   const pieColors = pieData.map((d) => d.color);
