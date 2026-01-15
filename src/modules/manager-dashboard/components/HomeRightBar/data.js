@@ -11,7 +11,7 @@ export const sidebarIcons = [
 export const sidebarKpis = [
   { label: 'Returns', value: 320, trend: '+12%', color: '#f97316' },
   { label: 'Repairs', value: 2290, trend: '+5%', color: '#22c55e' },
-  { label: 'Active Tickets', value: 4800, trend: '-3%', color: '#3b82f6' },
+  { label: 'Active Tickets', value: 2290 + 320, trend: '-3%', color: '#3b82f6' },
 ];
 
 // ---------- SCHEDULED EVENTS ----------
@@ -56,7 +56,7 @@ export const dataTotalRequests = [
 export const dataActiveTickets = [
   { name: 'Dec 1–10', rt: 3100, rp: 1850 },
   { name: 'Dec 11–20', rt: 2650, rp: 1600 },
-  { name: 'Dec 21–31', rt: 2040, rp: 1250 },
+  { name: 'Dec 21–31', rt: 2040, rp: 570 },
 ];
 
 // Total Resolved (monthly)
@@ -79,7 +79,7 @@ export const dataTotalResolved = [
 export const dataCustomerVsLoad = [
   { name: 'Jan', rp: 4000, rt: 2400, amt: 2400 },
   { name: 'Mar', rp: 3000, rt: 1398, amt: 2210 },
-  { name: 'May', rp: 2000, rt: 9800, amt: 2290 },
+  { name: 'May', rp: 2000, rt: 4800, amt: 2290 },
   { name: 'Jun', rp: 2780, rt: 3908, amt: 2000 },
   { name: 'Aug', rp: 1890, rt: 4800, amt: 2181 },
   { name: 'Nov', rp: 2390, rt: 3800, amt: 2500 },

@@ -24,7 +24,7 @@ export default function Sidebar() {
           <div className={styles.kpiTopCard}>
             <span className={styles.kpiTopLabel}>Active Tickets</span>
             <span className={styles.kpiTopValue}>
-              {sidebarKpis.find((k) => k.label === 'Active Tickets')?.value ?? 0}
+              {sidebarKpis.find((k) => k.label === 'Returns')?.value + sidebarKpis.find((k)=> k.label ==='Repairs')?.value}
             </span>
           </div>
         </div>
