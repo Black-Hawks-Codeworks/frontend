@@ -179,6 +179,41 @@
   font-weight: 600;
 }
 
+/*------------------------*/
+.toggleRow {
+  display: flex;
+  justify-content:center;
+  padding: 8px 0 16px;
+}
+
+.section {
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease,
+    max-height 240ms ease;
+  will-change: opacity, transform;
+}
+
+.sectionActive {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 5000px;
+  pointer-events: auto;
+}
+
+.sectionHidden {
+  opacity: 0;
+  transform: translateY(10px);
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    transition: none;
+  }
+}
 /* --------- KPI SPARKLINES --------- */
 
 .kpiSparkGrid {
