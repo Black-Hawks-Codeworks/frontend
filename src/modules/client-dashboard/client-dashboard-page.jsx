@@ -49,7 +49,7 @@ function ClientDashboardPage() {
         </>
       )}
 
-      <Outlet context={{ refetchProcesses: refetch }} />
+      <Outlet />
     </div>
   );
 }

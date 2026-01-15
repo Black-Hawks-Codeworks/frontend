@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import TechnicianDashboardControls from './components/technician-dashboard-controls';
 import ProcessTable from './components/process-table';
+import { Outlet } from 'react-router-dom';
 
 import { useAppSelector } from '@/config/store';
 import { useProcesses } from '../../shared/hooks/use-processes';
@@ -53,8 +53,7 @@ function TechnicianDashboardPage() {
       )}
 
       {!loading && !error && <ProcessTable data={sortedProcesses} />}
-
-      <Outlet context={{ refetchProcesses: refetch }} />
+      <Outlet />
     </div>
   );
 }
